@@ -245,6 +245,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 782623140738100900, guid: a1d43aa0239a6814689e59f339a4b980,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1062373114849309436, guid: a1d43aa0239a6814689e59f339a4b980,
         type: 3}
       propertyPath: m_Name
@@ -318,6 +323,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TutorialSceneBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 725036966026058553, guid: 027f3f8c2f5903b41b04d27d8da744f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 725036966026058554, guid: 027f3f8c2f5903b41b04d27d8da744f0,
         type: 3}
