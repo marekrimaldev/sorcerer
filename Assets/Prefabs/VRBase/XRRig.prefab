@@ -4658,6 +4658,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _usePhysicHands: 0
+--- !u!114 &808045011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4821594949825684778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf69f7f50f0db248adaebb76c64021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Trigger
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4ad688b8-cef9-4fb1-89f1-2b11bf3f8d68
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  _gripAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grip
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: c59abe28-6cf9-450e-9f27-2a9f0f133524
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 6558622148059887818, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!4 &4827011787192008410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6461816750097643541, guid: 8221968431c92234b9f598a3f7ee938c,
@@ -4757,6 +4795,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _usePhysicHands: 1
+--- !u!114 &1614877165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244596036942698007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf69f7f50f0db248adaebb76c64021f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Trigger
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 4ad688b8-cef9-4fb1-89f1-2b11bf3f8d68
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  _gripAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Grip
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: c59abe28-6cf9-450e-9f27-2a9f0f133524
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!4 &1248437762335508331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4582005154104732031, guid: 53703728072daeb4b929f4527d1cfce8,
