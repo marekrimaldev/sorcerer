@@ -1,0 +1,925 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.7f1 (24e8595d6d43) revision 2418777'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22000) 64bit Education' Language: 'en' Physical Memory: 16236 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.7f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+C:/UnityDevelopment/Hands
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+60672
+Successfully changed project path to: C:/UnityDevelopment/Hands
+C:/UnityDevelopment/Hands
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 105.77 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.7f1 (24e8595d6d43)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/UnityDevelopment/Hands/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3070 Laptop GPU (ID=0x24dd)
+    Vendor:   NVIDIA
+    VRAM:     8033 MB
+    Driver:   31.0.15.2737
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56292
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.007184 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 109.57 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.653 seconds
+Domain Reload Profiling:
+	ReloadAssembly (653ms)
+		BeginReloadAssembly (60ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (488ms)
+			LoadAssemblies (58ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (108ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (304ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (59ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (110ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (89ms)
+				ProcessInitializeOnLoadMethodAttributes (45ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007725 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 115.81 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+Mono: successfully reloaded assembly
+- Completed reload, in  1.517 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1518ms)
+		BeginReloadAssembly (212ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (126ms)
+		EndReloadAssembly (1181ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (251ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (741ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (116ms)
+				BeforeProcessingInitializeOnLoad (240ms)
+				ProcessInitializeOnLoadAttributes (285ms)
+				ProcessInitializeOnLoadMethodAttributes (81ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Script is not up to date after domain reload: guid(dc27b1429c12e48489667e4ea6fee083) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARBaseGestureInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(e9daff4fe23774448a307aef3faeecfb) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PerformanceComparisonTest.cs") state(2)
+Script is not up to date after domain reload: guid(465ad6b4e6099624abca716aed9ae4f3) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARTranslationInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(92bb7c747798aff4796c736fa06e6ed5) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Transformers/XRDualGrabFreeTransformerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(9a07c3d528173704da444930cdc28415) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionProvider.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(caff514de9b15ad48ab85dcff5508221) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/ActionBasedController.cs") state(2)
+Script is not up to date after domain reload: guid(24cc7eddcde4f95429cf4fb4b87f5bcf) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/ScriptableSettingsPathAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(256f87bb1f54eda4ebf199acc6b4d855) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerState.cs") state(2)
+Script is not up to date after domain reload: guid(4d642e8e4a9c9924bb4821688bf5f212) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseControllerInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(685f53dc2ea33d74ca1b61c64fcf19c7) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARAnnotationInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(c773312b91dcc48f0b9f75f606ae77bb) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/Vector3Extensions.cs") state(2)
+Script is not up to date after domain reload: guid(38f6bf3d943ac7945842268c9ef1dca6) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/TeleportationArea.cs") state(2)
+Script is not up to date after domain reload: guid(b7946b77bfe414414b6b0db94b03943f) path("Packages/com.unity.xr.core-utils/Tests/Editor/BoundsUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(8b98e14aa0dcc4b4f9fd461cf043fc2e) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Layers/InteractionLayerSettingsEditor.cs") state(2)
+Script is not up to date after domain reload: guid(0c047d15f0171ab42b1165adc63ce8ca) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/GestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(286544fc77b95d34ea16384e070b6da7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARPlacementInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(b37f1a0baeea04f6d847fe737e1f6b7b) path("Packages/com.unity.xr.core-utils/Tests/Editor/TypeExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(29dd9b3f326553e49ba3f151a1d2cf91) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRBaseControllerEditor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(42af1f7b5e178af4a9278292babf72eb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwoFingerDragGesture.cs") state(2)
+Script is not up to date after domain reload: guid(1ebca6415ab2e5947b8e93484ba9b9cf) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRDistanceEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(6f1671a1e3a2fa746be0dfa758f26589) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Filters/IXRTargetFilter.cs") state(2)
+Script is not up to date after domain reload: guid(951111f8a8ee8db44bcf735c12105bd6) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRBaseController.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(3826406ef4705f345aa8760dcee1bda4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Filters/XRBaseTargetFilter.cs") state(2)
+Script is not up to date after domain reload: guid(63fa91428481f3148a048f57c74d64bf) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/ActionBasedControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(7b5d7db14748d4c87ac0f11077962afe) path("Packages/com.unity.xr.core-utils/Runtime/XRLoggingUtils.cs") state(2)
+Script is not up to date after domain reload: guid(c7b9917330fa64b5bb34b015ce80da44) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractionManagerTests.cs") state(2)
+Script is not up to date after domain reload: guid(fb6f7676c55b86e4f8c7249ad663d8ab) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/ReflectionUtils.cs") state(2)
+Script is not up to date after domain reload: guid(991c69b8a1b6a444a9177914f77cf7d1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/Visual/XRTintInteractableVisual.cs") state(2)
+Script is not up to date after domain reload: guid(9c0a719dddf9b4e17a284e56d381071d) path("Packages/com.unity.xr.core-utils/Runtime/GeometryUtils.cs") state(2)
+Script is not up to date after domain reload: guid(b1c500f2a52a5eb4a952658e1bf51e88) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/TunnelingVignetteController.cs") state(2)
+Script is not up to date after domain reload: guid(3f51aa8a1765997418eb59de6e17fd35) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwistGesture.cs") state(2)
+Script is not up to date after domain reload: guid(54b922e8f72f8a94fbe6c9c0932d6e25) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRLastSelectedEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(345e5df821c4a0d4b9931d13ae7437d0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRActivateInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(7341fbc498cef0e4f9436617ef85f119) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TapGesture.cs") state(2)
+Script is not up to date after domain reload: guid(f5db190cfda014bd292cbb0202470485) path("Packages/com.unity.xr.core-utils/Runtime/ScriptableSettingsBase.cs") state(2)
+Script is not up to date after domain reload: guid(5daaf8658cee34d98bc49e23809e3305) path("Packages/com.unity.xr.core-utils/Runtime/OnDestroyNotifier.cs") state(2)
+Script is not up to date after domain reload: guid(ed6395e44eba93044886900ca39bb891) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/BaseTeleportationInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(c2e99c438324ae744817a42b89e6f511) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInputDevicesTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(5283e647f8d06a5488bc51d8f531c792) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/DragGesture.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(0f735928f4cab4e4cb0845c714c0b966) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/SnapTurn/DeviceBasedSnapTurnProviderEditor.cs") state(2)
+Script is not up to date after domain reload: guid(2213c36610e3b1c4bbf886810ed9db12) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/SnapTurn/ActionBasedSnapTurnProvider.cs") state(2)
+Script is not up to date after domain reload: guid(b53558caaca2d5344acc650a6ee3fc99) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ProjectPath.cs") state(2)
+Script is not up to date after domain reload: guid(a3b0094d066953642a486642d5ec843c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/GestureTransformationUtility.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(5dd71f83c5d972a49acafe7984687248) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerRecording.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(995310d042f3f40cd9926d1bb8b08cc0) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/LayerMaskExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(6895b4fd2651648468bbd2f35f1570ea) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ContinuousTurnProviderBase.cs") state(2)
+Script is not up to date after domain reload: guid(ef7880c5c5f2841328a530d7262878cd) path("Packages/com.unity.xr.core-utils/Editor/EditorScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(785ebe46cf5c0ac43b432731962134f5) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/XRInteractionEditorGUI.cs") state(2)
+Script is not up to date after domain reload: guid(072c213e2aa214d47af5a454cd2768df) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRGrabInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(4d4154b87b653094f86d207425e1d2b0) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(1ca527d1c0aecf94eaae503220658bda) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/XRInteractionEditorUtility.cs") state(2)
+Script is not up to date after domain reload: guid(98aea49ce9f552b4eabd974dc5fc77cf) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/ReadOnlyReorderableList.cs") state(2)
+Script is not up to date after domain reload: guid(a701cf2274092094eaa349b7286c2017) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRTargetEvaluatorsScoreTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(2fd304f85d196c246b04868781e47003) path("Packages/com.unity.xr.interaction.toolkit/Editor/CreateUtils.cs") state(2)
+Script is not up to date after domain reload: guid(d1c3dc40e819fff49bec36a12f1a5277) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/RayInteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(58675c524c8f05d49930a814b42c7099) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/IXRTargetEvaluatorLinkable.cs") state(2)
+Script is not up to date after domain reload: guid(226dea7b069dd65469b14ba3d5a620c9) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/RegistrationList.cs") state(2)
+Script is not up to date after domain reload: guid(5adc47bd1fcb64ec5a52cb81db2bf452) path("Packages/com.unity.xr.core-utils/Tests/Editor/GeometryUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(e9542cd1fc7be3543b8df194411c908d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/GizmoHelpers.cs") state(2)
+Script is not up to date after domain reload: guid(dc3d7be0a1b704dc7a751d5e2d0edd53) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARPlacementInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(1d70e6ff7d7a9be488ed46fa56841a46) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionSystem.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(99f4b9eeea3644938b85e2ac5221e6b7) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/HashSetExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(b5ed0696fe72b9e44b8bb74292c9b3a7) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactables/XRGrabInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(5aca1fc346609b54dbb0adba4664854b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/DeviceBasedContinuousMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(660f93b3352fbdb418c74a54a8acfa20) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Filtering/Target/XRTargetEvaluatorList.cs") state(2)
+Script is not up to date after domain reload: guid(bd1e62101489d594cad3e12262af3fef) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRRayInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(dbcd39a196c2d9f468e40fb62875c4e9) path("Packages/com.unity.xr.interaction.toolkit/Tests/Editor/InteractionLayerUpdaterTest.cs") state(2)
+Script is not up to date after domain reload: guid(8310393bfdcdac040b06a24b4969952c) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/Visual/XRInteractorLineVisualEditor.cs") state(2)
+Script is not up to date after domain reload: guid(5f07c6ced82c577469fc1ec84a1db3d5) path("Packages/com.unity.xr.interaction.toolkit/Tests/Editor/EditorDocumentationTests.cs") state(2)
+Script is not up to date after domain reload: guid(86169e44d7f0cc54cacab6678649a86e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/NavigationModel.cs") state(2)
+Script is not up to date after domain reload: guid(92fc3e16f6ad64d1ea2e2e1dafaa094e) path("Packages/com.unity.xr.core-utils/Tests/Editor/ComponentUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(3dfb4718c77db584c94d75e68a43c0d4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/ConstrainedMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(ca1704100f74e82448fd188e9005a442) path("Packages/com.unity.xr.interaction.toolkit/Editor/XR/XRRigEditor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(81c02981320f15841a47ca183b4bf81b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/InputHelpers.cs") state(2)
+Script is not up to date after domain reload: guid(c90dd1f3ec17d4f0a8381dfdd02572fa) path("Packages/com.unity.xr.core-utils/Runtime/HashCodeUtil.cs") state(2)
+Script is not up to date after domain reload: guid(e8d13c5e667933044b0dea62ebe0d4c1) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/LocomotionTests.cs") state(2)
+Script is not up to date after domain reload: guid(bd37ccc84c2cb414eacfa2044d871820) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/StringExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(a76ed6b2fe4a67944a7bea6667b274ba) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/CardinalUtility.cs") state(2)
+Script is not up to date after domain reload: guid(77c19ca0f79b44f3f9676efea35425d1) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/MonoBehaviourExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(9e7ca530b84ee45eeb6a93e76c89135c) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/CameraExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(865463fe53abc4140ab5de558c766f8e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/XRRig.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(be4b8433c8b4aa34d8f11042cca6ca73) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/PinchGestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(7fafeb8808235994bb7ab8e7fd986d45) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/DragGesture.cs") state(2)
+Script is not up to date after domain reload: guid(94bbb16199e1483438b71f76858a5fb7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRSelectInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(65d557884ba0048c1b1d6b3c5f28659f) path("Packages/com.unity.xr.core-utils/Tests/Editor/EditorPrefsUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(4fe3c04927134484ea79de7138b541c9) path("Packages/com.unity.xr.core-utils/Editor/ScriptableSettingsProvider.cs") state(2)
+Script is not up to date after domain reload: guid(c3ca8b668738d4c438b8005d898233a8) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/CustomApproximatePerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(83849faf2bc51ab498600a402d68c98c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(919e39492806b334982b6b84c90dd927) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ActionBasedContinuousTurnProvider.cs") state(2)
+Script is not up to date after domain reload: guid(fef4fc329798c42f6b9acaee0f26768d) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/TestData.cs") state(2)
+Script is not up to date after domain reload: guid(551595ad345576244b4473c51647ab0c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/GestureTouchesUtility.cs") state(2)
+Script is not up to date after domain reload: guid(c48ae88f1c8e80841a7c5238c71fd32a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Interaction/XRInteractableUtility.cs") state(2)
+Script is not up to date after domain reload: guid(2cecaadbf0eebc1448266981e2a91e95) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(6df61a9a13528fd4f9365c233cb23bfb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDevicePhysicsRaycaster.cs") state(2)
+Script is not up to date after domain reload: guid(12ce92e45e5126b46b1dab07c3dc4b49) path("Packages/com.unity.xr.interaction.toolkit/Editor/BaseInteractionEditor.cs") state(2)
+Script is not up to date after domain reload: guid(5b22507be13dc4c168717c2a2e46ac6e) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/CollectionExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(ea786eac680c3452ab2eb44a28b99bd6) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/TypeExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(7bd40e7f0e8d6a346af28f413b3188a3) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedControllerState.cs") state(2)
+Script is not up to date after domain reload: guid(fdb486bdadc974172af71a77878d57c7) path("Packages/com.unity.xr.core-utils/Runtime/TextureUtils.cs") state(2)
+Script is not up to date after domain reload: guid(75d205647c6268b4fafc1dd87ed9558d) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/EventMigrationUtility.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(2bfa55239903b4b579b791c9a165a7a7) path("Packages/com.unity.xr.core-utils/Runtime/DebugDraw.cs") state(2)
+Script is not up to date after domain reload: guid(c8cc59ef09bbf3349b881e10c2b24aa8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/IXRFilterList.cs") state(2)
+Script is not up to date after domain reload: guid(66bc04810ad0015438ef2ed42d22a098) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARBaseGestureInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(648ae6b7a0ee84c2d94869858c29707c) path("Packages/com.unity.xr.core-utils/Runtime/ReflectionUtils.cs") state(2)
+Script is not up to date after domain reload: guid(9c5cb477607df401e941044d364eb49d) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/PoseExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(766f0029508a5bb45b48f9efadf712eb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedHMD.cs") state(2)
+Script is not up to date after domain reload: guid(dc20bf6ad3dcefd44b1cf97ecf4aa14b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRBaseControllerInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(6803edce0201f574f923fd9d10e5b30a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRRayInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(a3185115697f15e469aa68f05f3c5a3e) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/ScriptableSettings/EditorScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(5e1b36135b33c425a967edf024cf0128) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/TestImage.cs") state(2)
+Script is not up to date after domain reload: guid(5a1894321e727c945b50512efc53ae9a) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInteractablesTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(e2c37a0ae4cbb864ba4d98ed557a1acb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/TriggerContactMonitor.cs") state(2)
+Script is not up to date after domain reload: guid(1e8316be06fc14de489df8224106f81a) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/ConvexHullPerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(3af5c7a1b3aed8f42bae01ae57671efc) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/ActionBasedController.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(76fbf2ff84daab147a5fd06e08693ed7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Attributes/XRTargetEvaluatorEnabledAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(7ab8f828152c8463fb4814b55b59fa9c) path("Packages/com.unity.xr.core-utils/Runtime/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(1ac6916bc3db4214dbe74106e4ad724b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/DeviceBasedContinuousTurnProvider.cs") state(2)
+Script is not up to date after domain reload: guid(27a20e30fb6e8ca418bc90ea89ec6722) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/InputActionPropertyExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(977e9334bc5cf534eb01d89992ed1c80) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRBaseController.cs") state(2)
+Script is not up to date after domain reload: guid(3e04be9dd4598e94fb7006450babd7c8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Interaction/XRFilterUtility.cs") state(2)
+Script is not up to date after domain reload: guid(bca16690656fe744791885569ca65da6) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRDirectInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(3c59c7f9122b542d39513f74f86943b2) path("Packages/com.unity.xr.core-utils/Runtime/SerializableGuidUtil.cs") state(2)
+Script is not up to date after domain reload: guid(03634afd29e32824593d3befc373b047) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/MouseModel.cs") state(2)
+Script is not up to date after domain reload: guid(094ae971c38137f45a54047d4f4a1a80) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRDirectInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(4253f32900bcc4d499d675566142ded0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRDirectInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(8a35f6cfbfba9b548aaa00d52cfe8a50) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRSimpleInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(68a076e7dedf4411b96ca259dc65ce59) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactors/ARGestureInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(51fb85b64be4aa243898cdc16a88903c) path("Packages/com.unity.xr.interaction.toolkit/Editor/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(d9ec7417c3cdb4a7abb3e7a0f8888196) path("Packages/com.unity.xr.core-utils/Editor/EditorUtils.cs") state(2)
+Script is not up to date after domain reload: guid(51ae3ecff34f5444c9a3c6ba55b9354d) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/DictionaryExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(1aae66a961291ec42b0477911f3f1e1d) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRBaseInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(76cdf9ab732c34a4dabcb0135fccbd6e) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PointInPolygonPerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(27c3f1a49f98d1e4eaa02f95a1739989) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/XRUIInputModule.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(f11e7912a3fc1284e9953a6b4cd01283) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRBaseInteractorEditor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(07e168c7c8f434c419e243a7982dcc9b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/TypeExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(7edd44a7df65ea943a173280d5107ff2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(fbb7c3ace4f0b364e8a1de993f120ab7) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractableTests.cs") state(2)
+Script is not up to date after domain reload: guid(44e6ef670bba14ab2aa714579d266b1c) path("Packages/com.unity.xr.core-utils/Runtime/CachedComponentFilter.cs") state(2)
+Script is not up to date after domain reload: guid(ee3d13c82e3a02e408646cf1a7aca242) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRBaseInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(1a15c92a5e5f9e544b9aa8664d88c1ee) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/RequireInterfaceDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(4e45ea4cf8970764f8ffccf50dbd42b8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRSocketInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(162b4e5a3d1fcd043afbc6bf71ab2e51) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRDualGrabFreeTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(7527f391378e9ef409709626d125aca4) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInteractorsTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(7a7ba44168879744f8ed05a3966b6dcb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Hover/IXRHoverFilter.cs") state(2)
+Script is not up to date after domain reload: guid(5b34befe5d0cbb642bb5d09104a47160) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRDeviceSimulator.cs") state(2)
+Script is not up to date after domain reload: guid(73c9f7a876006524ebc6f361eb5321f1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRTargetEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(35c2e5ef40a7a44a3be75615f2480887) path("Packages/com.unity.xr.core-utils/Runtime/CollectionPool.cs") state(2)
+Script is not up to date after domain reload: guid(32118c9922a06b446bfe73c67f94db70) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/DocumentationTests.cs") state(2)
+Script is not up to date after domain reload: guid(ec922cbdeaacbbf45bc540720d19e3e2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceModel.cs") state(2)
+Script is not up to date after domain reload: guid(225580030fd45dd43944c6770e7d9ab1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ExposedRegistrationList.cs") state(2)
+Script is not up to date after domain reload: guid(c90d5af02b582db459792237477fa699) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/TunnelingVignetteControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(e3f1a6d413af7da4fb400d911d42d1c0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Attributes/CanSelectMultipleAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(18792fae2cb70aa49b4b367c7c6d664c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/Gesture.cs") state(2)
+Script is not up to date after domain reload: guid(5214b96c71282412dbc95a42b13d6226) path("Packages/com.unity.xr.core-utils/Editor/GUI/FlagsPropertyDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(2478713855fcd3a458c756b76762810b) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARRotationInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(eaa9e7576528a487897f3b21f331719e) path("Packages/com.unity.xr.core-utils/Tests/Editor/MathUtilityTests.cs") state(2)
+Script is not up to date after domain reload: guid(a27d5e21b70030544ab5f296c1f5f37b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Filtering/Target/XRMissingEvaluatorTypeList.cs") state(2)
+Script is not up to date after domain reload: guid(ff705e8c8e2aee84d8f65a7aecd55256) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARSelectionInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(d66897c6b1f6d63418cb464722e04199) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/DistanceInfo.cs") state(2)
+Script is not up to date after domain reload: guid(ac66162cba61743f19bd559e6b242571) path("Packages/com.unity.xr.core-utils/Editor/ScriptableSettingsInitializer.cs") state(2)
+Script is not up to date after domain reload: guid(760ff70c1c91bdd45907d0ff0cdcaf7f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Grab/TwoHandedGrabMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(3c136b463d91eb74c90d06fca5e650b1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerRecorder.cs") state(2)
+Script is not up to date after domain reload: guid(2d38fb1463c5c804b8847c20e8873623) path("Packages/com.unity.xr.interaction.toolkit/Editor/SettingsProvider/XRInteractionEditorSettings.cs") state(2)
+Script is not up to date after domain reload: guid(b86fcb497e00a403cb7ff203982f7ff3) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/QuaternionExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(0396fcddcf52f4628b25b5b25d1ed4cd) path("Packages/com.unity.xr.core-utils/Editor/GUI/ReadOnlyPropertyDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(144788ae73265074dbd9b469bb0bf8d1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/TeleportationMonitor.cs") state(2)
+Script is not up to date after domain reload: guid(49bf9b7d6604b4cbdb67024401d5f989) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/GuidExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(5e9d4dc476e64d0468164d991f1a1c68) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/ScriptableSettings/ScriptableSettingsInitializer.cs") state(2)
+Script is not up to date after domain reload: guid(6966ac19255448f41b392f3c7a10022d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRLegacyGrabTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(e988983f96fe1dd48800bcdfc82f23e9) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/Visual/XRInteractorLineVisual.cs") state(2)
+Script is not up to date after domain reload: guid(3a61b4807cb6c8546907ee2dcfba9132) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactors/ARGestureInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(dc4741424d47f444c80f9c5a8774dab7) path("Packages/com.unity.xr.core-utils/Tests/Editor/GameObjectExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(cb6c8be553d2743f793b078de11b5c31) path("Packages/com.unity.xr.core-utils/Runtime/GuidUtil.cs") state(2)
+Script is not up to date after domain reload: guid(47e9ab1075dc8bc43b9d55469ebe0cf4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/CharacterControllerDriver.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(cba647f3d99e54240836f357799fd1ad) path("Packages/com.unity.xr.core-utils/Editor/GUI/EnumDisplayPropertyDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(0599ad4dbe5628445b3feb2f2e168047) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactables/XRBaseInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(7e2f4617667341945b5a7756e14b62d0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/TeleportationAnchor.cs") state(2)
+Script is not up to date after domain reload: guid(771f39ba87bd85c4486262968b641c1a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/XRInteractionEvents.cs") state(2)
+Script is not up to date after domain reload: guid(6925e96591e384a44a611f2d1d02670a) path("Packages/com.unity.xr.interaction.toolkit/Editor/ProjectValidation/XRInteractionProjectValidation.cs") state(2)
+Script is not up to date after domain reload: guid(af8356832995e4297849f40d1dc03e82) path("Packages/com.unity.xr.core-utils/Tests/Editor/LayerMaskTests.cs") state(2)
+Script is not up to date after domain reload: guid(16b11779d1fb94c4a8616749f5e916ef) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/BaseTeleportationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(b12ec16c001acb7419e43ad2c423b864) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Pooling/LinkedPool.cs") state(2)
+Script is not up to date after domain reload: guid(3a4e68c41b1e64e7fa97229393421e3b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInteractionDebuggerWindow.cs") state(2)
+Script is not up to date after domain reload: guid(786058dda85100b4092201f872208845) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRActivateInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(6c3d3d09ebc374be3affa52024d1f644) path("Packages/com.unity.xr.core-utils/Runtime/Attributes/FlagsPropertyAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(7448815bd5148434682b3d931066cd10) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/XRRig.cs") state(2)
+Script is not up to date after domain reload: guid(324d877d6c81c864c97e29fed1c8771c) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/Visual/XRInteractorReticleVisualEditor.cs") state(2)
+Script is not up to date after domain reload: guid(fd996c5c0b60d5148a82f1a1eab3b5c6) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/LocomotionInputTests.cs") state(2)
+Script is not up to date after domain reload: guid(0bb9f3e9efc3d0f44bcd2509e8a9ac55) path("Packages/com.unity.xr.interaction.toolkit/Editor/ProjectValidation/XRInteractionProjectValidationRulesSetup.cs") state(2)
+Script is not up to date after domain reload: guid(f2fad94e3d2304ff6b57062939e10c21) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(8be7a2b86036e7d419195e3887cfcd71) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwoFingerDragGesture.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(ed159586200fd9c438f2199ad46f39cf) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRBaseGrabTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(3eecb6f2d6a69436fb572b8e4d41b2e1) path("Packages/com.unity.xr.interaction.toolkit/Tests/Editor/CreateUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(725efa6b4b618d84b84fe0a3970f2283) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRRayInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(dc2115b5275bb4d428061e74078afdfb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionProvider.cs") state(2)
+Script is not up to date after domain reload: guid(e2303ec0dbd09774d806b8148bc58586) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/Visual/IXRReticleDirectionProvider.cs") state(2)
+Script is not up to date after domain reload: guid(f4df83f3347dd498681ec72e93b47e9a) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/Vector2Extensions.cs") state(2)
+Script is not up to date after domain reload: guid(c670bfa55d621474ea22ff77c1820163) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARSelectionInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(b396637e02255474784f3df47171ec76) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRSocketInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(14f61ffa88c9a406cbcf52a34b0d65b9) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/ARTests.cs") state(2)
+Script is not up to date after domain reload: guid(67a68ebc4eeae4a34a9879d0a2a39af0) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(bccbda266429046579998fb24465c146) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/TransformExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(9d501258623f540488015bc406eac50e) path("Packages/com.unity.xr.core-utils/Editor/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(5ee6cef4ea6540809a74a2facace0e26) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractorLineVisualTests.cs") state(2)
+Script is not up to date after domain reload: guid(faeb93ef2ee86154eb75132a505b0e8b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/SmallRegistrationList.cs") state(2)
+Script is not up to date after domain reload: guid(5844a64e5cc7ce0419f8b5b228ecba5c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Pooling/PooledObject.cs") state(2)
+Script is not up to date after domain reload: guid(ced37f4c4700b454da463e2fb217245e) path("Packages/com.unity.xr.core-utils/Editor/XROriginEditor.cs") state(2)
+Script is not up to date after domain reload: guid(0ad34abafad169848a38072baa96cdb2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRGrabInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(bcaf02b46b548084195befbfe0016b32) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/SortingHelpers.cs") state(2)
+Script is not up to date after domain reload: guid(51478d8f7e4167e40bacf38e835bb639) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Filters/XRTargetFilter.cs") state(2)
+Script is not up to date after domain reload: guid(0f75eb857d6dc408086fa8d99383e492) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/UIInputModule.Events.cs") state(2)
+Script is not up to date after domain reload: guid(f9facd22a8f5b48648dab827bbd89ab7) path("Packages/com.unity.xr.core-utils/Runtime/SerializableGuid.cs") state(2)
+Script is not up to date after domain reload: guid(3bd997ad0c1d2434f95bde472c2f2232) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARScaleInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(4da505445e5ad6a43ac014622125bd56) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/DirectInteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(baf1f699e45b67340a83015705650333) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/PositionHandleUtility.cs") state(2)
+Script is not up to date after domain reload: guid(ebacf1453ab732a44ab138719c62eb0d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Composites/FallbackComposite.cs") state(2)
+Script is not up to date after domain reload: guid(389c899d9ea89d84d9062be990133903) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Interactions/SectorInteraction.cs") state(2)
+Script is not up to date after domain reload: guid(ae091700765cebc46b35f6c1587c6139) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/Teleportation/TeleportationAnchorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(191492db6e452eb468b95433ec162164) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Layers/InteractionLayerSettings.cs") state(2)
+Script is not up to date after domain reload: guid(dd905da1454ca45d39c642c872052dc7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/GestureTransformationUtility.cs") state(2)
+Script is not up to date after domain reload: guid(98e0dda43eb244fd9830176651582100) path("Packages/com.unity.xr.core-utils/Runtime/MaterialUtils.cs") state(2)
+Script is not up to date after domain reload: guid(ce096c6fd63089344a1a330c0f6d4cf4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRHoverInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(83e4e6cca11330d4088d729ab4fc9d9f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/XRInteractionManager.cs") state(2)
+Script is not up to date after domain reload: guid(9a737b23518b10a4bbb09a14e1a98516) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceEventData.cs") state(2)
+Script is not up to date after domain reload: guid(75868f8b7bbbe7945b24a7fe3e48f0bd) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARScaleInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(47e317ec9a6745248b785a40ad16616a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/EditorComponentLocatorUtility.cs") state(2)
+Script is not up to date after domain reload: guid(03a5df2202a8b96488c744be3bd0c33e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionSystem.cs") state(2)
+Script is not up to date after domain reload: guid(fed2b273528cebc4ba912086b7ec3659) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/RegistrationListTests.cs") state(2)
+Script is not up to date after domain reload: guid(e7c5bc223371546e79a935a5fdca1cee) path("Packages/com.unity.xr.core-utils/Tests/Editor/ScriptableSettingsTests.cs") state(2)
+Script is not up to date after domain reload: guid(3cd122eb2ea484645888571490f3731c) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRControllerRecorderEditor.cs") state(2)
+Script is not up to date after domain reload: guid(32ffd45b86b81604a94003f698df048b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Layers/InteractionLayerUpdater.cs") state(2)
+Script is not up to date after domain reload: guid(d67b3c29542070b47af687e0e4ed01af) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/IXRGrabTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(63da2c9779cb1da4f83e4f52923425dc) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/SectorInteractionTests.cs") state(2)
+Script is not up to date after domain reload: guid(54628fc37886e459b8e2875598610480) path("Packages/com.unity.xr.interaction.toolkit/Editor/XRMainCameraFactory.cs") state(2)
+Script is not up to date after domain reload: guid(cefd576b58e579b4a8f6d4f7718f9f51) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/TargetFilterTests.cs") state(2)
+Script is not up to date after domain reload: guid(5928ec199d45ce24c84939529c7a93f1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRAngleGazeEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(be3ab30eaceed4c68b4bc810ab3b60d3) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/ListExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(e5a23b0e493570745b81c24323885ba7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/UIInputModule.cs") state(2)
+Script is not up to date after domain reload: guid(b1bd7c589e7787545b96160115a1e40d) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/UIPointerTests.cs") state(2)
+Script is not up to date after domain reload: guid(ab68ce6587aab0146b8dabefbd806791) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/XRUIInputModule.cs") state(2)
+Script is not up to date after domain reload: guid(5724547481f04974f928c95a54eff671) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/TestUtilities.cs") state(2)
+Script is not up to date after domain reload: guid(f36cd4ac1380766409146d292072722e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedHMDState.cs") state(2)
+Script is not up to date after domain reload: guid(3e262507a004136428ac1335840fd7be) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TouchModel.cs") state(2)
+Script is not up to date after domain reload: guid(8771c0d539c9902459575259792f186c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XRHelpURLConstants.cs") state(2)
+Script is not up to date after domain reload: guid(098853f3489c04278bef1a06822fe5fa) path("Packages/com.unity.xr.core-utils/Tests/Editor/Vector2ExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(f960cd2a35c7d4536aef2a5807e0672c) path("Packages/com.unity.xr.core-utils/Tests/Editor/Vector3ExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(9151ca8fd58644888a41255e61243e68) path("Packages/com.unity.xr.core-utils/Tests/Editor/GameObjectUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(13f404f90a8e8a94994d09b8f1d1fa1c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARSelectionInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(6986875cf4648864e9a1262fc2836165) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwistGestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(b36ce56e013f54ead8c1e0b003430c09) path("Packages/com.unity.xr.core-utils/Runtime/BoundsUtils.cs") state(2)
+Script is not up to date after domain reload: guid(797516fbe15bd54439ac3964bf0e9d0d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/XRInteractionManager.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(1ae26e19cd956134bbdf3c6f65bf393a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRController.cs") state(2)
+Script is not up to date after domain reload: guid(61a7c3c5107007f43bd913e055e667ff) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRControllerRecordingEditor.cs") state(2)
+Script is not up to date after domain reload: guid(e4617e9b051fbfd4787a44cf3ea7b46e) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactors/ARGestureInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(c97fd8a868442f64a832f4691b7a621a) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRBaseControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(25c8e96d08c79ea49887d7499ce4e7a9) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/GrabInteractableTests.cs") state(2)
+Script is not up to date after domain reload: guid(faf605eab5554ca479c8c36099b058cd) path("Packages/com.unity.xr.interaction.toolkit/Editor/ProjectValidation/XRInteractionValidationRule.cs") state(2)
+Script is not up to date after domain reload: guid(d8780bc1cfd044fd58ba8e8c776e1db7) path("Packages/com.unity.xr.core-utils/Tests/Editor/PoseExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(9ace11b6ca27f6e4e9d0a3a38c385903) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(977e9b8021ded4d3da55f15496808190) path("Packages/com.unity.xr.core-utils/Runtime/UndoBlock.cs") state(2)
+Script is not up to date after domain reload: guid(321da6f97f3044995bd9c8d4f55e847a) path("Packages/com.unity.xr.core-utils/Tests/Editor/UnityObjectUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(1c7db00c9eac69a4683df9a344a008b0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/Gesture.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(3ac4af650bab59c4d876fda4f268fa1f) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRTargetFiltersTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(af6bf904e410ee8479f9093d8830d1f8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/CharacterControllerDriver.cs") state(2)
+Script is not up to date after domain reload: guid(c102d9d599079284fa93b4da25d3fc0e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TapGestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(841253094c20d4bdb8e614eb9dee50eb) path("Packages/com.unity.xr.core-utils/Runtime/ObjectPool.cs") state(2)
+Script is not up to date after domain reload: guid(ca3e2e02b438ac247bf7e1f91d6811e8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/ScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(e9fe38c4546984d20972b92aae24104c) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/GameObjectExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(2f89041427b1b444f90fc9a5399b8e24) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/PinchGesture.cs") state(2)
+Script is not up to date after domain reload: guid(472ffe4eb9537d246b14d9adc4c07946) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/XRTargetEvaluatorEditorUtility.cs") state(2)
+Script is not up to date after domain reload: guid(1bbd8aea0ced74f45be1a14e737aecee) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Filtering/Target/XRTargetEvaluatorEnabledDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(c6266a2729abc4d18a676c7c2bd1c0ca) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARRotationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(c82dfa8da12c2485bbc2188e8ba88887) path("Packages/com.unity.xr.core-utils/Runtime/Attributes/ReadOnlyAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(e29fc012294464dad877219a81ae9883) path("Packages/com.unity.xr.core-utils/Runtime/ScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(2d5bb35dbf5f87f409ae5785f6e7a1f6) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Select/IXRSelectFilter.cs") state(2)
+Script is not up to date after domain reload: guid(9e703178ba86d6a44a356d81691894ee) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRSelectInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(ce49e6a0a544c46d1863a60030213a8f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARAnnotationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(7758e72c4580f5a46a26c896e3c43116) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Layers/InteractionLayerMask.cs") state(2)
+Script is not up to date after domain reload: guid(e6df71824f341bc4897680bb8beb4090) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/Visual/XRInteractorReticleVisual.cs") state(2)
+Script is not up to date after domain reload: guid(99ad123a3725c3c41ac56480fdf1f008) path("Packages/com.unity.xr.interaction.toolkit/Editor/SettingsProvider/XRInteractionEditorSettingsEditor.cs") state(2)
+Script is not up to date after domain reload: guid(372738ccbd2926b41a3f3c3c529d2a38) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/RequireInterfaceAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(3d1e14ba0263b9841a819caa2b6caafa) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRSingleGrabFreeTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(bf56d527db2153944867848202cf24d2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerRecording.cs") state(2)
+Script is not up to date after domain reload: guid(ddf6f41d7b58d4144a887c52ce97c699) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARTranslationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(ffa3d241258e6d749bc1316b0a31ca21) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/GestureRecognizer.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(25ec6dab685263f48a60d4745548328c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerState.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(719232f739ab98d46a7627e42120ca72) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/XRControllerTests.cs") state(2)
+Script is not up to date after domain reload: guid(0cd5d5a765fb183408cee7a42748f0bb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRTargetPriorityInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(dc4f2c0214c9b494fa7eb5b8b2c02885) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/SnapTurn/DeviceBasedSnapTurnProvider.cs") state(2)
+Script is not up to date after domain reload: guid(d4a077986e7084c04907c52d6532eeb9) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PerformanceTestBase.cs") state(2)
+Script is not up to date after domain reload: guid(a322cbdd34ac4d04db232e5882e796cb) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(7da9df51e61c0aa4497479d65e15a02e) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/XRInteractionManagerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(d7209614d3a13734d83ddc03c08f0382) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/PackageManagerEditorHelper.cs") state(2)
+Script is not up to date after domain reload: guid(a5b462cee8a04f347a4286990d8c25d9) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARPlacementInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(0bf296fc962d7184ab14ad1841598d5f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ActionBasedContinuousMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(749c563d5dd439a4c94a6b4bac3bea17) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XRHelpURLConstants.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(818ae10f9bf0bf043aa980b35b11f605) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(820a7b589af69c04d8f7b582fe5100eb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseControllerInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(e5ec5f9a418bb4b48b411b4ad9c0d26a) path("Packages/com.unity.xr.core-utils/Runtime/MathUtility.cs") state(2)
+Script is not up to date after domain reload: guid(560173b5d82fe47609630b6772250a14) path("Packages/com.unity.xr.core-utils/Runtime/GameObjectUtils.cs") state(2)
+Script is not up to date after domain reload: guid(f2ea711be2d6a448c96a11e2f28c469b) path("Packages/com.unity.xr.core-utils/Runtime/GUI/ScreenGUIUtils.cs") state(2)
+Script is not up to date after domain reload: guid(abd6c27d6def2c642b5eaab17be47b2f) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/SocketInteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(1588b7517b871e34c97b523d2d1aec1a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/SnapTurn/SnapTurnProviderBase.cs") state(2)
+Script is not up to date after domain reload: guid(c62e52ceb3eed4ec994fd23ddb0a4609) path("Packages/com.unity.xr.core-utils/Runtime/EnumValues.cs") state(2)
+Script is not up to date after domain reload: guid(3afb95d06fd9e0b44a15d191107b39ea) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ContinuousMoveProviderBase.cs") state(2)
+Script is not up to date after domain reload: guid(7951c64acb0fa62458bf30a60089fe2d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceGraphicRaycaster.cs") state(2)
+Script is not up to date after domain reload: guid(ba4f0541ff88be349882e34bcb97b35f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedController.cs") state(2)
+Script is not up to date after domain reload: guid(af95304551284402e88c3572cb79adff) path("Packages/com.unity.xr.core-utils/Tests/Editor/MaterialUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(baf06bf299ee548a2a569f8ba13c9bcd) path("Packages/com.unity.xr.core-utils/Runtime/Attributes/ScriptableSettingsPathAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(8b94c4c83dec6a94fbaebf543478259e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Grab/GrabMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(29567b47ec8ab4bee8ade2c315334efc) path("Packages/com.unity.xr.core-utils/Tests/Editor/MonoBehaviourExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(c597263711b32431c934c3cd8dd1a61c) path("Packages/com.unity.xr.core-utils/Editor/CreateUtils.cs") state(2)
+Script is not up to date after domain reload: guid(7e00e1167dbbdd04c80ec096ba9f22fe) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceModel.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(c125d437138f54ca1b9697c827120aad) path("Packages/com.unity.xr.core-utils/Runtime/UnityObjectUtils.cs") state(2)
+Script is not up to date after domain reload: guid(91944ff8e6b48b54ebb9ff277549d571) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/Teleportation/BaseTeleportationInteractableEditor.cs") state(2)
+========================================================================
+Worker process is ready to serve import requests
+Script is not up to date after domain reload: guid(dc27b1429c12e48489667e4ea6fee083) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARBaseGestureInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(e9daff4fe23774448a307aef3faeecfb) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PerformanceComparisonTest.cs") state(2)
+Script is not up to date after domain reload: guid(465ad6b4e6099624abca716aed9ae4f3) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARTranslationInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(92bb7c747798aff4796c736fa06e6ed5) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Transformers/XRDualGrabFreeTransformerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(9a07c3d528173704da444930cdc28415) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionProvider.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(caff514de9b15ad48ab85dcff5508221) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/ActionBasedController.cs") state(2)
+Script is not up to date after domain reload: guid(24cc7eddcde4f95429cf4fb4b87f5bcf) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/ScriptableSettingsPathAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(256f87bb1f54eda4ebf199acc6b4d855) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerState.cs") state(2)
+Script is not up to date after domain reload: guid(4d642e8e4a9c9924bb4821688bf5f212) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseControllerInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(685f53dc2ea33d74ca1b61c64fcf19c7) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARAnnotationInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(c773312b91dcc48f0b9f75f606ae77bb) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/Vector3Extensions.cs") state(2)
+Script is not up to date after domain reload: guid(38f6bf3d943ac7945842268c9ef1dca6) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/TeleportationArea.cs") state(2)
+Script is not up to date after domain reload: guid(b7946b77bfe414414b6b0db94b03943f) path("Packages/com.unity.xr.core-utils/Tests/Editor/BoundsUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(8b98e14aa0dcc4b4f9fd461cf043fc2e) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Layers/InteractionLayerSettingsEditor.cs") state(2)
+Script is not up to date after domain reload: guid(0c047d15f0171ab42b1165adc63ce8ca) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/GestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(286544fc77b95d34ea16384e070b6da7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARPlacementInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(b37f1a0baeea04f6d847fe737e1f6b7b) path("Packages/com.unity.xr.core-utils/Tests/Editor/TypeExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(29dd9b3f326553e49ba3f151a1d2cf91) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRBaseControllerEditor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(42af1f7b5e178af4a9278292babf72eb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwoFingerDragGesture.cs") state(2)
+Script is not up to date after domain reload: guid(1ebca6415ab2e5947b8e93484ba9b9cf) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRDistanceEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(6f1671a1e3a2fa746be0dfa758f26589) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Filters/IXRTargetFilter.cs") state(2)
+Script is not up to date after domain reload: guid(951111f8a8ee8db44bcf735c12105bd6) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRBaseController.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(3826406ef4705f345aa8760dcee1bda4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Filters/XRBaseTargetFilter.cs") state(2)
+Script is not up to date after domain reload: guid(63fa91428481f3148a048f57c74d64bf) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/ActionBasedControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(7b5d7db14748d4c87ac0f11077962afe) path("Packages/com.unity.xr.core-utils/Runtime/XRLoggingUtils.cs") state(2)
+Script is not up to date after domain reload: guid(c7b9917330fa64b5bb34b015ce80da44) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractionManagerTests.cs") state(2)
+Script is not up to date after domain reload: guid(fb6f7676c55b86e4f8c7249ad663d8ab) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/ReflectionUtils.cs") state(2)
+Script is not up to date after domain reload: guid(991c69b8a1b6a444a9177914f77cf7d1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/Visual/XRTintInteractableVisual.cs") state(2)
+Script is not up to date after domain reload: guid(9c0a719dddf9b4e17a284e56d381071d) path("Packages/com.unity.xr.core-utils/Runtime/GeometryUtils.cs") state(2)
+Script is not up to date after domain reload: guid(3f51aa8a1765997418eb59de6e17fd35) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwistGesture.cs") state(2)
+Script is not up to date after domain reload: guid(54b922e8f72f8a94fbe6c9c0932d6e25) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRLastSelectedEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(345e5df821c4a0d4b9931d13ae7437d0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRActivateInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(7341fbc498cef0e4f9436617ef85f119) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TapGesture.cs") state(2)
+Script is not up to date after domain reload: guid(f5db190cfda014bd292cbb0202470485) path("Packages/com.unity.xr.core-utils/Runtime/ScriptableSettingsBase.cs") state(2)
+Script is not up to date after domain reload: guid(5daaf8658cee34d98bc49e23809e3305) path("Packages/com.unity.xr.core-utils/Runtime/OnDestroyNotifier.cs") state(2)
+Script is not up to date after domain reload: guid(ed6395e44eba93044886900ca39bb891) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/BaseTeleportationInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(c2e99c438324ae744817a42b89e6f511) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInputDevicesTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(5283e647f8d06a5488bc51d8f531c792) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/DragGesture.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(0f735928f4cab4e4cb0845c714c0b966) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/SnapTurn/DeviceBasedSnapTurnProviderEditor.cs") state(2)
+Script is not up to date after domain reload: guid(b53558caaca2d5344acc650a6ee3fc99) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ProjectPath.cs") state(2)
+Script is not up to date after domain reload: guid(a3b0094d066953642a486642d5ec843c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/GestureTransformationUtility.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(5dd71f83c5d972a49acafe7984687248) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerRecording.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(995310d042f3f40cd9926d1bb8b08cc0) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/LayerMaskExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(6895b4fd2651648468bbd2f35f1570ea) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ContinuousTurnProviderBase.cs") state(2)
+Script is not up to date after domain reload: guid(ef7880c5c5f2841328a530d7262878cd) path("Packages/com.unity.xr.core-utils/Editor/EditorScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(785ebe46cf5c0ac43b432731962134f5) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/XRInteractionEditorGUI.cs") state(2)
+Script is not up to date after domain reload: guid(072c213e2aa214d47af5a454cd2768df) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRGrabInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(4d4154b87b653094f86d207425e1d2b0) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(1ca527d1c0aecf94eaae503220658bda) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/XRInteractionEditorUtility.cs") state(2)
+Script is not up to date after domain reload: guid(98aea49ce9f552b4eabd974dc5fc77cf) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/ReadOnlyReorderableList.cs") state(2)
+Script is not up to date after domain reload: guid(a701cf2274092094eaa349b7286c2017) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRTargetEvaluatorsScoreTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(2fd304f85d196c246b04868781e47003) path("Packages/com.unity.xr.interaction.toolkit/Editor/CreateUtils.cs") state(2)
+Script is not up to date after domain reload: guid(58675c524c8f05d49930a814b42c7099) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/IXRTargetEvaluatorLinkable.cs") state(2)
+Script is not up to date after domain reload: guid(5adc47bd1fcb64ec5a52cb81db2bf452) path("Packages/com.unity.xr.core-utils/Tests/Editor/GeometryUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(e9542cd1fc7be3543b8df194411c908d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/GizmoHelpers.cs") state(2)
+Script is not up to date after domain reload: guid(dc3d7be0a1b704dc7a751d5e2d0edd53) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARPlacementInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(1d70e6ff7d7a9be488ed46fa56841a46) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionSystem.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(99f4b9eeea3644938b85e2ac5221e6b7) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/HashSetExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(b5ed0696fe72b9e44b8bb74292c9b3a7) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactables/XRGrabInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(5aca1fc346609b54dbb0adba4664854b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/DeviceBasedContinuousMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(660f93b3352fbdb418c74a54a8acfa20) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Filtering/Target/XRTargetEvaluatorList.cs") state(2)
+Script is not up to date after domain reload: guid(bd1e62101489d594cad3e12262af3fef) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRRayInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(dbcd39a196c2d9f468e40fb62875c4e9) path("Packages/com.unity.xr.interaction.toolkit/Tests/Editor/InteractionLayerUpdaterTest.cs") state(2)
+Script is not up to date after domain reload: guid(8310393bfdcdac040b06a24b4969952c) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/Visual/XRInteractorLineVisualEditor.cs") state(2)
+Script is not up to date after domain reload: guid(5f07c6ced82c577469fc1ec84a1db3d5) path("Packages/com.unity.xr.interaction.toolkit/Tests/Editor/EditorDocumentationTests.cs") state(2)
+Script is not up to date after domain reload: guid(86169e44d7f0cc54cacab6678649a86e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/NavigationModel.cs") state(2)
+Script is not up to date after domain reload: guid(92fc3e16f6ad64d1ea2e2e1dafaa094e) path("Packages/com.unity.xr.core-utils/Tests/Editor/ComponentUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(3dfb4718c77db584c94d75e68a43c0d4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/ConstrainedMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(ca1704100f74e82448fd188e9005a442) path("Packages/com.unity.xr.interaction.toolkit/Editor/XR/XRRigEditor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(c90dd1f3ec17d4f0a8381dfdd02572fa) path("Packages/com.unity.xr.core-utils/Runtime/HashCodeUtil.cs") state(2)
+Script is not up to date after domain reload: guid(e8d13c5e667933044b0dea62ebe0d4c1) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/LocomotionTests.cs") state(2)
+Script is not up to date after domain reload: guid(bd37ccc84c2cb414eacfa2044d871820) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/StringExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(a76ed6b2fe4a67944a7bea6667b274ba) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/CardinalUtility.cs") state(2)
+Script is not up to date after domain reload: guid(77c19ca0f79b44f3f9676efea35425d1) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/MonoBehaviourExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(9e7ca530b84ee45eeb6a93e76c89135c) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/CameraExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(865463fe53abc4140ab5de558c766f8e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/XRRig.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(be4b8433c8b4aa34d8f11042cca6ca73) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/PinchGestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(7fafeb8808235994bb7ab8e7fd986d45) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/DragGesture.cs") state(2)
+Script is not up to date after domain reload: guid(94bbb16199e1483438b71f76858a5fb7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRSelectInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(65d557884ba0048c1b1d6b3c5f28659f) path("Packages/com.unity.xr.core-utils/Tests/Editor/EditorPrefsUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(4fe3c04927134484ea79de7138b541c9) path("Packages/com.unity.xr.core-utils/Editor/ScriptableSettingsProvider.cs") state(2)
+Script is not up to date after domain reload: guid(c3ca8b668738d4c438b8005d898233a8) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/CustomApproximatePerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(83849faf2bc51ab498600a402d68c98c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(fef4fc329798c42f6b9acaee0f26768d) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/TestData.cs") state(2)
+Script is not up to date after domain reload: guid(551595ad345576244b4473c51647ab0c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/GestureTouchesUtility.cs") state(2)
+Script is not up to date after domain reload: guid(c48ae88f1c8e80841a7c5238c71fd32a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Interaction/XRInteractableUtility.cs") state(2)
+Script is not up to date after domain reload: guid(2cecaadbf0eebc1448266981e2a91e95) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(6df61a9a13528fd4f9365c233cb23bfb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDevicePhysicsRaycaster.cs") state(2)
+Script is not up to date after domain reload: guid(5b22507be13dc4c168717c2a2e46ac6e) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/CollectionExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(ea786eac680c3452ab2eb44a28b99bd6) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/TypeExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(7bd40e7f0e8d6a346af28f413b3188a3) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedControllerState.cs") state(2)
+Script is not up to date after domain reload: guid(fdb486bdadc974172af71a77878d57c7) path("Packages/com.unity.xr.core-utils/Runtime/TextureUtils.cs") state(2)
+Script is not up to date after domain reload: guid(75d205647c6268b4fafc1dd87ed9558d) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/EventMigrationUtility.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(2bfa55239903b4b579b791c9a165a7a7) path("Packages/com.unity.xr.core-utils/Runtime/DebugDraw.cs") state(2)
+Script is not up to date after domain reload: guid(c8cc59ef09bbf3349b881e10c2b24aa8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/IXRFilterList.cs") state(2)
+Script is not up to date after domain reload: guid(66bc04810ad0015438ef2ed42d22a098) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARBaseGestureInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(648ae6b7a0ee84c2d94869858c29707c) path("Packages/com.unity.xr.core-utils/Runtime/ReflectionUtils.cs") state(2)
+Script is not up to date after domain reload: guid(9c5cb477607df401e941044d364eb49d) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/PoseExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(766f0029508a5bb45b48f9efadf712eb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedHMD.cs") state(2)
+Script is not up to date after domain reload: guid(dc20bf6ad3dcefd44b1cf97ecf4aa14b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRBaseControllerInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(6803edce0201f574f923fd9d10e5b30a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRRayInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(a3185115697f15e469aa68f05f3c5a3e) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/ScriptableSettings/EditorScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(5e1b36135b33c425a967edf024cf0128) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/TestImage.cs") state(2)
+Script is not up to date after domain reload: guid(5a1894321e727c945b50512efc53ae9a) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInteractablesTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(e2c37a0ae4cbb864ba4d98ed557a1acb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/TriggerContactMonitor.cs") state(2)
+Script is not up to date after domain reload: guid(1e8316be06fc14de489df8224106f81a) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/ConvexHullPerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(3af5c7a1b3aed8f42bae01ae57671efc) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/ActionBasedController.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(76fbf2ff84daab147a5fd06e08693ed7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Attributes/XRTargetEvaluatorEnabledAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(7ab8f828152c8463fb4814b55b59fa9c) path("Packages/com.unity.xr.core-utils/Runtime/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(1ac6916bc3db4214dbe74106e4ad724b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/DeviceBasedContinuousTurnProvider.cs") state(2)
+Script is not up to date after domain reload: guid(27a20e30fb6e8ca418bc90ea89ec6722) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/InputActionPropertyExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(977e9334bc5cf534eb01d89992ed1c80) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRBaseController.cs") state(2)
+Script is not up to date after domain reload: guid(3e04be9dd4598e94fb7006450babd7c8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Interaction/XRFilterUtility.cs") state(2)
+Script is not up to date after domain reload: guid(bca16690656fe744791885569ca65da6) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRDirectInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(3c59c7f9122b542d39513f74f86943b2) path("Packages/com.unity.xr.core-utils/Runtime/SerializableGuidUtil.cs") state(2)
+Script is not up to date after domain reload: guid(03634afd29e32824593d3befc373b047) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/MouseModel.cs") state(2)
+Script is not up to date after domain reload: guid(094ae971c38137f45a54047d4f4a1a80) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRDirectInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(4253f32900bcc4d499d675566142ded0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRDirectInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(8a35f6cfbfba9b548aaa00d52cfe8a50) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRSimpleInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(68a076e7dedf4411b96ca259dc65ce59) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactors/ARGestureInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(d9ec7417c3cdb4a7abb3e7a0f8888196) path("Packages/com.unity.xr.core-utils/Editor/EditorUtils.cs") state(2)
+Script is not up to date after domain reload: guid(1aae66a961291ec42b0477911f3f1e1d) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRBaseInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(76cdf9ab732c34a4dabcb0135fccbd6e) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PointInPolygonPerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(27c3f1a49f98d1e4eaa02f95a1739989) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/XRUIInputModule.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(07e168c7c8f434c419e243a7982dcc9b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/TypeExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(7edd44a7df65ea943a173280d5107ff2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(fbb7c3ace4f0b364e8a1de993f120ab7) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractableTests.cs") state(2)
+Script is not up to date after domain reload: guid(44e6ef670bba14ab2aa714579d266b1c) path("Packages/com.unity.xr.core-utils/Runtime/CachedComponentFilter.cs") state(2)
+Script is not up to date after domain reload: guid(ee3d13c82e3a02e408646cf1a7aca242) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRBaseInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(1a15c92a5e5f9e544b9aa8664d88c1ee) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/RequireInterfaceDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(4e45ea4cf8970764f8ffccf50dbd42b8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRSocketInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(162b4e5a3d1fcd043afbc6bf71ab2e51) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRDualGrabFreeTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(7527f391378e9ef409709626d125aca4) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInteractorsTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(7a7ba44168879744f8ed05a3966b6dcb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Hover/IXRHoverFilter.cs") state(2)
+Script is not up to date after domain reload: guid(5b34befe5d0cbb642bb5d09104a47160) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRDeviceSimulator.cs") state(2)
+Script is not up to date after domain reload: guid(73c9f7a876006524ebc6f361eb5321f1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRTargetEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(35c2e5ef40a7a44a3be75615f2480887) path("Packages/com.unity.xr.core-utils/Runtime/CollectionPool.cs") state(2)
+Script is not up to date after domain reload: guid(32118c9922a06b446bfe73c67f94db70) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/DocumentationTests.cs") state(2)
+Script is not up to date after domain reload: guid(ec922cbdeaacbbf45bc540720d19e3e2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceModel.cs") state(2)
+Script is not up to date after domain reload: guid(c90d5af02b582db459792237477fa699) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/TunnelingVignetteControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(e3f1a6d413af7da4fb400d911d42d1c0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Attributes/CanSelectMultipleAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(18792fae2cb70aa49b4b367c7c6d664c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/Gesture.cs") state(2)
+Script is not up to date after domain reload: guid(5214b96c71282412dbc95a42b13d6226) path("Packages/com.unity.xr.core-utils/Editor/GUI/FlagsPropertyDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(2478713855fcd3a458c756b76762810b) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARRotationInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(eaa9e7576528a487897f3b21f331719e) path("Packages/com.unity.xr.core-utils/Tests/Editor/MathUtilityTests.cs") state(2)
+Script is not up to date after domain reload: guid(a27d5e21b70030544ab5f296c1f5f37b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Filtering/Target/XRMissingEvaluatorTypeList.cs") state(2)
+Script is not up to date after domain reload: guid(ff705e8c8e2aee84d8f65a7aecd55256) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARSelectionInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(d66897c6b1f6d63418cb464722e04199) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/DistanceInfo.cs") state(2)
+Script is not up to date after domain reload: guid(ac66162cba61743f19bd559e6b242571) path("Packages/com.unity.xr.core-utils/Editor/ScriptableSettingsInitializer.cs") state(2)
+Script is not up to date after domain reload: guid(760ff70c1c91bdd45907d0ff0cdcaf7f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Grab/TwoHandedGrabMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(3c136b463d91eb74c90d06fca5e650b1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerRecorder.cs") state(2)
+Script is not up to date after domain reload: guid(2d38fb1463c5c804b8847c20e8873623) path("Packages/com.unity.xr.interaction.toolkit/Editor/SettingsProvider/XRInteractionEditorSettings.cs") state(2)
+Script is not up to date after domain reload: guid(b86fcb497e00a403cb7ff203982f7ff3) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/QuaternionExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(0396fcddcf52f4628b25b5b25d1ed4cd) path("Packages/com.unity.xr.core-utils/Editor/GUI/ReadOnlyPropertyDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(144788ae73265074dbd9b469bb0bf8d1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/TeleportationMonitor.cs") state(2)
+Script is not up to date after domain reload: guid(49bf9b7d6604b4cbdb67024401d5f989) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/GuidExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(5e9d4dc476e64d0468164d991f1a1c68) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/ScriptableSettings/ScriptableSettingsInitializer.cs") state(2)
+Script is not up to date after domain reload: guid(6966ac19255448f41b392f3c7a10022d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRLegacyGrabTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(e988983f96fe1dd48800bcdfc82f23e9) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/Visual/XRInteractorLineVisual.cs") state(2)
+Script is not up to date after domain reload: guid(3a61b4807cb6c8546907ee2dcfba9132) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactors/ARGestureInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(dc4741424d47f444c80f9c5a8774dab7) path("Packages/com.unity.xr.core-utils/Tests/Editor/GameObjectExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(cb6c8be553d2743f793b078de11b5c31) path("Packages/com.unity.xr.core-utils/Runtime/GuidUtil.cs") state(2)
+Script is not up to date after domain reload: guid(47e9ab1075dc8bc43b9d55469ebe0cf4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/CharacterControllerDriver.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(cba647f3d99e54240836f357799fd1ad) path("Packages/com.unity.xr.core-utils/Editor/GUI/EnumDisplayPropertyDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(0599ad4dbe5628445b3feb2f2e168047) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactables/XRBaseInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(7e2f4617667341945b5a7756e14b62d0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/TeleportationAnchor.cs") state(2)
+Script is not up to date after domain reload: guid(771f39ba87bd85c4486262968b641c1a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/XRInteractionEvents.cs") state(2)
+Script is not up to date after domain reload: guid(6925e96591e384a44a611f2d1d02670a) path("Packages/com.unity.xr.interaction.toolkit/Editor/ProjectValidation/XRInteractionProjectValidation.cs") state(2)
+Script is not up to date after domain reload: guid(af8356832995e4297849f40d1dc03e82) path("Packages/com.unity.xr.core-utils/Tests/Editor/LayerMaskTests.cs") state(2)
+Script is not up to date after domain reload: guid(16b11779d1fb94c4a8616749f5e916ef) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Teleportation/BaseTeleportationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(3a4e68c41b1e64e7fa97229393421e3b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRInteractionDebuggerWindow.cs") state(2)
+Script is not up to date after domain reload: guid(786058dda85100b4092201f872208845) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRActivateInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(6c3d3d09ebc374be3affa52024d1f644) path("Packages/com.unity.xr.core-utils/Runtime/Attributes/FlagsPropertyAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(7448815bd5148434682b3d931066cd10) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/XRRig.cs") state(2)
+Script is not up to date after domain reload: guid(324d877d6c81c864c97e29fed1c8771c) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/Visual/XRInteractorReticleVisualEditor.cs") state(2)
+Script is not up to date after domain reload: guid(fd996c5c0b60d5148a82f1a1eab3b5c6) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/LocomotionInputTests.cs") state(2)
+Script is not up to date after domain reload: guid(0bb9f3e9efc3d0f44bcd2509e8a9ac55) path("Packages/com.unity.xr.interaction.toolkit/Editor/ProjectValidation/XRInteractionProjectValidationRulesSetup.cs") state(2)
+Script is not up to date after domain reload: guid(f2fad94e3d2304ff6b57062939e10c21) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(8be7a2b86036e7d419195e3887cfcd71) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwoFingerDragGesture.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(ed159586200fd9c438f2199ad46f39cf) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRBaseGrabTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(3eecb6f2d6a69436fb572b8e4d41b2e1) path("Packages/com.unity.xr.interaction.toolkit/Tests/Editor/CreateUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(725efa6b4b618d84b84fe0a3970f2283) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRRayInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(dc2115b5275bb4d428061e74078afdfb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionProvider.cs") state(2)
+Script is not up to date after domain reload: guid(e2303ec0dbd09774d806b8148bc58586) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/Visual/IXRReticleDirectionProvider.cs") state(2)
+Script is not up to date after domain reload: guid(f4df83f3347dd498681ec72e93b47e9a) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/Vector2Extensions.cs") state(2)
+Script is not up to date after domain reload: guid(c670bfa55d621474ea22ff77c1820163) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARSelectionInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(b396637e02255474784f3df47171ec76) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Interactors/XRSocketInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(14f61ffa88c9a406cbcf52a34b0d65b9) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/ARTests.cs") state(2)
+Script is not up to date after domain reload: guid(67a68ebc4eeae4a34a9879d0a2a39af0) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PerformanceTest.cs") state(2)
+Script is not up to date after domain reload: guid(bccbda266429046579998fb24465c146) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/TransformExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(9d501258623f540488015bc406eac50e) path("Packages/com.unity.xr.core-utils/Editor/AssemblyInfo.cs") state(2)
+Script is not up to date after domain reload: guid(5ee6cef4ea6540809a74a2facace0e26) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/InteractorLineVisualTests.cs") state(2)
+Script is not up to date after domain reload: guid(faeb93ef2ee86154eb75132a505b0e8b) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/SmallRegistrationList.cs") state(2)
+Script is not up to date after domain reload: guid(5844a64e5cc7ce0419f8b5b228ecba5c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/Pooling/PooledObject.cs") state(2)
+Script is not up to date after domain reload: guid(ced37f4c4700b454da463e2fb217245e) path("Packages/com.unity.xr.core-utils/Editor/XROriginEditor.cs") state(2)
+Script is not up to date after domain reload: guid(0ad34abafad169848a38072baa96cdb2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/XRGrabInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(bcaf02b46b548084195befbfe0016b32) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XR/SortingHelpers.cs") state(2)
+Script is not up to date after domain reload: guid(0f75eb857d6dc408086fa8d99383e492) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/UIInputModule.Events.cs") state(2)
+Script is not up to date after domain reload: guid(f9facd22a8f5b48648dab827bbd89ab7) path("Packages/com.unity.xr.core-utils/Runtime/SerializableGuid.cs") state(2)
+Script is not up to date after domain reload: guid(3bd997ad0c1d2434f95bde472c2f2232) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARScaleInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(4da505445e5ad6a43ac014622125bd56) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/DirectInteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(baf1f699e45b67340a83015705650333) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/PositionHandleUtility.cs") state(2)
+Script is not up to date after domain reload: guid(ebacf1453ab732a44ab138719c62eb0d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Composites/FallbackComposite.cs") state(2)
+Script is not up to date after domain reload: guid(389c899d9ea89d84d9062be990133903) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Interactions/SectorInteraction.cs") state(2)
+Script is not up to date after domain reload: guid(ae091700765cebc46b35f6c1587c6139) path("Packages/com.unity.xr.interaction.toolkit/Editor/Locomotion/Teleportation/TeleportationAnchorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(191492db6e452eb468b95433ec162164) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Layers/InteractionLayerSettings.cs") state(2)
+Script is not up to date after domain reload: guid(dd905da1454ca45d39c642c872052dc7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/GestureTransformationUtility.cs") state(2)
+Script is not up to date after domain reload: guid(98e0dda43eb244fd9830176651582100) path("Packages/com.unity.xr.core-utils/Runtime/MaterialUtils.cs") state(2)
+Script is not up to date after domain reload: guid(ce096c6fd63089344a1a330c0f6d4cf4) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactables/IXRHoverInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(83e4e6cca11330d4088d729ab4fc9d9f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/XRInteractionManager.cs") state(2)
+Script is not up to date after domain reload: guid(9a737b23518b10a4bbb09a14e1a98516) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceEventData.cs") state(2)
+Script is not up to date after domain reload: guid(75868f8b7bbbe7945b24a7fe3e48f0bd) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARScaleInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(47e317ec9a6745248b785a40ad16616a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/EditorComponentLocatorUtility.cs") state(2)
+Script is not up to date after domain reload: guid(03a5df2202a8b96488c744be3bd0c33e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/LocomotionSystem.cs") state(2)
+Script is not up to date after domain reload: guid(fed2b273528cebc4ba912086b7ec3659) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/RegistrationListTests.cs") state(2)
+Script is not up to date after domain reload: guid(e7c5bc223371546e79a935a5fdca1cee) path("Packages/com.unity.xr.core-utils/Tests/Editor/ScriptableSettingsTests.cs") state(2)
+Script is not up to date after domain reload: guid(3cd122eb2ea484645888571490f3731c) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRControllerRecorderEditor.cs") state(2)
+Script is not up to date after domain reload: guid(32ffd45b86b81604a94003f698df048b) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Layers/InteractionLayerUpdater.cs") state(2)
+Script is not up to date after domain reload: guid(d67b3c29542070b47af687e0e4ed01af) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/IXRGrabTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(63da2c9779cb1da4f83e4f52923425dc) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/SectorInteractionTests.cs") state(2)
+Script is not up to date after domain reload: guid(54628fc37886e459b8e2875598610480) path("Packages/com.unity.xr.interaction.toolkit/Editor/XRMainCameraFactory.cs") state(2)
+Script is not up to date after domain reload: guid(cefd576b58e579b4a8f6d4f7718f9f51) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/TargetFilterTests.cs") state(2)
+Script is not up to date after domain reload: guid(5928ec199d45ce24c84939529c7a93f1) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Target/Evaluators/XRAngleGazeEvaluator.cs") state(2)
+Script is not up to date after domain reload: guid(be3ab30eaceed4c68b4bc810ab3b60d3) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/ListExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(e5a23b0e493570745b81c24323885ba7) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/UIInputModule.cs") state(2)
+Script is not up to date after domain reload: guid(ab68ce6587aab0146b8dabefbd806791) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/XRUIInputModule.cs") state(2)
+Script is not up to date after domain reload: guid(5724547481f04974f928c95a54eff671) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/TestUtilities.cs") state(2)
+Script is not up to date after domain reload: guid(f36cd4ac1380766409146d292072722e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedHMDState.cs") state(2)
+Script is not up to date after domain reload: guid(3e262507a004136428ac1335840fd7be) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TouchModel.cs") state(2)
+Script is not up to date after domain reload: guid(8771c0d539c9902459575259792f186c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XRHelpURLConstants.cs") state(2)
+Script is not up to date after domain reload: guid(098853f3489c04278bef1a06822fe5fa) path("Packages/com.unity.xr.core-utils/Tests/Editor/Vector2ExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(f960cd2a35c7d4536aef2a5807e0672c) path("Packages/com.unity.xr.core-utils/Tests/Editor/Vector3ExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(13f404f90a8e8a94994d09b8f1d1fa1c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARSelectionInteractable.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(6986875cf4648864e9a1262fc2836165) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/TwistGestureRecognizer.cs") state(2)
+Script is not up to date after domain reload: guid(b36ce56e013f54ead8c1e0b003430c09) path("Packages/com.unity.xr.core-utils/Runtime/BoundsUtils.cs") state(2)
+Script is not up to date after domain reload: guid(797516fbe15bd54439ac3964bf0e9d0d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/XRInteractionManager.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(1ae26e19cd956134bbdf3c6f65bf393a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRController.cs") state(2)
+Script is not up to date after domain reload: guid(e4617e9b051fbfd4787a44cf3ea7b46e) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactors/ARGestureInteractorEditor.cs") state(2)
+Script is not up to date after domain reload: guid(c97fd8a868442f64a832f4691b7a621a) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRBaseControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(25c8e96d08c79ea49887d7499ce4e7a9) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/GrabInteractableTests.cs") state(2)
+Script is not up to date after domain reload: guid(faf605eab5554ca479c8c36099b058cd) path("Packages/com.unity.xr.interaction.toolkit/Editor/ProjectValidation/XRInteractionValidationRule.cs") state(2)
+Script is not up to date after domain reload: guid(d8780bc1cfd044fd58ba8e8c776e1db7) path("Packages/com.unity.xr.core-utils/Tests/Editor/PoseExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(9ace11b6ca27f6e4e9d0a3a38c385903) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(977e9b8021ded4d3da55f15496808190) path("Packages/com.unity.xr.core-utils/Runtime/UndoBlock.cs") state(2)
+Script is not up to date after domain reload: guid(321da6f97f3044995bd9c8d4f55e847a) path("Packages/com.unity.xr.core-utils/Tests/Editor/UnityObjectUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(1c7db00c9eac69a4683df9a344a008b0) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/Gesture.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(3ac4af650bab59c4d876fda4f268fa1f) path("Packages/com.unity.xr.interaction.toolkit/Editor/Debugger/XRTargetFiltersTreeView.cs") state(2)
+Script is not up to date after domain reload: guid(af6bf904e410ee8479f9093d8830d1f8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/CharacterControllerDriver.cs") state(2)
+Script is not up to date after domain reload: guid(841253094c20d4bdb8e614eb9dee50eb) path("Packages/com.unity.xr.core-utils/Runtime/ObjectPool.cs") state(2)
+Script is not up to date after domain reload: guid(ca3e2e02b438ac247bf7e1f91d6811e8) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/ScriptableSettings/ScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(e9fe38c4546984d20972b92aae24104c) path("Packages/com.unity.xr.core-utils/Runtime/Extensions/GameObjectExtensions.cs") state(2)
+Script is not up to date after domain reload: guid(2f89041427b1b444f90fc9a5399b8e24) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/PinchGesture.cs") state(2)
+Script is not up to date after domain reload: guid(472ffe4eb9537d246b14d9adc4c07946) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/XRTargetEvaluatorEditorUtility.cs") state(2)
+Script is not up to date after domain reload: guid(1bbd8aea0ced74f45be1a14e737aecee) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Filtering/Target/XRTargetEvaluatorEnabledDrawer.cs") state(2)
+Script is not up to date after domain reload: guid(c6266a2729abc4d18a676c7c2bd1c0ca) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARRotationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(c82dfa8da12c2485bbc2188e8ba88887) path("Packages/com.unity.xr.core-utils/Runtime/Attributes/ReadOnlyAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(e29fc012294464dad877219a81ae9883) path("Packages/com.unity.xr.core-utils/Runtime/ScriptableSettings.cs") state(2)
+Script is not up to date after domain reload: guid(2d5bb35dbf5f87f409ae5785f6e7a1f6) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Filtering/Select/IXRSelectFilter.cs") state(2)
+Script is not up to date after domain reload: guid(9e703178ba86d6a44a356d81691894ee) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRSelectInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(ce49e6a0a544c46d1863a60030213a8f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARAnnotationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(7758e72c4580f5a46a26c896e3c43116) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Layers/InteractionLayerMask.cs") state(2)
+Script is not up to date after domain reload: guid(e6df71824f341bc4897680bb8beb4090) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/Visual/XRInteractorReticleVisual.cs") state(2)
+Script is not up to date after domain reload: guid(99ad123a3725c3c41ac56480fdf1f008) path("Packages/com.unity.xr.interaction.toolkit/Editor/SettingsProvider/XRInteractionEditorSettingsEditor.cs") state(2)
+Script is not up to date after domain reload: guid(372738ccbd2926b41a3f3c3c529d2a38) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Utilities/RequireInterfaceAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(3d1e14ba0263b9841a819caa2b6caafa) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Transformers/XRSingleGrabFreeTransformer.cs") state(2)
+Script is not up to date after domain reload: guid(bf56d527db2153944867848202cf24d2) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerRecording.cs") state(2)
+Script is not up to date after domain reload: guid(ddf6f41d7b58d4144a887c52ce97c699) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Interactables/ARTranslationInteractable.cs") state(2)
+Script is not up to date after domain reload: guid(ffa3d241258e6d749bc1316b0a31ca21) path("Packages/com.unity.xr.interaction.toolkit/Runtime/AR/Gestures/GestureRecognizer.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(25ec6dab685263f48a60d4745548328c) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Controllers/XRControllerState.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(0cd5d5a765fb183408cee7a42748f0bb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/IXRTargetPriorityInteractor.cs") state(2)
+Script is not up to date after domain reload: guid(dc4f2c0214c9b494fa7eb5b8b2c02885) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/SnapTurn/DeviceBasedSnapTurnProvider.cs") state(2)
+Script is not up to date after domain reload: guid(d4a077986e7084c04907c52d6532eeb9) path("Packages/com.unity.xr.core-utils/Tests/Runtime/Scripts/PerformanceTestBase.cs") state(2)
+Script is not up to date after domain reload: guid(a322cbdd34ac4d04db232e5882e796cb) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/Controllers/XRControllerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(7da9df51e61c0aa4497479d65e15a02e) path("Packages/com.unity.xr.interaction.toolkit/Editor/Interaction/XRInteractionManagerEditor.cs") state(2)
+Script is not up to date after domain reload: guid(d7209614d3a13734d83ddc03c08f0382) path("Packages/com.unity.xr.interaction.toolkit/Editor/Utilities/PackageManagerEditorHelper.cs") state(2)
+Script is not up to date after domain reload: guid(a5b462cee8a04f347a4286990d8c25d9) path("Packages/com.unity.xr.interaction.toolkit/Editor/AR/Interactables/ARPlacementInteractableEditor.cs") state(2)
+Script is not up to date after domain reload: guid(0bf296fc962d7184ab14ad1841598d5f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ActionBasedContinuousMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(749c563d5dd439a4c94a6b4bac3bea17) path("Packages/com.unity.xr.interaction.toolkit/Runtime/XRHelpURLConstants.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(820a7b589af69c04d8f7b582fe5100eb) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Interaction/Interactors/XRBaseControllerInteractor.deprecated.cs") state(2)
+Script is not up to date after domain reload: guid(e5ec5f9a418bb4b48b411b4ad9c0d26a) path("Packages/com.unity.xr.core-utils/Runtime/MathUtility.cs") state(2)
+Script is not up to date after domain reload: guid(560173b5d82fe47609630b6772250a14) path("Packages/com.unity.xr.core-utils/Runtime/GameObjectUtils.cs") state(2)
+Script is not up to date after domain reload: guid(f2ea711be2d6a448c96a11e2f28c469b) path("Packages/com.unity.xr.core-utils/Runtime/GUI/ScreenGUIUtils.cs") state(2)
+Script is not up to date after domain reload: guid(abd6c27d6def2c642b5eaab17be47b2f) path("Packages/com.unity.xr.interaction.toolkit/Tests/Runtime/SocketInteractorTests.cs") state(2)
+Script is not up to date after domain reload: guid(1588b7517b871e34c97b523d2d1aec1a) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/SnapTurn/SnapTurnProviderBase.cs") state(2)
+Script is not up to date after domain reload: guid(c62e52ceb3eed4ec994fd23ddb0a4609) path("Packages/com.unity.xr.core-utils/Runtime/EnumValues.cs") state(2)
+Script is not up to date after domain reload: guid(3afb95d06fd9e0b44a15d191107b39ea) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Continuous/ContinuousMoveProviderBase.cs") state(2)
+Script is not up to date after domain reload: guid(7951c64acb0fa62458bf30a60089fe2d) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceGraphicRaycaster.cs") state(2)
+Script is not up to date after domain reload: guid(ba4f0541ff88be349882e34bcb97b35f) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Inputs/Simulation/XRSimulatedController.cs") state(2)
+Script is not up to date after domain reload: guid(af95304551284402e88c3572cb79adff) path("Packages/com.unity.xr.core-utils/Tests/Editor/MaterialUtilsTests.cs") state(2)
+Script is not up to date after domain reload: guid(baf06bf299ee548a2a569f8ba13c9bcd) path("Packages/com.unity.xr.core-utils/Runtime/Attributes/ScriptableSettingsPathAttribute.cs") state(2)
+Script is not up to date after domain reload: guid(8b94c4c83dec6a94fbaebf543478259e) path("Packages/com.unity.xr.interaction.toolkit/Runtime/Locomotion/Grab/GrabMoveProvider.cs") state(2)
+Script is not up to date after domain reload: guid(29567b47ec8ab4bee8ade2c315334efc) path("Packages/com.unity.xr.core-utils/Tests/Editor/MonoBehaviourExtensionsTests.cs") state(2)
+Script is not up to date after domain reload: guid(c597263711b32431c934c3cd8dd1a61c) path("Packages/com.unity.xr.core-utils/Editor/CreateUtils.cs") state(2)
+Script is not up to date after domain reload: guid(7e00e1167dbbdd04c80ec096ba9f22fe) path("Packages/com.unity.xr.interaction.toolkit/Runtime/UI/TrackedDeviceModel.deprecated.cs") state(2)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.15 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5598 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 55 unused Assets / (0.7 MB). Loaded Objects now: 6036.
+Memory consumption went from 216.9 MB to 216.2 MB.
+Total: 4.506300 ms (FindLiveObjects: 0.434500 ms CreateObjectMapping: 0.416400 ms MarkObjects: 3.342300 ms  DeleteObjects: 0.312400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009680 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.22 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.069 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1070ms)
+		BeginReloadAssembly (126ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (854ms)
+			LoadAssemblies (79ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (242ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (430ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (249ms)
+				ProcessInitializeOnLoadMethodAttributes (77ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 3.93 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5764 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 45 unused Assets / (0.7 MB). Loaded Objects now: 6334.
+Memory consumption went from 217.1 MB to 216.4 MB.
+Total: 4.483700 ms (FindLiveObjects: 0.406000 ms CreateObjectMapping: 0.429700 ms MarkObjects: 3.337700 ms  DeleteObjects: 0.309400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1048791.338108 seconds.
+  path: Assets/XR/Settings/OpenXR Package Settings.asset
+  artifactKey: Guid(1fc2a86bc1955ad4e898dbffb3755fd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/XR/Settings/OpenXR Package Settings.asset using Guid(1fc2a86bc1955ad4e898dbffb3755fd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9072fcdbcb7d5cc22d82f29daaefea9a') in 0.036347 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009159 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.16 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.084 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1085ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (41ms)
+		EndReloadAssembly (878ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (235ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (468ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (18ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (297ms)
+				ProcessInitializeOnLoadMethodAttributes (71ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 4.58 ms, found 8 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5766 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 45 unused Assets / (0.7 MB). Loaded Objects now: 6340.
+Memory consumption went from 230.1 MB to 229.4 MB.
+Total: 4.227800 ms (FindLiveObjects: 0.410300 ms CreateObjectMapping: 0.175500 ms MarkObjects: 3.352200 ms  DeleteObjects: 0.289000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 51.394194 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Continuous Move.preset
+  artifactKey: Guid(91f9da00cfdac5d49955df2d2d820b9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Continuous Move.preset using Guid(91f9da00cfdac5d49955df2d2d820b9c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '616450da7684a922f2a0501ce61e7441') in 0.051416 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Snap Turn.preset
+  artifactKey: Guid(18697d253d848974aa7052cba872c9f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Snap Turn.preset using Guid(18697d253d848974aa7052cba872c9f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9786304ef2f11f71fcbf6563209cf49') in 0.013693 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Left Grab Move.preset
+  artifactKey: Guid(e2e08fffc3edfbb47a429bae0c5a6343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Left Grab Move.preset using Guid(e2e08fffc3edfbb47a429bae0c5a6343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26e2d5536d910512a70a9a4871fd15da') in 0.014179 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Continuous Turn.preset
+  artifactKey: Guid(0caad3af14f9a414dbdf25ed41e5aa47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Continuous Turn.preset using Guid(0caad3af14f9a414dbdf25ed41e5aa47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4922120459df76a5d796941c808a7a66') in 0.012025 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Right Grab Move.preset
+  artifactKey: Guid(fdc4f514b7b1e9c4eb39713ad9dd4eba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Samples/XR Interaction Toolkit/2.2.0/Starter Assets/XRI Default Right Grab Move.preset using Guid(fdc4f514b7b1e9c4eb39713ad9dd4eba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2b58c5466d09dd8310e275f984c90c9') in 0.009511 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
