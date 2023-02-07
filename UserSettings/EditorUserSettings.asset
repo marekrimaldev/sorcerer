@@ -20,9 +20,12 @@ EditorUserSettings:
     RecentlyUsedSceneGuid-4:
       value: 530307055c0c08025a0a0a214571094441154e2f792d72672e784461bae26768
       flags: 0
+<<<<<<< HEAD
     RecentlyUsedSceneGuid-5:
       value: 5557570501565c02550f0e21477b0844401649727a7f2365297b1c6be3b6663c
       flags: 0
+=======
+>>>>>>> HandAnimation
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
