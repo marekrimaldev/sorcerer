@@ -144,6 +144,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8470844386992936775, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
+      propertyPath: _chargeUpPrefab
+      value: 
+      objectReference: {fileID: 5604884098600222163, guid: 56662e932876a8642a641da2cf43802e,
+        type: 3}
+    - target: {fileID: 8470844386992936775, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
       propertyPath: _projectilePrefab
       value: 
       objectReference: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
