@@ -17,11 +17,14 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(_effectPrefab, transform.position, transform.rotation);
+        GameObject effect = Instantiate(_effectPrefab, transform.position, transform.rotation);
+        effect.transform.SetParent(transform);
     }
 
     private void FixedUpdate()
     {
         _rb.velocity = transform.forward * _speed * Time.fixedDeltaTime;
+        Debug.Log("Velocity = " + _rb.velocity);
+        Debug.Log("Velocity magnitude = " + _rb.velocity.magnitude);
     }
 }

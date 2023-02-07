@@ -16,10 +16,10 @@ MonoBehaviour:
   - title: Body
     position:
       serializedVersion: 2
-      x: 0
-      y: 0
-      width: 100
-      height: 100
+      x: 735
+      y: -238
+      width: 657
+      height: 1695
     contents:
     - model: {fileID: 8926484042661614609}
       id: 0
@@ -39,10 +39,10 @@ MonoBehaviour:
   - title: Sparks
     position:
       serializedVersion: 2
-      x: 2299
+      x: 2312
       y: -256
-      width: 652
-      height: 2058
+      width: 641
+      height: 2095
     contents:
     - model: {fileID: 8926484042661614624}
       id: 0
@@ -103,10 +103,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: 754
+    x: 735
     y: -257
-    width: 2710
-    height: 2059
+    width: 2731
+    height: 2095
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614605}
-  m_UIPosition: {x: 941.3827, y: 114.57214}
+  m_UIPosition: {x: 941, y: 114}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1180,7 +1180,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614610}
       inputSlot: {fileID: 8926484042661614616}
-    position: {x: 779, y: 1151}
+    position: {x: 760, y: 1218}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614610
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614645}
   m_OutputSlots: []
-  m_Label: Body Output Quad
+  m_Label: Sparks Output Quad
   m_Data: {fileID: 8926484042661614663}
   m_InputFlowSlot:
   - link:
@@ -2869,7 +2869,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614666}
       inputSlot: {fileID: 8926484042661614653}
-    position: {x: 2324, y: 1456}
+    position: {x: 2337.3335, y: 1585.3333}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614666
@@ -5651,7 +5651,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614773}
   m_OutputSlots: []
-  m_Label: Body Output Quad
+  m_Label: Sparks AB Output Quad
   m_Data: {fileID: 8926484042661614797}
   m_InputFlowSlot:
   - link:
@@ -7063,7 +7063,7 @@ MonoBehaviour:
   m_InputSlots:
   - {fileID: 8926484042661614820}
   m_OutputSlots: []
-  m_Label: Body Output Quad
+  m_Label: Body AB Output Quad
   m_Data: {fileID: 8926484042661614838}
   m_InputFlowSlot:
   - link:
