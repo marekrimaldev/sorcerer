@@ -7,32 +7,39 @@ public class GauntletController : MonoBehaviour
 {
     [SerializeField] private Gauntlet _gauntlet;
 
-    [SerializeField] private InputActionProperty _instantCast;
-    [SerializeField] private InputActionProperty _chargeCast;
+    [SerializeField] private InputActionProperty _triggerCast;
+    [SerializeField] private InputActionProperty _gripCast;
 
-    bool _isCharging = false;
+    bool _triggerPressed = false;
+    bool _gripPressed = false;
 
     const float Threshold = 0.01f;
 
     private void Update()
     {
-        float instantCastVal = _instantCast.action.ReadValue<float>();
-        float chargeCastVal = _chargeCast.action.ReadValue<float>();
+        float triggerCastVal = _triggerCast.action.ReadValue<float>();
+        float gripCastVal = _gripCast.action.ReadValue<float>();
 
-        if (instantCastVal > Threshold)
+        if (!_triggerPressed && triggerCastVal > Threshold)
         {
-            _gauntlet.InstantCast();
+            _gauntlet.PrimaryPress();
+            _triggerPressed = true;
+        }
+        else if (_triggerPressed && triggerCastVal < Threshold)
+        {
+            _gauntlet.PrimaryRelease();
+            _triggerPressed = false;
         }
 
-        if (!_isCharging && chargeCastVal > Threshold)
+        if (!_gripPressed && gripCastVal > Threshold)
         {
-            _gauntlet.ChargingBegin();
-            _isCharging = true;
+            _gauntlet.SecondaryPress();
+            _gripPressed = true;
         }
-        else if (_isCharging && chargeCastVal < Threshold)
+        else if (_gripPressed && gripCastVal < Threshold)
         {
-            _gauntlet.ChargingEnd();
-            _isCharging = false;
+            _gauntlet.SecondaryRelease();
+            _gripPressed = false;
         }
     }
 }

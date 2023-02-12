@@ -62,10 +62,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1071258571204960030, guid: 527ea339d9bc7264c97cee47c81987e6,
+        type: 3}
+      propertyPath: m_EnableFreeYMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4922469953440940497, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}
       propertyPath: m_Name
-      value: DivinePlayerRig
+      value: DivinePlayerRig Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 527ea339d9bc7264c97cee47c81987e6, type: 3}
@@ -90,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 8470844386992936774, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8470844386992936774, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
@@ -142,17 +147,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8470844386992936775, guid: 78cd59880902e494d985ce726999f405,
-        type: 3}
-      propertyPath: _chargeUpPrefab
-      value: 
-      objectReference: {fileID: 5604884098600222163, guid: 56662e932876a8642a641da2cf43802e,
-        type: 3}
-    - target: {fileID: 8470844386992936775, guid: 78cd59880902e494d985ce726999f405,
-        type: 3}
-      propertyPath: _projectilePrefab
-      value: 
-      objectReference: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78cd59880902e494d985ce726999f405, type: 3}

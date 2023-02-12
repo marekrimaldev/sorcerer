@@ -4,30 +4,51 @@ using UnityEngine;
 
 public class Gauntlet : MonoBehaviour
 {
-    [SerializeField] private Projectile _projectilePrefab;
-    [SerializeField] private GameObject _chargeUpPrefab;
-    [SerializeField] private Transform _palmSpawnPosition;
-    [SerializeField] private Transform _fingerSpawnPosition;
+    [SerializeField] private Spell _primarySpellPressPrefab;
+    [SerializeField] private Spell _primarySpellReleasePrefab;
+    [SerializeField] private Spell _secondarySpellPressPrefab;
+    [SerializeField] private Spell _secondarySpellReleasePrefab;
 
-    private GameObject _chargeUp;
+    private Spell _primarySpellPress;
+    private Spell _primarySpellRelease;
+    private Spell _secondarySpellPress;
+    private Spell _secondarySpellRelease;
 
-    public void InstantCast()
+    private void Awake()
     {
-        Debug.Log("Instant cast");
-        Instantiate(_projectilePrefab, _fingerSpawnPosition.position, _fingerSpawnPosition.rotation);
+        if(_primarySpellPressPrefab != null)
+            _primarySpellPress = Instantiate(_primarySpellPressPrefab, Vector3.zero, Quaternion.identity, transform);
+
+        if (_primarySpellReleasePrefab != null)
+            _primarySpellRelease = Instantiate(_primarySpellReleasePrefab, Vector3.zero, Quaternion.identity, transform);
+
+        if (_secondarySpellPressPrefab != null)
+            _secondarySpellPress = Instantiate(_secondarySpellPressPrefab, Vector3.zero, Quaternion.identity, transform);
+
+        if (_secondarySpellReleasePrefab != null)
+            _secondarySpellRelease = Instantiate(_secondarySpellReleasePrefab, Vector3.zero, Quaternion.identity, transform);
     }
 
-    public void ChargingBegin()
+    public void PrimaryPress()
     {
-        Debug.Log("Charging begin");
-        _chargeUp = Instantiate(_chargeUpPrefab, _palmSpawnPosition.position, _palmSpawnPosition.rotation);
-        _chargeUp.transform.SetParent(_palmSpawnPosition);
+        _primarySpellPress?.Cast();
     }
 
-    public void ChargingEnd()
+    public void PrimaryRelease()
     {
-        Debug.Log("Charging end");
-        Destroy(_chargeUp);
-        Instantiate(_projectilePrefab, _palmSpawnPosition.position, _palmSpawnPosition.rotation);
+
+        _primarySpellPress?.StopCast();
+        _primarySpellRelease?.Cast();
+    }
+
+    public void SecondaryPress()
+    {
+        _secondarySpellPress?.Cast();
+    }
+
+    public void SecondaryRelease()
+    {
+        _secondarySpellPress?.StopCast();
+        _secondarySpellRelease?.Cast();
     }
 }
