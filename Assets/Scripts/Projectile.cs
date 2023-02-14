@@ -7,7 +7,8 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private GameObject _effectPrefab;
-    
+    [SerializeField] private OnHitEffectManager _onHitEffectManager;
+
     private Rigidbody _rb;
 
     private void Awake()
@@ -24,5 +25,11 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.velocity = transform.forward * _speed * Time.fixedDeltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        _onHitEffectManager.ApplyEffects(transform.position, other.transform);
+        Destroy(gameObject);
     }
 }

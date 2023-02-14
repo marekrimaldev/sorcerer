@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 976236530463443640}
   - component: {fileID: 976236530463443641}
+  - component: {fileID: -4651976601500277571}
   - component: {fileID: 976236530463443643}
-  m_Layer: 0
+  - component: {fileID: 6339218829811613594}
+  m_Layer: 20
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +50,21 @@ MonoBehaviour:
   _speed: 500
   _effectPrefab: {fileID: 2947313170752594872, guid: 9970ce618c6ef15469a156226a9a4a96,
     type: 3}
+  _onHitEffectManager: {fileID: -4651976601500277571}
+--- !u!114 &-4651976601500277571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976236530463443646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a4aab2526bbb2439f7000a4a946921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHitEffects:
+  - {fileID: 11400000, guid: 4dd85ed6224cd8244aea40a9d73af6c3, type: 2}
 --- !u!54 &976236530463443643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64,3 +81,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &6339218829811613594
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976236530463443646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
