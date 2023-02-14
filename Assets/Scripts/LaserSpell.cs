@@ -6,7 +6,8 @@ public class LaserSpell : Spell
 {
     [SerializeField] private GameObject _laserSourceEffectPrefab;
     [SerializeField] private float _laserLength;
-    
+    [SerializeField] private OnHitEffectManager _onHitEffectManager;
+
     private GameObject _laserSourceEffect;
     private GameObject _laserEndEffect;
     private LineRenderer[] _laserRenderers;
@@ -52,6 +53,8 @@ public class LaserSpell : Spell
 
             _laserEndEffect.SetActive(true);
             _laserEndEffect.transform.position = laserEnd - _spawnPosition.forward * 0.05f;
+
+            _onHitEffectManager.ApplyEffects(hitInfo.point, hitInfo.transform);
         }
         else
         {

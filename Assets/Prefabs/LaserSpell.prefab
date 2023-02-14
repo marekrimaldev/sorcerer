@@ -141,6 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6377432987624425714}
   - component: {fileID: 6377432987624425613}
+  - component: {fileID: -7048362094113264394}
   m_Layer: 0
   m_Name: LaserSpell
   m_TagString: Untagged
@@ -184,4 +185,21 @@ MonoBehaviour:
   _parentToGauntlet: 1
   _showAim: 1
   _destroyOnStopCast: 1
+  _laserSourceEffectPrefab: {fileID: 2947313170752594872, guid: 3ba3127ea3977f243a27056d616a43e7,
+    type: 3}
   _laserLength: 15
+  _onHitEffectManager: {fileID: -7048362094113264394}
+--- !u!114 &-7048362094113264394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377432987624425712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a4aab2526bbb2439f7000a4a946921, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHitEffects:
+  - {fileID: 11400000, guid: 4dd85ed6224cd8244aea40a9d73af6c3, type: 2}
