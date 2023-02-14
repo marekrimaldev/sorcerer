@@ -23,6 +23,7 @@ public class Spell : MonoBehaviour
 
     private void UpdateAimRenderer()
     {
+        _aimRenderer.positionCount = 2;
         _aimRenderer.SetPosition(0, _spawnPosition.position);
         _aimRenderer.SetPosition(1, _spawnPosition.position + _spawnPosition.forward * _aimLineLength);
     }

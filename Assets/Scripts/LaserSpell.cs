@@ -11,13 +11,10 @@ public class LaserSpell : Spell
     private GameObject _laserEndEffect;
     private LineRenderer[] _laserRenderers;
 
-    private void Awake()
-    {
-        
-    }
-
     protected override void Update()
     {
+        base.Update();
+
         if(_laserRenderers != null &&_laserRenderers.Length > 0)
             UpdateLaser();
     }
