@@ -822,6 +822,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_MoveFactor
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_EnableFreeYMovement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_GravityApplicationMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9162070698277773513, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_Name

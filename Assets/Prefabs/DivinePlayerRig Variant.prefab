@@ -62,6 +62,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 434918498780906530, guid: 527ea339d9bc7264c97cee47c81987e6,
+        type: 3}
+      propertyPath: m_LineType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1071258571204960030, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}
       propertyPath: m_EnableFreeYMovement
@@ -71,6 +76,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DivinePlayerRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829299234423049844, guid: 527ea339d9bc7264c97cee47c81987e6,
+        type: 3}
+      propertyPath: m_MoveFactor
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829299234423049844, guid: 527ea339d9bc7264c97cee47c81987e6,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829299234423049844, guid: 527ea339d9bc7264c97cee47c81987e6,
+        type: 3}
+      propertyPath: m_EnableFreeYMovement
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829299234423049844, guid: 527ea339d9bc7264c97cee47c81987e6,
+        type: 3}
+      propertyPath: m_GravityApplicationMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 527ea339d9bc7264c97cee47c81987e6, type: 3}
