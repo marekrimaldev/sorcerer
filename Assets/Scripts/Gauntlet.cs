@@ -17,16 +17,16 @@ public class Gauntlet : MonoBehaviour
     private void Awake()
     {
         if(_primarySpellPressPrefab != null)
-            _primarySpellPress = Instantiate(_primarySpellPressPrefab, Vector3.zero, Quaternion.identity, transform);
+            _primarySpellPress = Instantiate(_primarySpellPressPrefab, transform, false);
 
         if (_primarySpellReleasePrefab != null)
-            _primarySpellRelease = Instantiate(_primarySpellReleasePrefab, Vector3.zero, Quaternion.identity, transform);
+            _primarySpellRelease = Instantiate(_primarySpellReleasePrefab, transform, false);
 
         if (_secondarySpellPressPrefab != null)
-            _secondarySpellPress = Instantiate(_secondarySpellPressPrefab, Vector3.zero, Quaternion.identity, transform);
+            _secondarySpellPress = Instantiate(_secondarySpellPressPrefab, transform, false);
 
         if (_secondarySpellReleasePrefab != null)
-            _secondarySpellRelease = Instantiate(_secondarySpellReleasePrefab, Vector3.zero, Quaternion.identity, transform);
+            _secondarySpellRelease = Instantiate(_secondarySpellReleasePrefab, transform, false);
     }
 
     public void PrimaryPress()

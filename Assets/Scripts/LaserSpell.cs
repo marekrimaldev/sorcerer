@@ -11,6 +11,11 @@ public class LaserSpell : Spell
     private GameObject _laserEndEffect;
     private LineRenderer[] _laserRenderers;
 
+    private void Awake()
+    {
+        
+    }
+
     protected override void Update()
     {
         if(_laserRenderers != null &&_laserRenderers.Length > 0)
@@ -20,6 +25,7 @@ public class LaserSpell : Spell
     public override void Cast()
     {
         base.Cast();
+
         _laserRenderers = _prefabInstance.GetComponentsInChildren<LineRenderer>();
 
         _laserSourceEffect = Instantiate(_laserSourceEffectPrefab, _spawnPosition.position, _spawnPosition.rotation, transform);
@@ -29,6 +35,12 @@ public class LaserSpell : Spell
     public override void StopCast()
     {
         base.StopCast();
+
+        for (int i = 0; i < _laserRenderers.Length; i++)
+        {
+            Destroy(_laserRenderers[i]);
+        }
+        _laserRenderers = null;
 
         Destroy(_laserSourceEffect);
         Destroy(_laserEndEffect);
@@ -40,6 +52,13 @@ public class LaserSpell : Spell
         if(Physics.Linecast(_spawnPosition.position, laserEnd, out RaycastHit hitInfo))
         {
             laserEnd = hitInfo.point;
+
+            _laserEndEffect.SetActive(true);
+            _laserEndEffect.transform.position = laserEnd - _spawnPosition.forward * 0.05f;
+        }
+        else
+        {
+            _laserEndEffect.SetActive(false);
         }
 
         for (int i = 0; i < _laserRenderers.Length; i++)
@@ -47,7 +66,5 @@ public class LaserSpell : Spell
             _laserRenderers[i].SetPosition(0, _spawnPosition.position);
             _laserRenderers[i].SetPosition(1, laserEnd);
         }
-
-        _laserEndEffect.transform.position = laserEnd - _spawnPosition.forward * 0.05f;
     }
 }
