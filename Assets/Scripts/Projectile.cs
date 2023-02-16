@@ -3,11 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : Spell
 {
     [SerializeField] private float _speed;
     [SerializeField] private GameObject _effectPrefab;
-    [SerializeField] private OnHitEffectManager _onHitEffectManager;
 
     private Rigidbody _rb;
 
@@ -31,5 +30,13 @@ public class Projectile : MonoBehaviour
     {
         _onHitEffectManager.ApplyEffects(transform.position, other.transform);
         Destroy(gameObject);
+    }
+
+    public override void Init(SpellController spellController)
+    {
+    }
+
+    public override void Dispose()
+    {
     }
 }

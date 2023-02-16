@@ -175,10 +175,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: 
-  _prefab: {fileID: 50675067273607300, guid: 0359fba3cd1089148aaa6bf9bd466018, type: 3}
-  _spawnPosition: {fileID: 55459685298706905}
-  _aimRenderer: {fileID: 55459685298706904}
-  _aimLineLength: 15
-  _parentToGauntlet: 0
-  _showAim: 1
-  _destroyOnStopCast: 1
+  _spell: {fileID: 50675067273607299, guid: 0359fba3cd1089148aaa6bf9bd466018, type: 3}
+  _destroySpellOnStopCast: 1
+  _aimIndicator: {fileID: 0}
