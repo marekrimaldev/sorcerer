@@ -762,11 +762,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4431316102008022330, guid: b5b284fa246c5cb428073d77a346fecb,
+    - target: {fileID: 1310131783, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
+      propertyPath: _primarySpellPrefab
+      value: 
+      objectReference: {fileID: 5029213328351843437, guid: 84fb059d0d492eb4892de5ec0cade9f1,
         type: 3}
-      propertyPath: m_LineType
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 1310131783, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
+      propertyPath: _secondarySpelPrefab
+      value: 
+      objectReference: {fileID: 55459685535021176, guid: 251e9cf01f79d4142a44c263917a39cf,
+        type: 3}
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_RootOrder
@@ -775,7 +780,7 @@ PrefabInstance:
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 9.1
       objectReference: {fileID: 0}
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
@@ -785,7 +790,7 @@ PrefabInstance:
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
@@ -821,26 +826,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
-        type: 3}
-      propertyPath: m_MoveFactor
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
-        type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
-        type: 3}
-      propertyPath: m_EnableFreeYMovement
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
-        type: 3}
-      propertyPath: m_GravityApplicationMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9162070698277773513, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}

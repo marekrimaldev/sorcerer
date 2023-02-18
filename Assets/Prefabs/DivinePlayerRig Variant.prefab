@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 4922469953440940497, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}
       propertyPath: m_Name
-      value: DivinePlayerRig
+      value: DivinePlayerRig Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6829299234423049844, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}
@@ -112,6 +112,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5834416917584010700}
     m_Modifications:
+    - target: {fileID: 5419728497084163438, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_Name
+      value: PointFingerSpawnPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 7537425676997560140, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -201,7 +206,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _primarySpellPressPrefab
       value: 
-      objectReference: {fileID: 6377432987624425613, guid: e95634aefd37d3349a9e0b386df79cce,
+      objectReference: {fileID: 55459685535021176, guid: 251e9cf01f79d4142a44c263917a39cf,
         type: 3}
     - target: {fileID: 8470844386992936775, guid: 78cd59880902e494d985ce726999f405,
         type: 3}

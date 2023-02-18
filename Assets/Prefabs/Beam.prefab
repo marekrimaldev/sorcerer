@@ -24,8 +24,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6377432987288165715}
-  m_LocalRotation: {x: 0.008850357, y: 0.00086741126, z: 0.0131039815, w: 0.9998746}
-  m_LocalPosition: {x: 0.0401, y: 0.0131, z: 0.143}
+  m_LocalRotation: {x: 0.015524062, y: 0.70763147, z: 0.0030077668, w: 0.7064048}
+  m_LocalPosition: {x: 0.09530002, y: 1.34524, z: 2.9716}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,9 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.005
@@ -138,10 +140,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6377432987624425714}
-  - component: {fileID: -3889334073194046444}
-  - component: {fileID: -7175482784808309750}
+  - component: {fileID: 371747985265948570}
+  - component: {fileID: -7048362094113264394}
   m_Layer: 0
-  m_Name: DarkElectricLaserCast
+  m_Name: Beam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +165,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3889334073194046444
+--- !u!114 &371747985265948570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,12 +177,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b058ad35d5f353438f2443464659bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _onHitEffectManager: {fileID: 0}
-  _laserLength: 0
-  _laserRenderers: []
-  _laserSourceEffectPrefab: {fileID: 0}
-  _laserEndEffectPrefab: {fileID: 0}
---- !u!114 &-7175482784808309750
+  _onHitEffectManager: {fileID: -7048362094113264394}
+  _laserLength: 15
+  _laserPrefab: {fileID: 5282393407792671592, guid: 0f94a00b8bdd44246ade2d553f40fbcb,
+    type: 3}
+  _laserSourceEffectPrefab: {fileID: 2947313170752594872, guid: 3ba3127ea3977f243a27056d616a43e7,
+    type: 3}
+  _laserEndEffectPrefab: {fileID: 2947313170752594872, guid: 3ba3127ea3977f243a27056d616a43e7,
+    type: 3}
+--- !u!114 &-7048362094113264394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

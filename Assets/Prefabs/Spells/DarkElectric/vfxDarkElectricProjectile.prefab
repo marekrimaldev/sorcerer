@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2947313170752594873}
   m_Layer: 0
-  m_Name: DarkElectricLaserSource
+  m_Name: vfxDarkElectricProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2947313172102996960}
   - component: {fileID: 2947313172102996963}
   m_Layer: 0
-  m_Name: vfxLaserSource
+  m_Name: vfxSimpleProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2947313172102996965}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 424e0c3651982314ea0a3d26a5b7dcc3, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 8cdd03891ee7d1843ae28637c2bb6918, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0

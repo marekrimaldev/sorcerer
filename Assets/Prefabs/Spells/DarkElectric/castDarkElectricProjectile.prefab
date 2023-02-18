@@ -62,10 +62,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
+      propertyPath: _speed
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
+      propertyPath: _parentToGauntlet
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
+      propertyPath: _destroySpellOnDispose
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 976236530463443646, guid: 718546b5d5f30344f84c301a7d6ef0d6,
         type: 3}
       propertyPath: m_Name
-      value: DarkElectricProjectile
+      value: castDarkElectricProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339218829811613594, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6339218829811613594, guid: 718546b5d5f30344f84c301a7d6ef0d6,
         type: 3}

@@ -1,54 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Gauntlet : MonoBehaviour
 {
-    [SerializeField] private SpellController _primarySpellPressPrefab;
-    [SerializeField] private SpellController _primarySpellReleasePrefab;
-    [SerializeField] private SpellController _secondarySpellPressPrefab;
-    [SerializeField] private SpellController _secondarySpellReleasePrefab;
+    [SerializeField] private Spell _primarySpellPrefab;
+    [SerializeField] private Spell _secondarySpelPrefab;
 
-    private SpellController _primarySpellPressInstance;
-    private SpellController _primarySpellReleaseInstance;
-    private SpellController _secondarySpellPressInstance;
-    private SpellController _secondarySpellReleaseInstance;
+    private Spell _primarySpellInstance;
+    private Spell _secondarySpellInstance;
 
     private void Awake()
     {
-        if(_primarySpellPressPrefab != null)
-            _primarySpellPressInstance = Instantiate(_primarySpellPressPrefab, transform, false);
+        if(_primarySpellPrefab != null)
+            _primarySpellInstance = Instantiate(_primarySpellPrefab, transform, false);
 
-        if (_primarySpellReleasePrefab != null)
-            _primarySpellReleaseInstance = Instantiate(_primarySpellReleasePrefab, transform, false);
-
-        if (_secondarySpellPressPrefab != null)
-            _secondarySpellPressInstance = Instantiate(_secondarySpellPressPrefab, transform, false);
-
-        if (_secondarySpellReleasePrefab != null)
-            _secondarySpellReleaseInstance = Instantiate(_secondarySpellReleasePrefab, transform, false);
+        if (_secondarySpelPrefab != null)
+            _secondarySpellInstance = Instantiate(_secondarySpelPrefab, transform, false);
     }
 
     public void PrimaryPress()
     {
-        _primarySpellPressInstance?.StartCast();
+        _primarySpellInstance?.StartCast();
     }
 
     public void PrimaryRelease()
     {
 
-        _primarySpellPressInstance?.StopCast();
-        _primarySpellReleaseInstance?.StartCast();
+        _primarySpellInstance?.StopCast();
     }
 
     public void SecondaryPress()
     {
-        _secondarySpellPressInstance?.StartCast();
+        _secondarySpellInstance?.StartCast();
     }
 
     public void SecondaryRelease()
     {
-        _secondarySpellPressInstance?.StopCast();
-        _secondarySpellReleaseInstance?.StartCast();
+        _secondarySpellInstance?.StopCast();
     }
 }

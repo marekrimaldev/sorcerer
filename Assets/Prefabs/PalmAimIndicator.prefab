@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6597673072185206778
+--- !u!1 &5741087122876898090
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6597673072185206776}
-  - component: {fileID: 6597673072185206779}
+  - component: {fileID: 5741087122876898085}
+  - component: {fileID: 5741087122876898084}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6597673072185206776
+--- !u!4 &5741087122876898085
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597673072185206778}
+  m_GameObject: {fileID: 5741087122876898090}
   m_LocalRotation: {x: 0.1275423, y: -0.30184975, z: 0.027749605, w: 0.9443779}
   m_LocalPosition: {x: 0.0042, y: -0.001, z: 0.0368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6597673072651676550}
+  m_Father: {fileID: 5741087123386383642}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 14.931, y: -35.642, z: -1.458}
---- !u!120 &6597673072185206779
+--- !u!120 &5741087122876898084
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597673072185206778}
+  m_GameObject: {fileID: 5741087122876898090}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -73,7 +73,9 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions: []
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.005
@@ -129,7 +131,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!1 &6597673072651676544
+--- !u!1 &5741087123386383640
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,48 +139,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6597673072651676550}
-  - component: {fileID: 6597673072651676545}
+  - component: {fileID: 5741087123386383642}
+  - component: {fileID: 5741087123386383643}
   m_Layer: 0
-  m_Name: DarkElectricChargeUp
+  m_Name: PalmAimIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6597673072651676550
+--- !u!4 &5741087123386383642
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597673072651676544}
+  m_GameObject: {fileID: 5741087123386383640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6597673072185206776}
+  - {fileID: 5741087122876898085}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6597673072651676545
+--- !u!114 &5741087123386383643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6597673072651676544}
+  m_GameObject: {fileID: 5741087123386383640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e7a2da74cbf1e4c89d1600a68ca9a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 73fc5b5c5c759fe4386b7e1088ce40d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: 
-  _prefab: {fileID: 5604884098600222163, guid: 56662e932876a8642a641da2cf43802e, type: 3}
-  _spawnPosition: {fileID: 6597673072185206776}
-  _aimRenderer: {fileID: 6597673072185206779}
-  _aimLineLength: 15
-  _parentToGauntlet: 1
   _showAim: 1
-  _destroyOnStopCast: 1
+  _spawnPoint: {fileID: 5741087122876898085}
+  _aimRenderer: {fileID: 5741087122876898084}
+  _aimLineLength: 15
