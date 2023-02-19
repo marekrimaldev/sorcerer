@@ -13,7 +13,7 @@ public class GauntletController : MonoBehaviour
     bool _triggerPressed = false;
     bool _gripPressed = false;
 
-    const float Threshold = 0.01f;
+    const float Threshold = 0.1f;
 
     private void Update()
     {
@@ -25,7 +25,7 @@ public class GauntletController : MonoBehaviour
             _gauntlet.PrimaryPress();
             _triggerPressed = true;
         }
-        else if (_triggerPressed && triggerCastVal < Threshold)
+        else if (_triggerPressed && triggerCastVal <  Threshold)
         {
             _gauntlet.PrimaryRelease();
             _triggerPressed = false;

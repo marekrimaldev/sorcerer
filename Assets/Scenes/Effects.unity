@@ -762,6 +762,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1310131781, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1310131783, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
       propertyPath: _primarySpellPrefab
       value: 
@@ -772,6 +776,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 55459685535021176, guid: 251e9cf01f79d4142a44c263917a39cf,
         type: 3}
+    - target: {fileID: 3867406157416939014, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_RootOrder

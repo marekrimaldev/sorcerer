@@ -27,7 +27,7 @@ public class Beam : HittableSpellCast
         _onHitEffectManager.ApplyEffects(_laserEndEffectInstance.transform.position, other.transform);
     }
 
-    public override void Init(Spell spell)
+    public override void Init(Spell spell, float chargePercent = 1)
     {
         base.Init(spell);
 
