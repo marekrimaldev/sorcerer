@@ -4,8 +4,17 @@ public class ChargeUp : SpellCast, ICharger
 {
     [SerializeField] private GameObject _effectPrefab;
     [SerializeField] private float _maxChargeDuration;
+    [SerializeField] private bool _parentRotation = false;
 
     private float _chargeBeginTime;
+
+    private void Update()
+    {
+        if (!_parentRotation)
+        {
+            transform.rotation = Quaternion.identity;
+        }
+    }
 
     public float GetChargePercent()
     {
