@@ -9,11 +9,11 @@ public class Projectile : HittableSpellCast
 
     private Rigidbody _rb;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        Instantiate(_impactEffectPrefab, transform.position, transform.rotation);
+        Instantiate(_impactEffectPrefab, transform.position, Quaternion.identity);
 
-        _onHitEffectManager.ApplyEffects(transform.position, other.transform);
+        _onHitEffectManager.ApplyEffects(other.GetContact(0).point, other.transform);
         Destroy(gameObject);
     }
 

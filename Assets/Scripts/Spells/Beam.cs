@@ -38,7 +38,7 @@ public class Beam : HittableSpellCast
         _laserEndEffectInstance = Instantiate(_laserEndEffectPrefab, _parentTransform.position, _parentTransform.rotation, transform);
 
         _laserEndTrigger = _laserEndEffectInstance.AddComponent<SphereCollider>();
-        _laserEndEffectInstance.layer = LayerMask.NameToLayer("IgnoreSpellCast");
+        _laserEndEffectInstance.layer = LayerMask.NameToLayer("IgnoreSpell");
         _laserEndTrigger.isTrigger = true;
         _laserEndTrigger.radius = 0.05f;
     }
@@ -46,14 +46,12 @@ public class Beam : HittableSpellCast
     private void UpdateLaser()
     {
         Vector3 laserEnd = _parentTransform.position + _parentTransform.forward * _laserLength;
-        if (Physics.Linecast(_parentTransform.position, laserEnd, out RaycastHit hitInfo, ~LayerMask.GetMask("IgnoreSpellCast")))
+        if (Physics.Linecast(_parentTransform.position, laserEnd, out RaycastHit hitInfo, ~LayerMask.GetMask("IgnoreSpell")))
         {
             laserEnd = hitInfo.point;
 
             _laserEndEffectInstance.SetActive(true);
-            _laserEndEffectInstance.transform.position = laserEnd; // - _parentTransform.forward * 0.05f;
-
-            //_onHitEffectManager.ApplyEffects(hitInfo.point, hitInfo.transform);
+            _laserEndEffectInstance.transform.position = laserEnd - _parentTransform.forward * 0.05f;
         }
         else
         {

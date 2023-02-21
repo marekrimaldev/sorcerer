@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onHitEffects:
-  - {fileID: 11400000, guid: 4dd85ed6224cd8244aea40a9d73af6c3, type: 2}
+  - {fileID: 11400000, guid: b04e00c0defed7342997ab67d7200668, type: 2}
 --- !u!54 &-3752116292394905604
 Rigidbody:
   m_ObjectHideFlags: 0

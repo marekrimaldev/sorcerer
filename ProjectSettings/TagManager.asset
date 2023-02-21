@@ -22,10 +22,10 @@ TagManager:
   - Teleport
   - 
   - 
+  - Player
   - 
-  - 
-  - IgnoreSpellCast
-  - SpellCast
+  - IgnoreSpell
+  - Spell
   - Hittable
   - 
   - 
