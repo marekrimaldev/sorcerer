@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1263690418836977518}
   - component: {fileID: 1263690418836977513}
   m_Layer: 20
-  m_Name: castDarkElectricChargeUp
+  m_Name: spellDarkElectricChargeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentToGauntlet: 1
   _destroySpellOnDispose: 1
-  _effectPrefab: {fileID: 5604884098600222163, guid: 56662e932876a8642a641da2cf43802e,
+  _chargeUpVFXControllerPrefab: {fileID: 1814971617305611441, guid: 56662e932876a8642a641da2cf43802e,
     type: 3}
   _maxChargeDuration: 2
+  _parentRotation: 0

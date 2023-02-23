@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 
-public class GrabMove : SpellCast
+public class GrabMove : Spell
 {
     [SerializeField] private float _dashDistance = 3;
     [SerializeField] private float _dashDuration = .5f;
@@ -11,7 +11,7 @@ public class GrabMove : SpellCast
     private Transform _rigTransform;
     private Transform _handTransform;
 
-    public override void Init(Spell spell, float chargePercent = 1)
+    public override void Init(SpellCaster spell, float chargePercent = 1)
     {
         base.Init(spell, chargePercent);
 

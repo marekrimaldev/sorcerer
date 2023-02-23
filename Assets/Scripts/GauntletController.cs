@@ -5,15 +5,22 @@ using UnityEngine.InputSystem;
 
 public class GauntletController : MonoBehaviour
 {
-    [SerializeField] private Gauntlet _gauntlet;
+    [SerializeField] private Gauntlet _gauntletPrefab;
 
     [SerializeField] private InputActionProperty _triggerCast;
     [SerializeField] private InputActionProperty _gripCast;
+
+    private Gauntlet _gauntlet;
 
     bool _triggerPressed = false;
     bool _gripPressed = false;
 
     const float Threshold = 0.1f;
+
+    private void Awake()
+    {
+        _gauntlet = Instantiate(_gauntletPrefab, transform.position, Quaternion.identity, transform);
+    }
 
     private void Update()
     {

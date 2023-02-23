@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Gauntlet : MonoBehaviour
 {
-    [SerializeField] private Spell _primarySpellPrefab;
-    [SerializeField] private Spell _secondarySpelPrefab;
+    [SerializeField] private SpellCaster _primarySpellPrefab;
+    [SerializeField] private SpellCaster _secondarySpelPrefab;
 
-    private Spell _primarySpellInstance;
-    private Spell _secondarySpellInstance;
+    private SpellCaster _primarySpellInstance;
+    private SpellCaster _secondarySpellInstance;
 
     private void Awake()
     {

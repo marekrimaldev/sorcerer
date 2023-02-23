@@ -1,45 +1,19 @@
 using UnityEngine;
 
-public class Spell : MonoBehaviour
+public abstract class Spell : MonoBehaviour, ISpell
 {
-    [SerializeField] private string _name;
-    [SerializeField] private SpellCast _startCastSpellPrefab;
-    [SerializeField] private SpellCast _stopCastSpellPrefab;
-    [SerializeField] protected AimIndicator _aimIndicatorPrefab;
+    [SerializeField] private bool _parentToGauntlet = true;
+    [SerializeField] private bool _destroySpellOnDispose = true;
 
-    protected SpellCast _startCastSpellInstance;
-    protected SpellCast _stopCastSpellInstance;
-    protected AimIndicator _aimIndicatorInstance;
-
-    public AimIndicator AimIndicator => _aimIndicatorInstance;
-
-    private void Awake()
+    public virtual void Init(SpellCaster spell, float chargePercent = 1)
     {
-        _aimIndicatorInstance = Instantiate(_aimIndicatorPrefab, transform.position, transform.rotation, transform);
+        if (_parentToGauntlet)
+            transform.SetParent(spell.AimIndicator.SpawnPoint);
     }
 
-    public virtual void StartCast()
+    public virtual void Dispose()
     {
-        if (_startCastSpellPrefab != null)
-        {
-            _startCastSpellInstance = Instantiate(_startCastSpellPrefab, AimIndicator.SpawnPoint.position, AimIndicator.SpawnPoint.rotation);
-            _startCastSpellInstance.Init(this);
-        }
-    }
-
-    public virtual void StopCast()
-    {
-        float chargePercent = 1;
-        ICharger charger = _startCastSpellInstance.GetComponent<ICharger>();
-        if (charger != null)
-            chargePercent = charger.GetChargePercent();
-
-        _startCastSpellInstance?.Dispose();
-
-        if (_stopCastSpellPrefab != null)
-        {
-            _stopCastSpellInstance = Instantiate(_stopCastSpellPrefab, AimIndicator.SpawnPoint.position, AimIndicator.SpawnPoint.rotation);
-            _stopCastSpellInstance.Init(this, chargePercent);
-        }
+        if (_destroySpellOnDispose)
+            Destroy(this.gameObject);
     }
 }
