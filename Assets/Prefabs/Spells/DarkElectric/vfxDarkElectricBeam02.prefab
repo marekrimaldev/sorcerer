@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5282393407792671594}
   - component: {fileID: 5282393407792671595}
   m_Layer: 0
-  m_Name: vfxDarkElectricLaser
+  m_Name: vfxDarkElectricBeam02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

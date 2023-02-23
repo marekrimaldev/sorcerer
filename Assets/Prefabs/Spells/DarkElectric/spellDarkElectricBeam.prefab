@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5029213328351843434}
   - component: {fileID: 5029213328351843437}
   m_Layer: 0
-  m_Name: spellDarkElectricLaser
+  m_Name: spellDarkElectricBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Dark Electric Laser
-  _startCastSpellPrefab: {fileID: -3889334073194046444, guid: e95634aefd37d3349a9e0b386df79cce,
+  _startCastSpellPrefab: {fileID: 6078632823006531663, guid: b160d01242364e14d8f4f58e58977f9d,
     type: 3}
   _stopCastSpellPrefab: {fileID: 0}
   _aimIndicatorPrefab: {fileID: 6045153591867953974, guid: 4e2cfc8684400ee46ab949d5067c76c2,
