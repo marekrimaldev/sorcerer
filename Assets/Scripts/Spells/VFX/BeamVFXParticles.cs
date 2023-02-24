@@ -7,6 +7,6 @@ public class BeamVFXParticles : BeamVFXController
 {
     public override void SetBeamLength(float length)
     {
-        throw new System.NotImplementedException();
+        _visualEffect.SetFloat("Length", length);
     }
 }

@@ -7,39 +7,39 @@ public class SpellCaster : MonoBehaviour
     [SerializeField] private Spell _stopCastSpellPrefab;
     [SerializeField] protected AimIndicator _aimIndicatorPrefab;
 
-    protected Spell _startCastSpellInstance;
-    protected Spell _stopCastSpellInstance;
-    protected AimIndicator _aimIndicatorInstance;
+    protected Spell _startCastSpell;
+    protected Spell _stopCastSpell;
+    protected AimIndicator _aimIndicator;
 
-    public AimIndicator AimIndicator => _aimIndicatorInstance;
+    public AimIndicator AimIndicator => _aimIndicator;
 
     private void Awake()
     {
-        _aimIndicatorInstance = Instantiate(_aimIndicatorPrefab, transform.position, transform.rotation, transform);
+        _aimIndicator = Instantiate(_aimIndicatorPrefab, transform.position, transform.rotation, transform);
     }
 
     public virtual void StartCast()
     {
         if (_startCastSpellPrefab != null)
         {
-            _startCastSpellInstance = Instantiate(_startCastSpellPrefab, AimIndicator.SpawnPoint.position, AimIndicator.SpawnPoint.rotation);
-            _startCastSpellInstance.Init(this);
+            _startCastSpell = Instantiate(_startCastSpellPrefab, AimIndicator.SpawnPoint.position, AimIndicator.SpawnPoint.rotation);
+            _startCastSpell.Init(this);
         }
     }
 
     public virtual void StopCast()
     {
         float chargePercent = 1;
-        ICharger charger = _startCastSpellInstance.GetComponent<ICharger>();
+        ICharger charger = _startCastSpell?.GetComponent<ICharger>();
         if (charger != null)
             chargePercent = charger.GetChargePercent();
 
-        _startCastSpellInstance?.Dispose();
+        _startCastSpell?.Dispose();
 
         if (_stopCastSpellPrefab != null)
         {
-            _stopCastSpellInstance = Instantiate(_stopCastSpellPrefab, AimIndicator.SpawnPoint.position, AimIndicator.SpawnPoint.rotation);
-            _stopCastSpellInstance.Init(this, chargePercent);
+            _stopCastSpell = Instantiate(_stopCastSpellPrefab, AimIndicator.SpawnPoint.position, AimIndicator.SpawnPoint.rotation);
+            _stopCastSpell.Init(this, chargePercent);
         }
     }
 }

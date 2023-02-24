@@ -10,22 +10,23 @@ public class Beam : HittableSpellCast
 
     private Transform _parentTransform;
 
-    private LineRenderer[] _beamRenderers;
     private BeamVFXController _beamVfxController;
     private VFXController _sourceVFXController;
     private VFXController _endVFXController;
 
     private SphereCollider _laserEndTrigger;
 
+    private bool _isActive = false;     // To prevend NullExp error
+
     private void Update()
     {
-        if (_beamRenderers != null && _beamRenderers.Length > 0)
+        if(_isActive)
             UpdateLaser();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        
+        Debug.Log("OnTriggerStay");
         _onHitEffectManager.ApplyEffects(_endVFXController.transform.position, other.transform);
     }
 
@@ -33,9 +34,10 @@ public class Beam : HittableSpellCast
     {
         base.Init(spell);
 
+        _isActive = true;
+
         _parentTransform = spell.AimIndicator.SpawnPoint;
         _beamVfxController = Instantiate(_beamVfxControllerPrefab, _parentTransform.position, _parentTransform.rotation, transform) as BeamVFXController;
-        _beamRenderers = _beamVfxController.gameObject.GetComponentsInChildren<LineRenderer>();
         _sourceVFXController = Instantiate(_sourceVFXControllerPrefab, _parentTransform.position, _parentTransform.rotation, transform);
         _endVFXController = Instantiate(_endVFXControllerPrefab, _parentTransform.position, _parentTransform.rotation, transform);
 
@@ -45,25 +47,28 @@ public class Beam : HittableSpellCast
         _laserEndTrigger.radius = 0.05f;
     }
 
+    public override void Dispose()
+    {
+        base.Dispose();
+        _isActive = false;
+    }
+
     private void UpdateLaser()
     {
-        Vector3 laserEnd = _parentTransform.position + _parentTransform.forward * _beamLength;
-        if (Physics.Linecast(_parentTransform.position, laserEnd, out RaycastHit hitInfo, ~LayerMask.GetMask("IgnoreSpell")))
+        Vector3 beamEnd = _parentTransform.position + _parentTransform.forward * _beamLength;
+        if (Physics.Linecast(_parentTransform.position, beamEnd, out RaycastHit hitInfo, ~LayerMask.GetMask("IgnoreSpell")))
         {
-            laserEnd = hitInfo.point;
+            beamEnd = hitInfo.point;
 
-            _endVFXController.gameObject.SetActive(true);
-            _endVFXController.transform.position = laserEnd - _parentTransform.forward * 0.05f;
+            _endVFXController.EnableVFX(true);
+            _endVFXController.transform.position = beamEnd - _parentTransform.forward * 0.05f;
         }
         else
         {
-            _endVFXController.gameObject.SetActive(false);
+            _endVFXController.EnableVFX(false);
         }
 
-        for (int i = 0; i < _beamRenderers.Length; i++)
-        {
-            _beamRenderers[i].SetPosition(0, _parentTransform.position);
-            _beamRenderers[i].SetPosition(1, laserEnd);
-        }
+        float currLength = Vector3.Distance(_parentTransform.position, beamEnd);
+        _beamVfxController.SetBeamLength(currLength);
     }
 }

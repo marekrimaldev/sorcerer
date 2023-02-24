@@ -25,4 +25,9 @@ public class AreaController : MonoBehaviour
     {
         RestartArea();
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        RestartArea();
+    }
 }

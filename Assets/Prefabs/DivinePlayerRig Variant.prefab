@@ -439,7 +439,7 @@ PrefabInstance:
     - target: {fileID: 4922469953440940497, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}
       propertyPath: m_Name
-      value: DivinePlayerRig
+      value: DivinePlayerRig Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4922469953440940497, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}

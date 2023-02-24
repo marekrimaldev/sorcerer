@@ -6,5 +6,10 @@ using UnityEngine.VFX;
 /// </summary>
 public class VFXController : MonoBehaviour
 {
-    [SerializeField] private VisualEffect _visualEffect;
+    [SerializeField] protected VisualEffect _visualEffect;
+
+    public void EnableVFX(bool val)
+    {
+        _visualEffect.gameObject.SetActive(val);
+    }
 }

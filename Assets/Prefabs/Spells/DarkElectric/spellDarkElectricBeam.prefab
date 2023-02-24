@@ -60,6 +60,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: spellDarkElectricBeam
       objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425712, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
         type: 3}
       propertyPath: m_RootOrder
