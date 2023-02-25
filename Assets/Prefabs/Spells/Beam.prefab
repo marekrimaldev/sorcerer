@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6377432987624425714}
   - component: {fileID: 371747985265948570}
   - component: {fileID: -7048362094113264394}
+  - component: {fileID: -4451483542357569864}
   m_Layer: 0
   m_Name: Beam
   m_TagString: Untagged
@@ -49,12 +50,9 @@ MonoBehaviour:
   _destroySpellOnDispose: 1
   _onHitEffectManager: {fileID: -7048362094113264394}
   _beamLength: 15
-  _laserPrefab: {fileID: 5282393407792671592, guid: 0f94a00b8bdd44246ade2d553f40fbcb,
-    type: 3}
-  _beamSourceEffectPrefab: {fileID: 2947313170752594872, guid: 3ba3127ea3977f243a27056d616a43e7,
-    type: 3}
-  _beamEndEffectPrefab: {fileID: 2947313170752594872, guid: 3ba3127ea3977f243a27056d616a43e7,
-    type: 3}
+  _beamVfxControllerPrefab: {fileID: 0}
+  _sourceVFXControllerPrefab: {fileID: 0}
+  _endVFXControllerPrefab: {fileID: 0}
 --- !u!114 &-7048362094113264394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,3 +67,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onHitEffects:
   - {fileID: 11400000, guid: b04e00c0defed7342997ab67d7200668, type: 2}
+--- !u!54 &-4451483542357569864
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377432987624425712}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
