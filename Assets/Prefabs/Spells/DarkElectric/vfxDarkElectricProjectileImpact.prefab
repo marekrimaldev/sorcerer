@@ -123,8 +123,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9433962, g: 0.89843595, b: 0.2729322, a: 1}
-  m_Intensity: 0.5
+  m_Color: {r: 0.745283, g: 0.7174195, b: 0.2437403, a: 1}
+  m_Intensity: 0.25
   m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -240,3 +240,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _visualEffect: {fileID: 7670359228763728167}
+  _destroyTime: 0.5
