@@ -61,7 +61,7 @@ public class Beam : HittableSpellCast
             beamEnd = hitInfo.point;
 
             _endVFXController.EnableVFX(true);
-            _endVFXController.transform.position = beamEnd - _parentTransform.forward * 0.05f;
+            _endVFXController.transform.position = beamEnd - _parentTransform.forward * 0.02f;
         }
         else
         {

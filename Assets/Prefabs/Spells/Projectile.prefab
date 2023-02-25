@@ -52,9 +52,8 @@ MonoBehaviour:
   _onHitEffectManager: {fileID: -4651976601500277571}
   _force: 0
   _applyGravity: 1
-  _effectPrefab: {fileID: 2947313170752594872, guid: 9970ce618c6ef15469a156226a9a4a96,
-    type: 3}
-  _impactEffectPrefab: {fileID: 0}
+  _projectileVFXControllerPrefab: {fileID: 0}
+  _impactVFXControllerPrefab: {fileID: 0}
 --- !u!114 &-4651976601500277571
 MonoBehaviour:
   m_ObjectHideFlags: 0
