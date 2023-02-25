@@ -18,7 +18,9 @@ public class AreaController : MonoBehaviour
         if(_areaInstance != null)
             Destroy(_areaInstance);
 
-        _areaInstance = Instantiate(_areaPrefab, _areaPosition.position, _areaPosition.rotation, transform);
+        _areaInstance = Instantiate(_areaPrefab, _areaPosition.position, _areaPosition.rotation, _areaPosition);
+        _areaInstance.transform.localPosition = Vector3.zero;
+        _areaInstance.transform.localRotation = Quaternion.identity;
     }
 
     private void OnTriggerEnter(Collider other)
