@@ -9,9 +9,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4651976601500277571, guid: 718546b5d5f30344f84c301a7d6ef0d6,
         type: 3}
+      propertyPath: _onHitEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4651976601500277571, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
       propertyPath: _onHitEffects.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: 4dd85ed6224cd8244aea40a9d73af6c3,
+        type: 2}
+    - target: {fileID: -4651976601500277571, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
+      propertyPath: _onHitEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 45ff4889f7aa10848b0ae32e5c28b9c1,
         type: 2}
     - target: {fileID: 12584477, guid: 718546b5d5f30344f84c301a7d6ef0d6, type: 3}
       propertyPath: m_Color.b

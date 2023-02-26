@@ -9,17 +9,18 @@ public class VFXController : MonoBehaviour
 {
     [SerializeField] protected VisualEffect _visualEffect;
     [Tooltip("Put negative number if you wish to not auto destroy the effect")]
-    [SerializeField] private float _destroyTime = -1;
-
-    private void Awake()
-    {
-        if (_destroyTime > 0)
-            DestroyVFXAfterDuration(_destroyTime);
-    }
 
     public void EnableVFX(bool val)
     {
         _visualEffect.gameObject.SetActive(val);
+    }
+
+    /// <summary>
+    /// Use this method to destroy the VFX in seconds.
+    /// </summary>
+    public void DestroyVFXInSeconds(float seconds)
+    {
+        DestroyVFXAfterDuration(seconds);
     }
 
     /// <summary>
@@ -29,6 +30,7 @@ public class VFXController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
     private void DestroyVFXAfterDuration(float destroyTime)
     {
         Light[] lights = GetComponentsInChildren<Light>();

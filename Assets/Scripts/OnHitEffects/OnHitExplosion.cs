@@ -10,6 +10,9 @@ public class OnHitExplosion : OnHitEffect
 
     public override void ApplyEffect(Vector3 hitPoint, Transform hitTransform)
     {
+        if (!ShouldApplyEffect(hitTransform))
+            return;
+
         Collider[] cols = Physics.OverlapSphere(hitPoint, _explosionRadius);
         for (int i = 0; i < cols.Length; i++)
         {

@@ -26,7 +26,6 @@ public class Beam : HittableSpellCast
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("OnTriggerStay");
         _onHitEffectManager.ApplyEffects(_endVFXController.transform.position, other.transform);
     }
 

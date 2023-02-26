@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3280362924011592722}
   - component: {fileID: 3280362924011592723}
   - component: {fileID: 3280362924011592724}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 3280362924207630411}
   - component: {fileID: 3280362924207630412}
   - component: {fileID: 3280362924207630413}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3280362924961988315}
   - component: {fileID: 3280362924961988316}
   - component: {fileID: 3280362924961988317}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 3280362925100780030}
   - component: {fileID: 3280362925100780031}
   - component: {fileID: 3280362925100780016}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 3280362925455212676}
   - component: {fileID: 3280362925455212677}
   - component: {fileID: 3280362925455212678}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 3280362925631561007}
   - component: {fileID: 3280362925631560992}
   - component: {fileID: 3280362925631560993}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 3280362925854902223}
   - component: {fileID: 3280362925854902208}
   - component: {fileID: 3280362925854902209}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 3280362925885592973}
   - component: {fileID: 3280362925885592974}
   - component: {fileID: 3280362925885592975}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3280362926049651396}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsules
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 3280362926080723382}
   - component: {fileID: 3280362926080723383}
   - component: {fileID: 3280362926080723368}
-  m_Layer: 0
+  m_Layer: 22
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

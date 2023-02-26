@@ -12,7 +12,8 @@ public class Projectile : HittableSpellCast
 
     private void OnCollisionEnter(Collision other)
     {
-        Instantiate(_impactVFXControllerPrefab, transform.position, Quaternion.identity);
+        VFXController vfx = Instantiate(_impactVFXControllerPrefab, transform.position, Quaternion.identity);
+        vfx.DestroyVFXInSeconds(0.5f);
 
         _onHitEffectManager.ApplyEffects(other.GetContact(0).point, other.transform);
         Destroy(gameObject);
