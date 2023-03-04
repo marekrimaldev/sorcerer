@@ -15,6 +15,12 @@ public class VFXController : MonoBehaviour
         _visualEffect.gameObject.SetActive(val);
     }
 
+    public void SetColor(Color color)
+    {
+        Debug.Log("Setting color to " + color);
+        _visualEffect.SetVector4("Color", color);
+    }
+
     /// <summary>
     /// Use this method to destroy the VFX in seconds.
     /// </summary>

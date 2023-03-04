@@ -10,8 +10,14 @@ PrefabInstance:
     - target: {fileID: 989535018130305296, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
       propertyPath: m_Name
-      value: Gauntlet
+      value: gauntletDarkElectric
       objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305298, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _stopCastSpellPrefab
+      value: 
+      objectReference: {fileID: 50675067273607299, guid: 0359fba3cd1089148aaa6bf9bd466018,
+        type: 3}
     - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
       propertyPath: m_RootOrder
