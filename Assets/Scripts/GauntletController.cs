@@ -9,11 +9,15 @@ public class GauntletController : MonoBehaviour
 
     [SerializeField] private InputActionProperty _gripCast;
     [SerializeField] private InputActionProperty _triggerCast;
+    [SerializeField] private InputActionProperty _primaryButtonCast;
+    [SerializeField] private InputActionProperty _secondaryButtonCast;
 
     private Gauntlet _gauntlet;
 
     bool _gripPressed = false;
     bool _triggerPressed = false;
+    bool _primaryButtonPressed = false;
+    bool _secondaryButtonPressed = false;
 
     const float Threshold = 0.1f;
 
@@ -28,6 +32,12 @@ public class GauntletController : MonoBehaviour
     {
         float triggerCastVal = _triggerCast.action.ReadValue<float>();
         float gripCastVal = _gripCast.action.ReadValue<float>();
+        //float primaryButtonCast = _primaryButtonCast.action.ReadValue<float>();
+        //bool primaryButtonCastBool = _primaryButtonCast.action.ReadValue<bool>();
+        //bool secondaryButtonCast = _secondaryButtonCast.action.ReadValue<bool>();
+
+        //Debug.Log(primaryButtonCast);
+        //Debug.Log(primaryButtonCastBool);
 
         if (!_gripPressed && gripCastVal > Threshold)
         {
@@ -50,5 +60,16 @@ public class GauntletController : MonoBehaviour
             _gauntlet.SecondaryRelease();
             _triggerPressed = false;
         }
+
+        //if (!_primaryButtonPressed && primaryButtonCast > 0.1f)
+        //{
+        //    _gauntlet.ShieldPress();
+        //    _primaryButtonPressed = true;
+        //}
+        //else if (_primaryButtonPressed && primaryButtonCast < 0.1f)
+        //{
+        //    _gauntlet.ShieldRelease();
+        //    _primaryButtonPressed = false;
+        //}
     }
 }

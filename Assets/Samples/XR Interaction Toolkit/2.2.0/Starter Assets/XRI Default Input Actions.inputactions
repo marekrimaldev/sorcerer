@@ -1499,24 +1499,52 @@
             "id": "b3dea825-8a11-4192-8e6b-075c40ea3b7c",
             "actions": [
                 {
-                    "name": "Cast",
-                    "type": "Button",
+                    "name": "PrimaryButton",
+                    "type": "Value",
                     "id": "a156aa58-0108-4a30-a31f-ab5b2b2b8b52",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "731564eb-dadd-4636-bf43-95db12e3971f",
-                    "path": "<XRController>{RightHand}/primaryButton",
+                    "path": "<XRController>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "PrimaryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Casting LeftHand",
+            "id": "153d6720-afec-4c4e-8fe0-4e98f08a0d1a",
+            "actions": [
+                {
+                    "name": "PrimaryButton",
+                    "type": "Value",
+                    "id": "746f5973-efc0-45c6-abc8-a6c4f52ae4c3",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7db37306-6d1e-4980-98fa-4347330aa510",
+                    "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Cast",
+                    "action": "PrimaryButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

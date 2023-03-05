@@ -7579,11 +7579,39 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3554469674855049517, guid: b5b284fa246c5cb428073d77a346fecb,
-        type: 3}
-      propertyPath: m_Controller
+    - target: {fileID: 926265307, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
+      propertyPath: _primaryButtonCast.m_Reference
       value: 
-      objectReference: {fileID: 9100000, guid: 6507855039dac38408fc6ce01b343d69, type: 2}
+      objectReference: {fileID: 2117289337063364010, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 926265307, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
+      propertyPath: _primaryButtonCast.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 926265307, guid: b5b284fa246c5cb428073d77a346fecb, type: 3}
+      propertyPath: _secondaryButtonCast.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424179676282235299, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683589136888903148, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653552351880630737, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3884267744581575193, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4551762060114641261, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_RootOrder
@@ -7639,9 +7667,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7327530240150810476, guid: b5b284fa246c5cb428073d77a346fecb,
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _primaryButtonCast.m_Reference
+      value: 
+      objectReference: {fileID: -6005178423214158645, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _primaryButtonCast.m_Action.m_Id
+      value: 2521f474-2f57-4f9f-b340-b09e6b38d3d7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _secondaryButtonCast.m_Reference
+      value: 
+      objectReference: {fileID: -6005178423214158645, guid: c348712bda248c246b8c49b3db54643f,
+        type: 3}
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _primaryButtonCast.m_Action.m_Name
+      value: Primary Button Cast
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _secondaryButtonCast.m_Action.m_Id
+      value: fb6a3419-98d8-43fc-9617-089e41c82173
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _secondaryButtonCast.m_UseReference
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717525771188486840, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: _secondaryButtonCast.m_Action.m_Name
+      value: Secondary Button Cast
+      objectReference: {fileID: 0}
+    - target: {fileID: 7845123658572649795, guid: b5b284fa246c5cb428073d77a346fecb,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516223781790626494, guid: b5b284fa246c5cb428073d77a346fecb,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9162070698277773513, guid: b5b284fa246c5cb428073d77a346fecb,
