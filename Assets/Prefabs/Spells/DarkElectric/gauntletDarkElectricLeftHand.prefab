@@ -10,13 +10,25 @@ PrefabInstance:
     - target: {fileID: 989535018130305296, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
       propertyPath: m_Name
-      value: gauntletDarkElectric
+      value: gauntletDarkElectricLeft
       objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305298, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _aimIndicatorPrefab
+      value: 
+      objectReference: {fileID: 7716100680304069371, guid: 1bc6959ec9d64244c8f264b3fab9412c,
+        type: 3}
     - target: {fileID: 989535018130305298, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
       propertyPath: _stopCastSpellPrefab
       value: 
       objectReference: {fileID: 50675067273607299, guid: 0359fba3cd1089148aaa6bf9bd466018,
+        type: 3}
+    - target: {fileID: 989535018130305299, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _aimIndicatorPrefab
+      value: 
+      objectReference: {fileID: 8357640899401878918, guid: 9125b1d02d0d4854dba49b472ccf92c6,
         type: 3}
     - target: {fileID: 989535018130305299, guid: 78cd59880902e494d985ce726999f405,
         type: 3}
