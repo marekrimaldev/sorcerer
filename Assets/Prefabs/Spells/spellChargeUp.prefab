@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5756126120795050970}
   - component: {fileID: 3035958408577580125}
   m_Layer: 20
-  m_Name: ChargeUp
+  m_Name: spellChargeUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

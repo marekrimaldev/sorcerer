@@ -19,7 +19,7 @@ public class HitDetector : MonoBehaviour
         Rigidbody rb = other.gameObject.GetComponentInParent<Rigidbody>();
         if (rb != null)
         {
-            vfx.transform.forward = transform.right * rb.velocity.x;
+            vfx.transform.forward = -(transform.right * rb.velocity.x);
         }
     }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &976236530463443646
+--- !u!1 &6377432987624425712
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,92 +8,78 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 976236530463443640}
-  - component: {fileID: 976236530463443641}
-  - component: {fileID: -4651976601500277571}
-  - component: {fileID: 976236530463443643}
-  - component: {fileID: 6339218829811613594}
-  m_Layer: 20
-  m_Name: Projectile
+  - component: {fileID: 6377432987624425714}
+  - component: {fileID: 371747985265948570}
+  - component: {fileID: -7048362094113264394}
+  - component: {fileID: -4451483542357569864}
+  m_Layer: 0
+  m_Name: spellBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &976236530463443640
+--- !u!4 &6377432987624425714
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976236530463443646}
+  m_GameObject: {fileID: 6377432987624425712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.794, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &976236530463443641
+--- !u!114 &371747985265948570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976236530463443646}
+  m_GameObject: {fileID: 6377432987624425712}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 624055d4c9984ab48bee9fefb4770bed, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b058ad35d5f353438f2443464659bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _parentToGauntlet: 1
   _destroySpellOnDispose: 1
-  _onHitEffectManager: {fileID: -4651976601500277571}
-  _force: 0
-  _applyGravity: 1
-  _projectileVFXControllerPrefab: {fileID: 0}
-  _impactVFXControllerPrefab: {fileID: 0}
---- !u!114 &-4651976601500277571
+  _onHitEffectManager: {fileID: -7048362094113264394}
+  _beamLength: 15
+  _beamVfxControllerPrefab: {fileID: 0}
+  _sourceVFXControllerPrefab: {fileID: 0}
+  _endVFXControllerPrefab: {fileID: 0}
+--- !u!114 &-7048362094113264394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976236530463443646}
+  m_GameObject: {fileID: 6377432987624425712}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7a4aab2526bbb2439f7000a4a946921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _onHitEffects:
-  - {fileID: 11400000, guid: 4dd85ed6224cd8244aea40a9d73af6c3, type: 2}
---- !u!54 &976236530463443643
+  - {fileID: 11400000, guid: b04e00c0defed7342997ab67d7200668, type: 2}
+--- !u!54 &-4451483542357569864
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976236530463443646}
+  m_GameObject: {fileID: 6377432987624425712}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!135 &6339218829811613594
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976236530463443646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_CollisionDetection: 0
