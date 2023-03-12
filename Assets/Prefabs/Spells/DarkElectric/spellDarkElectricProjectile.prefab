@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8677243185083982668, guid: 718546b5d5f30344f84c301a7d6ef0d6,
+        type: 3}
+      propertyPath: _homingIntensity
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: -4651976601500277571, guid: 718546b5d5f30344f84c301a7d6ef0d6,
         type: 3}
       propertyPath: _onHitEffects.Array.size
@@ -94,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
         type: 3}
       propertyPath: _force
-      value: 2000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 976236530463443641, guid: 718546b5d5f30344f84c301a7d6ef0d6,
         type: 3}

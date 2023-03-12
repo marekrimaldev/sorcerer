@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 976236530463443640}
   - component: {fileID: 976236530463443641}
+  - component: {fileID: -8677243185083982668}
   - component: {fileID: -4651976601500277571}
   - component: {fileID: 976236530463443643}
   - component: {fileID: 6339218829811613594}
@@ -51,9 +52,27 @@ MonoBehaviour:
   _destroySpellOnDispose: 1
   _onHitEffectManager: {fileID: -4651976601500277571}
   _force: 0
-  _applyGravity: 1
+  _controller: {fileID: -8677243185083982668}
   _projectileVFXControllerPrefab: {fileID: 0}
   _impactVFXControllerPrefab: {fileID: 0}
+--- !u!114 &-8677243185083982668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976236530463443646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6910c1b145651d342831959c624468fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handling: 1
+  _applyGravity: 0
+  _homingIntensity: 0.05
+  _homingOffset: 7
+  _maxOffset: 0.5
+  _maxAcc: 0.03
 --- !u!114 &-4651976601500277571
 MonoBehaviour:
   m_ObjectHideFlags: 0

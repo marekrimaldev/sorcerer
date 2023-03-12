@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class HittableSpellCast : Spell
+public abstract class HittableSpell : Spell
 {
     [SerializeField] protected OnHitEffectManager _onHitEffectManager;
 }

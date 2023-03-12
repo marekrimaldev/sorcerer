@@ -32,12 +32,8 @@ public class GauntletController : MonoBehaviour
     {
         float triggerCastVal = _triggerCast.action.ReadValue<float>();
         float gripCastVal = _gripCast.action.ReadValue<float>();
-        //float primaryButtonCast = _primaryButtonCast.action.ReadValue<float>();
-        //bool primaryButtonCastBool = _primaryButtonCast.action.ReadValue<bool>();
-        //bool secondaryButtonCast = _secondaryButtonCast.action.ReadValue<bool>();
-
-        //Debug.Log(primaryButtonCast);
-        //Debug.Log(primaryButtonCastBool);
+        float primaryButtonCast = _primaryButtonCast.action.ReadValue<float>();
+        float secondaryButtonCast = _secondaryButtonCast.action.ReadValue<float>();
 
         if (!_gripPressed && gripCastVal > Threshold)
         {
@@ -61,15 +57,26 @@ public class GauntletController : MonoBehaviour
             _triggerPressed = false;
         }
 
-        //if (!_primaryButtonPressed && primaryButtonCast > 0.1f)
-        //{
-        //    _gauntlet.ShieldPress();
-        //    _primaryButtonPressed = true;
-        //}
-        //else if (_primaryButtonPressed && primaryButtonCast < 0.1f)
-        //{
-        //    _gauntlet.ShieldRelease();
-        //    _primaryButtonPressed = false;
-        //}
+        if (!_primaryButtonPressed && primaryButtonCast > Threshold)
+        {
+            _gauntlet.ShieldPress();
+            _primaryButtonPressed = true;
+        }
+        else if (_primaryButtonPressed && primaryButtonCast < Threshold)
+        {
+            _gauntlet.ShieldRelease();
+            _primaryButtonPressed = false;
+        }
+
+        if (!_secondaryButtonPressed && secondaryButtonCast > Threshold)
+        {
+            _gauntlet.ShieldPress();
+            _secondaryButtonPressed = true;
+        }
+        else if (_secondaryButtonPressed && secondaryButtonCast < Threshold)
+        {
+            _gauntlet.ShieldRelease();
+            _secondaryButtonPressed = false;
+        }
     }
 }

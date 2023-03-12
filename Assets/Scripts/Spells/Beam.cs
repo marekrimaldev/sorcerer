@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class Beam : HittableSpellCast
+public class Beam : HittableSpell
 {
-    [SerializeField] private float _beamLength;
+    [SerializeField] protected float _beamLength;
     [SerializeField] private BeamVFXController _beamVfxControllerPrefab;
     [SerializeField] private VFXController _sourceVFXControllerPrefab;
     [SerializeField] private VFXController _endVFXControllerPrefab;
@@ -52,9 +52,14 @@ public class Beam : HittableSpellCast
         _isActive = false;
     }
 
-    private void UpdateLaser()
+    protected virtual Vector3 GetBeamEnd()
     {
-        Vector3 beamEnd = _parentTransform.position + _parentTransform.forward * _beamLength;
+        return _parentTransform.position + _parentTransform.forward * _beamLength;
+    }
+
+    protected void UpdateLaser()
+    {
+        Vector3 beamEnd = GetBeamEnd();
         if (Physics.Linecast(_parentTransform.position, beamEnd, out RaycastHit hitInfo, ~LayerMask.GetMask("IgnoreSpell")))
         {
             beamEnd = hitInfo.point;
