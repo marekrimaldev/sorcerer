@@ -69,10 +69,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _handling: 1
   _applyGravity: 0
-  _homingIntensity: 0.05
-  _homingOffset: 7
-  _maxOffset: 0.5
-  _maxAcc: 0.03
+  _homingIntensity: 1
+  _homingAccuracy: 5
+  _hommingTargetPrefab: {fileID: 7383623311533041105, guid: e31a9b5b1b572d54981a7fbe44ba1a84,
+    type: 3}
 --- !u!114 &-4651976601500277571
 MonoBehaviour:
   m_ObjectHideFlags: 0
