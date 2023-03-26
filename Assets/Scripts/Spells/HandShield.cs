@@ -8,9 +8,9 @@ public class HandShield : Spell
     
     private ShieldVFXController _shieldVFXController;
 
-    public override void Init(SpellCaster spell, float chargePercent = 1)
+    public override void Init(SpellCaster spell)
     {
-        base.Init(spell, chargePercent);
+        base.Init(spell);
 
         _shieldVFXController = Instantiate(_shieldVFXControllerPrefab, spell.AimIndicator.SpawnPoint.position, spell.AimIndicator.SpawnPoint.rotation, transform);
         StartCoroutine(UpdateShieldDirection(spell.AimIndicator.SpawnPoint));

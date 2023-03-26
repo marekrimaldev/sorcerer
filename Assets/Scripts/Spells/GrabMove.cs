@@ -11,9 +11,9 @@ public class GrabMove : Spell
     private Transform _rigTransform;
     private Transform _handTransform;
 
-    public override void Init(SpellCaster spell, float chargePercent = 1)
+    public override void Init(SpellCaster spell)
     {
-        base.Init(spell, chargePercent);
+        base.Init(spell);
 
         _rigTransform = GetComponentInParent<XROrigin>().transform;
         _handTransform = spell.AimIndicator.SpawnPoint;

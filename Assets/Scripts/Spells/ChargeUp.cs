@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -8,6 +10,9 @@ public class ChargeUp : Spell, ICharger
     [SerializeField] private bool _parentRotation = false;
 
     private float _chargeBeginTime;
+    private List<Vector3> _trajectory = new List<Vector3>();
+
+    private const float SampleInterval = 0.05f;
 
     private void Update()
     {
@@ -17,18 +22,40 @@ public class ChargeUp : Spell, ICharger
         }
     }
 
-    public float GetChargePercent()
+    public ICharger.ChargeInfo GetChargeInfo()
     {
+        StopAllCoroutines();
+
         float chargeTime = Time.time - _chargeBeginTime;
-        return Mathf.Min(chargeTime / _maxChargeDuration, 1);
+        float percent = Mathf.Min(chargeTime / _maxChargeDuration, 1);
+
+        //for (int i = 0; i < _trajectory.Count; i++)
+        //{
+        //    Debug.Log("p = " + _trajectory[i]);
+        //}
+
+        ICharger.ChargeInfo info = new ICharger.ChargeInfo(chargeTime, percent, _trajectory.ToArray());
+        info.GetAcceleration();
+
+        return info;
     }
 
-    public override void Init(SpellCaster spell, float chargePercent = 1)
+    public override void Init(SpellCaster spell)
     {
         base.Init(spell);
 
         Instantiate(_chargeUpVFXControllerPrefab, transform.position, transform.rotation, transform);
+        StartCoroutine(SamplingCoroutine());
+    }
 
+    private IEnumerator SamplingCoroutine()
+    {
         _chargeBeginTime = Time.time;
+
+        while (this)
+        {
+            _trajectory.Add(transform.position);
+            yield return new WaitForSeconds(SampleInterval);
+        }
     }
 }

@@ -29,7 +29,7 @@ public class Beam : HittableSpell
         _onHitEffectManager.ApplyEffects(_endVFXController.transform.position, other.transform);
     }
 
-    public override void Init(SpellCaster spell, float chargePercent = 1)
+    public override void Init(SpellCaster spell)
     {
         base.Init(spell);
 
