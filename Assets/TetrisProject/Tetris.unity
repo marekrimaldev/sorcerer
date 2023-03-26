@@ -185,26 +185,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1480966755399848836, guid: 527ea339d9bc7264c97cee47c81987e6,
-        type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480966755399848836, guid: 527ea339d9bc7264c97cee47c81987e6,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480966755399848836, guid: 527ea339d9bc7264c97cee47c81987e6,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1480966755399848836, guid: 527ea339d9bc7264c97cee47c81987e6,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4922469953440940497, guid: 527ea339d9bc7264c97cee47c81987e6,
         type: 3}
       propertyPath: m_Name
@@ -228,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &768607600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dimensions: {x: 10, y: 20, z: 1}
-  _allowedPlacementRotationError: 15
   _placementVisualizationPrefab: {fileID: 5717856995035906651, guid: d703cffd05bbe5a4aba7b15c46dc3cf6,
     type: 3}
   _cellVisualizationPrefab: {fileID: 2622367088532576536, guid: f4cee7b7a45a4a54ab285955b1b068e3,
@@ -499,7 +478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1569786952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -522,7 +501,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 1, b: 0, a: 1}
   _piecePrefabs:
-  - {fileID: 4780414736424492314, guid: 7ce1943097a1a8e489e06d4b4b64e537, type: 3}
+  - {fileID: 6362352935358514619, guid: 206ad3e3bd368b64cb40823fddd626e3, type: 3}
 --- !u!4 &1569786953
 Transform:
   m_ObjectHideFlags: 0

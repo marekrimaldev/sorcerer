@@ -10,12 +10,11 @@ namespace VRTetris
         [SerializeField] private GameObject _placementVisualizationPrefab;
         [SerializeField] private GameObject _cellVisualizationPrefab;
 
-        private List<Transform> _cubes = new List<Transform>();
-        private Transform[][] _matrix;
-        private Transform[][] _matrixVisualization;
+        private Matrix _matrix;
+        private Matrix _helperMatrix;
 
         private List<Piece> _activePieces = new List<Piece>();
-        private List<Transform> _visualizationCubes = new List<Transform>();
+        private List<Transform> _helperCubes = new List<Transform>();
 
         private const int MaxCubesPerPiece = 4;
 
@@ -23,23 +22,19 @@ namespace VRTetris
 
         private void Awake()
         {
-            InitMatrix();
-            InitVisualizationCubes();
+            Init();
         }
 
         private void OnEnable()
         {
             PieceGenerator.OnNewPieceGenerated += OnNewPieceGenerated;
+            VRPlayer.OnPieceDropped += OnPieceDropped;
         }
 
         private void OnDisable()
         {
             PieceGenerator.OnNewPieceGenerated -= OnNewPieceGenerated;
-        }
-
-        private void Start()
-        {
-            DrawMatrix();
+            VRPlayer.OnPieceDropped -= OnPieceDropped;
         }
 
         private void Update()
@@ -62,73 +57,79 @@ namespace VRTetris
             TryAddPiece(piece);
         }
 
-        private void InitMatrix()
+        private void Init()
         {
             transform.position += Vector3.left * _dimensions.x * PieceGenerator.PieceScale / 2;
             transform.position += Vector3.forward * _dimensions.z * PieceGenerator.PieceScale / 2;
             transform.position += Vector3.forward * .15f;
             transform.position += Vector3.up * 1;
 
-            _matrix = new Transform[_dimensions.y][];
-            for (int i = 0; i < _dimensions.y; i++)
-            {
-                _matrix[i] = new Transform[_dimensions.x];
-            }
+            _matrix = gameObject.AddComponent<Matrix>();
+            _helperMatrix = gameObject.AddComponent<Matrix>();
+
+            _matrix.InitMatrix(_dimensions);
+            _helperMatrix.InitMatrix(_dimensions);
+
+            _helperMatrix.DrawMatrix(_cellVisualizationPrefab);
+
+            InitHelperCubes();
         }
 
-        private void DrawMatrix()
+        /// <summary>
+        /// The image of the piece has to be 4-connected to ensure valid rotation of the piece
+        /// </summary>
+        /// <param name="piece"></param>
+        /// <returns></returns>
+        private bool IsPieceImage4Connected(Piece piece)
         {
-            _matrixVisualization = new Transform[_dimensions.y][];
-            for (int y = 0; y < _dimensions.y; y++)
+            // You can try to place the piece in the middle of the grid with no rotation and count the connectivity
+            // Each piece might also have its own little grid and be able to calculate the connectivity for you
+
+            _helperMatrix.ClearMatrix();
+
+            Transform[] cubes = piece.Cubes;
+            for (int i = 0; i < cubes.Length; i++)
             {
-                _matrixVisualization[y] = new Transform[_dimensions.x];
-                for (int x = 0; x < _dimensions.x; x++)
-                {
-                    for (int z = 0; z < _dimensions.z; z++)
-                    {
-                        Transform cell = Instantiate(_cellVisualizationPrefab, transform).transform;
-                        cell.localPosition = new Vector3(x, y, z) * PieceGenerator.PieceScale;
-                        cell.localScale = Vector3.one * 0.85f * PieceGenerator.PieceScale;
-
-                        _matrixVisualization[y][x] = cell;
-                    }
-                }
+                _helperCubes[i].position = cubes[i].position;
+                _helperMatrix.PlaceCubeToMatrix(_helperCubes[i]);
             }
-        }
 
-        private void InitVisualizationCubes()
-        {
-            for (int i = 0; i < MaxCubesPerPiece; i++)
+            int neighbouring = 0;
+            for (int i = 0; i < cubes.Length; i++)
             {
-                GameObject cube = Instantiate(_placementVisualizationPrefab, transform);
-                cube.name = "Visualization cube";
-                cube.SetActive(false);
-
-                _visualizationCubes.Add(cube.transform);
+                neighbouring += _helperMatrix.Get4NeighbourCount(_helperCubes[i]);
             }
+
+            if(neighbouring < 6)
+            {
+                _helperMatrix.ClearMatrix();
+                return false;
+            }
+
+            return true;
         }
 
         private bool IsPlacementValid(Piece piece)
         {
-            if (!IsPieceCorrectlyRotated(piece.transform))
-                return false;
-
-            bool isConnected = false;
+            bool isBottomConnected = false;
             Transform[] cubes = piece.Cubes;
             for (int i = 0; i < cubes.Length; i++)
             {
-                if (!IsCubeInsideMatrix(cubes[i]))
+                if (!_matrix.IsCubeInsideMatrix(cubes[i]))
                     return false;
 
-                if (IsCubeColliding(cubes[i]))
+                if (_matrix.IsCubeColliding(cubes[i]))
                     return false;
 
-                if (IsCubeConnected(cubes[i]))
-                    isConnected = true;
+                if (_matrix.IsCubeBottomConnected(cubes[i]))
+                    isBottomConnected = true;
             }
 
-            //if (!isConnected)
+            //if (!isBottomConnected)
             //    return false;
+
+            if (!IsPieceImage4Connected(piece))
+                return false;
 
             return true;
         }
@@ -139,153 +140,19 @@ namespace VRTetris
                 return false;
 
             LockInPiece(piece);
-            DetectRowClears();
+            _matrix.DetectRowClears();
 
             return true;
-        }
-
-        private void ActivateVisualizationCubes(bool enable)
-        {
-            for (int i = 0; i < _visualizationCubes.Count; i++)
-            {
-                _visualizationCubes[i].gameObject.SetActive(enable);
-            }
-        }
-
-        private bool TryVisualizePiecePlacement(Piece piece)
-        {
-            // Here try add the piece to viz matrix and then check connectivity on all the cubes
-
-            bool validPlacement = IsPlacementValid(piece);
-            ActivateVisualizationCubes(validPlacement);
-
-            if (!validPlacement)
-                return false;
-
-            Debug.Log("Placement valid - Vizualizing");
-
-            for (int i = 0; i < piece.Cubes.Length; i++)
-            {
-                Vector3Int cubeMatrixPos = GetCubeMatrixPosition(piece.Cubes[i]);
-                _visualizationCubes[i].localPosition = Vector3.Scale(cubeMatrixPos, piece.Cubes[i].lossyScale);
-            }
-
-            return true;
-        }
-
-        private Vector3Int GetCubeMatrixPosition(Transform cube)
-        {
-            Vector3 localPos = cube.position - transform.position;
-
-            int xPos = Mathf.RoundToInt(localPos.x / cube.lossyScale.x);
-            int yPos = Mathf.RoundToInt(localPos.y / cube.lossyScale.y);
-            int zPos = Mathf.RoundToInt(localPos.z / cube.lossyScale.z);
-
-            return new Vector3Int(xPos, yPos, zPos);
-        }
-
-        private bool IsCellEmpty(int x, int y, int z)
-        {
-            return _matrix[x][y] == null;
-        }
-
-        private bool IsCellEmpty(Vector3Int matrixPos)
-        {
-            return IsCellEmpty(matrixPos.x, matrixPos.y, matrixPos.z);
-        }
-
-        private bool IsPositionInBounds(int x, int y, int z)
-        {
-            bool xBounds = x >= 0 && x < _dimensions.x;
-            bool yBounds = y >= 0 && y < _dimensions.y;
-            bool zBounds = z >= 0 && z < _dimensions.z;
-
-            return xBounds && yBounds && zBounds;
-        }
-
-        private bool IsPieceCorrectlyRotated(Transform piece)
-        {
-            // Make this detections better - the connectivity between piece cube must mathch the connectivity of their images in the matrix
-
-
-            Vector3 eulers = piece.rotation.eulerAngles;
-
-            int xDiff = (int)eulers.x % 90;
-            int yDiff = (int)eulers.y % 90;
-            int zDiff = (int)eulers.z % 90;
-
-            xDiff = Mathf.Min(90 - xDiff, xDiff);
-            yDiff = Mathf.Min(90 - yDiff, yDiff);
-            zDiff = Mathf.Min(90 - zDiff, zDiff);
-
-            Debug.Log("x = " + xDiff);
-            Debug.Log("y = " + yDiff);
-            Debug.Log("z = " + zDiff);
-
-            //bool xBounds = xDiff < _allowedPlacementRotationError;
-            //bool yBounds = yDiff < _allowedPlacementRotationError;
-            //bool zBounds = zDiff < _allowedPlacementRotationError;
-
-            return xBounds && yBounds && zBounds;
-        }
-
-        private bool IsPositionInBounds(Vector3Int matrixPos)
-        {
-            return IsPositionInBounds(matrixPos.x, matrixPos.y, matrixPos.z);
-        }
-
-        private bool IsCubeInsideMatrix(Transform cube)
-        {
-            Vector3Int cubeMatrixPos = GetCubeMatrixPosition(cube);
-            Debug.Log(cubeMatrixPos);
-            return IsPositionInBounds(cubeMatrixPos);
-        }
-
-        private bool IsCubeColliding(Transform cube)
-        {
-            Vector3Int cubeMatrixPos = GetCubeMatrixPosition(cube);
-            return !IsCellEmpty(cubeMatrixPos);
-        }
-
-        private bool IsCubeConnected(Transform cube)
-        {
-            Vector3Int cubeMatrixPos = GetCubeMatrixPosition(cube);
-
-            for (int x = -1; x <= 1; x+=2)
-            {
-                for (int y = -1; y <= 1; y += 2)
-                {
-                    int xx = cubeMatrixPos.x + x;
-                    int yy = cubeMatrixPos.y + y;
-                    int zz = cubeMatrixPos.z + 0;
-
-                    if (!IsPositionInBounds(xx, yy, zz))
-                        continue;
-
-                    if (!IsCellEmpty(xx, yy, zz))
-                        return true;
-                }
-            }
-
-            return false;
-        }
-
-        private void PlaceCubeToMatrix(Transform cube)
-        {
-            Vector3Int cubeMatrixPos = GetCubeMatrixPosition(cube);
-            _matrix[cubeMatrixPos.x][cubeMatrixPos.y] = cube;
-            cube.localPosition = Vector3.Scale(cubeMatrixPos, cube.localScale) + cube.localScale * 0.5f;
         }
 
         private void LockInPiece(Piece piece)
         {
             piece.LockIn();
-            piece.transform.SetParent(transform);
-
-            for (int i = 0; i < piece.Cubes.Length; i++)
+            //_matrix.PlacePieceToMatrix(piece);
+            Transform[] cubes = piece.Cubes;
+            for (int i = 0; i < cubes.Length; i++)
             {
-                PlaceCubeToMatrix(piece.Cubes[i]);
-                _cubes.Add(piece.Cubes[i]);
+                _matrix.PlaceCubeToMatrix(cubes[i]);
             }
 
             _activePieces.Remove(piece);
@@ -293,37 +160,41 @@ namespace VRTetris
             OnPiecePlacement?.Invoke(piece);
         }
 
-        private bool DetectRowClear(int row)
+        private bool TryVisualizePiecePlacement(Piece piece)
         {
-            for (int x = 0; x < _dimensions.x; x++)
+            bool validPlacement = IsPlacementValid(piece);
+            ActivateVisualizationCubes(validPlacement);
+
+            if (!validPlacement)
+                return false;
+
+            Transform[] cubes = piece.Cubes;
+            for (int i = 0; i < cubes.Length; i++)
             {
-                if (IsCellEmpty(x, row, 0))
-                    return false;
+                _helperCubes[i].position = cubes[i].position;
+                _helperMatrix.PlaceCubeToMatrix(_helperCubes[i]);
             }
 
             return true;
         }
 
-        private void ClearRow(int row)
+        private void InitHelperCubes()
         {
-            for (int x = 0; x < _dimensions.x; x++)
+            for (int i = 0; i < MaxCubesPerPiece; i++)
             {
-                // Probably some effect here
+                GameObject cube = Instantiate(_placementVisualizationPrefab, transform);
+                cube.name = "Visualization cube";
+                cube.SetActive(false);
 
-                Destroy(_matrix[x][row]);
-                _matrix[x][row] = null;
+                _helperCubes.Add(cube.transform);
             }
         }
 
-        private void DetectRowClears()
+        private void ActivateVisualizationCubes(bool enable)
         {
-            for (int y = 0; y < _dimensions.y; y++)
+            for (int i = 0; i < _helperCubes.Count; i++)
             {
-                if (DetectRowClear(y))
-                {
-                    ClearRow(y);
-                    ScoreTracker.Instance.RowClearScored();
-                }
+                _helperCubes[i].gameObject.SetActive(enable);
             }
         }
     }

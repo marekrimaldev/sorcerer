@@ -20,6 +20,24 @@ namespace VRTetris
             }
         }
 
+        public void PlaceCubeToMatrix(Transform cube)
+        {
+            cube.SetParent(transform);
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+            _matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
+            cube.localPosition = Vector3.Scale(cubeCoordinates, cube.lossyScale);
+            cube.rotation = Quaternion.identity;
+        }
+
+        public void PlacePieceToMatrix(Piece piece)
+        {
+            Transform[] cubes = piece.Cubes;
+            for (int i = 0; i < cubes.Length; i++)
+            {
+                PlaceCubeToMatrix(cubes[i]);
+            }
+        }
+
         public void DrawMatrix(GameObject cellPrefab)
         {
             for (int y = 0; y < _dimensions.y; y++)
@@ -38,6 +56,23 @@ namespace VRTetris
             }
         }
 
+        /// <summary>
+        /// This method will not destroy any objects
+        /// </summary>
+        public void ClearMatrix()
+        {
+            for (int y = 0; y < _dimensions.y; y++)
+            {
+                for (int x = 0; x < _dimensions.x; x++)
+                {
+                    for (int z = 0; z < _dimensions.z; z++)
+                    {
+                        _matrix[y][x] = null;
+                    }
+                }
+            }
+        }
+
         public void DetectRowClears()
         {
             for (int y = 0; y < _dimensions.y; y++)
@@ -50,7 +85,7 @@ namespace VRTetris
             }
         }
 
-        private Vector3Int GetMatrixCoordinates(Transform cube)
+        public Vector3Int GetMatrixCoordinates(Transform cube)
         {
             Vector3 localPos = cube.position - transform.position;
 
@@ -61,17 +96,17 @@ namespace VRTetris
             return new Vector3Int(xPos, yPos, zPos);
         }
 
-        private bool IsCellEmpty(int x, int y, int z)
+        public bool IsCellEmpty(int x, int y, int z)
         {
-            return _matrix[x][y] == null;
+            return _matrix[y][x] == null;
         }
 
-        private bool IsCellEmpty(Vector3Int matrixPos)
+        public bool IsCellEmpty(Vector3Int matrixPos)
         {
             return IsCellEmpty(matrixPos.x, matrixPos.y, matrixPos.z);
         }
 
-        private bool IsPositionInBounds(int x, int y, int z)
+        public bool IsPositionInBounds(int x, int y, int z)
         {
             bool xBounds = x >= 0 && x < _dimensions.x;
             bool yBounds = y >= 0 && y < _dimensions.y;
@@ -80,55 +115,114 @@ namespace VRTetris
             return xBounds && yBounds && zBounds;
         }
 
-        private bool IsPositionInBounds(Vector3Int matrixPos)
+        public bool IsPositionInBounds(Vector3Int matrixPos)
         {
             return IsPositionInBounds(matrixPos.x, matrixPos.y, matrixPos.z);
         }
 
-        private bool IsCubeInsideMatrix(Transform cube)
+        public bool IsCubeInsideMatrix(Transform cube)
         {
-            Vector3Int cubeMatrixPos = GetMatrixCoordinates(cube);
-            Debug.Log(cubeMatrixPos);
-            return IsPositionInBounds(cubeMatrixPos);
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+            return IsPositionInBounds(cubeCoordinates);
         }
 
-        private bool IsCubeColliding(Transform cube)
+        public bool IsCubeColliding(Transform cube)
         {
-            Vector3Int cubeMatrixPos = GetMatrixCoordinates(cube);
-            return !IsCellEmpty(cubeMatrixPos);
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+            return !IsCellEmpty(cubeCoordinates);
         }
 
-        private bool IsCube4Connected(Transform cube)
+        public bool IsCubeBottomConnected(Transform cube)
         {
-            Vector3Int cubeMatrixPos = GetMatrixCoordinates(cube);
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
 
-            for (int x = -1; x <= 1; x += 2)
+            int xx = cubeCoordinates.x;
+            int yy = cubeCoordinates.y - 1;
+            int zz = cubeCoordinates.z;
+
+            if (!IsPositionInBounds(xx, yy, zz))
+                return true;
+
+            if (!IsCellEmpty(xx, yy, zz))
+                return true;
+
+            return false;
+        }
+
+        public int Get4NeighbourCount(Transform cube)
+        {
+            int count = 0;
+            
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+
+            int x = 0;
+            int y = 0;
+            for (x = -1; x <= 1; x += 2)
             {
-                for (int y = -1; y <= 1; y += 2)
+                int xx = cubeCoordinates.x + x;
+                int yy = cubeCoordinates.y + y;
+                int zz = cubeCoordinates.z + 0;
+
+                if (x == 0 && y == 0)
+                    continue;
+
+                if (!IsPositionInBounds(xx, yy, zz))
+                    continue;
+
+                if (!IsCellEmpty(xx, yy, zz))
+                    count++;
+            }
+
+            x = 0;
+            y = 0;
+            for (y = -1; y <= 1; y += 2)
+            {
+                int xx = cubeCoordinates.x + x;
+                int yy = cubeCoordinates.y + y;
+                int zz = cubeCoordinates.z + 0;
+
+                if (x == 0 && y == 0)
+                    continue;
+
+                if (!IsPositionInBounds(xx, yy, zz))
+                    continue;
+
+                if (!IsCellEmpty(xx, yy, zz))
+                    count++;
+            }
+
+            return count;
+        }
+
+        public int Get8NeighbourCount(Transform cube)
+        {
+            int count = 0;
+
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
                 {
-                    int xx = cubeMatrixPos.x + x;
-                    int yy = cubeMatrixPos.y + y;
-                    int zz = cubeMatrixPos.z + 0;
+                    int xx = cubeCoordinates.x + x;
+                    int yy = cubeCoordinates.y + y;
+                    int zz = cubeCoordinates.z + 0;
+
+                    if (x == 0 && y == 0)
+                        continue;
 
                     if (!IsPositionInBounds(xx, yy, zz))
                         continue;
 
                     if (!IsCellEmpty(xx, yy, zz))
-                        return true;
+                        count++;
                 }
             }
 
-            return false;
+            return count;
         }
 
-        private void PlaceCubeToMatrix(Transform cube)
-        {
-            Vector3Int cubeMatrixPos = GetMatrixCoordinates(cube);
-            _matrix[cubeMatrixPos.x][cubeMatrixPos.y] = cube;
-            cube.localPosition = Vector3.Scale(cubeMatrixPos, cube.localScale) + cube.localScale * 0.5f;
-        }
-
-        private bool DetectRowClear(int row)
+        public bool DetectRowClear(int row)
         {
             for (int x = 0; x < _dimensions.x; x++)
             {
@@ -139,14 +233,14 @@ namespace VRTetris
             return true;
         }
 
-        private void ClearRow(int row)
+        public void ClearRow(int row)
         {
             for (int x = 0; x < _dimensions.x; x++)
             {
                 // Probably some effect here
 
-                Destroy(_matrix[x][row]);
-                _matrix[x][row] = null;
+                Destroy(_matrix[row][x].gameObject);
+                _matrix[row][x] = null;
             }
         }
     }

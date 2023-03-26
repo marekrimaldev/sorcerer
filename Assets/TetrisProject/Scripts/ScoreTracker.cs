@@ -20,7 +20,6 @@ namespace VRTetris
         private static ScoreTracker _instance;
         public static ScoreTracker Instance => _instance;
 
-
         private void Awake()
         {
             if (_instance != null && _instance != this)
