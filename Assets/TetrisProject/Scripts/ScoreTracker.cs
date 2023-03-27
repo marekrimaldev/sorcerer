@@ -63,7 +63,7 @@ namespace VRTetris
 
         private float GetComboMultiplier()
         {
-            int combo = Mathf.Min(_currCombo, _comboMultipliers.Length);
+            int combo = Mathf.Min(_currCombo, _comboMultipliers.Length - 1);
             return _comboMultipliers[combo];
         }
     }

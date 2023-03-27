@@ -19,7 +19,7 @@ public class GauntletController : MonoBehaviour
     bool _primaryButtonPressed = false;
     bool _secondaryButtonPressed = false;
 
-    const float Threshold = 0.1f;
+    private const float Threshold = 0.1f;
 
     private void Awake()
     {

@@ -148,6 +148,9 @@ namespace VRTetris
         private void LockInPiece(Piece piece)
         {
             piece.LockIn();
+
+            _activePieces.Remove(piece);
+
             //_matrix.PlacePieceToMatrix(piece);
             Transform[] cubes = piece.Cubes;
             for (int i = 0; i < cubes.Length; i++)
@@ -155,9 +158,11 @@ namespace VRTetris
                 _matrix.PlaceCubeToMatrix(cubes[i]);
             }
 
-            _activePieces.Remove(piece);
-
             OnPiecePlacement?.Invoke(piece);
+
+            //Maybe do it better way - the cubes are parented to grid inside PlaceCubeToMatrix
+            //Make it somehow robust
+            Destroy(piece.gameObject);          
         }
 
         private bool TryVisualizePiecePlacement(Piece piece)

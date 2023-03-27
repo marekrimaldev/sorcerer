@@ -8,7 +8,6 @@ namespace VRTetris
     {
         private Vector3Int _dimensions;
         private Transform[][] _matrix;
-
         public void InitMatrix(Vector3Int dimensions)
         {
             _dimensions = dimensions;
@@ -75,14 +74,24 @@ namespace VRTetris
 
         public void DetectRowClears()
         {
+            int firstClearRow = 0;
+            int rowsCleared = 0;
             for (int y = 0; y < _dimensions.y; y++)
             {
                 if (DetectRowClear(y))
                 {
                     ClearRow(y);
                     ScoreTracker.Instance.RowClearScored();
+
+                    if (rowsCleared == 0)
+                        firstClearRow = y;
+
+                    rowsCleared++;
                 }
             }
+
+            //if(rowsCleared > 0)
+            //    ShiftRowsAbove(firstClearRow + 1, rowsCleared);
         }
 
         public Vector3Int GetMatrixCoordinates(Transform cube)
@@ -233,7 +242,22 @@ namespace VRTetris
             return true;
         }
 
-        public void ClearRow(int row)
+        private void ShiftRowsAbove(int startRow, int shift)
+        {
+            for (int y = startRow; y < _dimensions.y; y++)
+            {
+                for (int x = 0; x < _dimensions.x; x++)
+                {
+                    if (_matrix[y][x] == null)
+                        continue;
+
+                    _matrix[y][x].position -= shift * Vector3.up * PieceGenerator.PieceScale;
+                    _matrix[y - shift][x] = _matrix[y][x];  // reference
+                }
+            }
+        }
+
+        private void ClearRow(int row)
         {
             for (int x = 0; x < _dimensions.x; x++)
             {
