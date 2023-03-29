@@ -467,7 +467,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 1, g: 1, b: 0, a: 1}
   _piecePrefabs:
-  - {fileID: 6362352935358514619, guid: 206ad3e3bd368b64cb40823fddd626e3, type: 3}
+  - {fileID: 1545484245817624289, guid: ba2d7bf2c3ed8734aa016d6fcea9b511, type: 3}
 --- !u!4 &1569786953
 Transform:
   m_ObjectHideFlags: 0

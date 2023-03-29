@@ -8,6 +8,9 @@ namespace VRTetris
     {
         private Vector3Int _dimensions;
         private Transform[][] _matrix;
+
+        private const float RowClearTime = 1f;
+
         public void InitMatrix(Vector3Int dimensions)
         {
             _dimensions = dimensions;
@@ -74,24 +77,35 @@ namespace VRTetris
 
         public void DetectRowClears()
         {
-            int firstClearRow = 0;
-            int rowsCleared = 0;
+            StartCoroutine(ClearRowsCoroutine());
+        }
+
+        private IEnumerator ClearRowsCoroutine()
+        {
+            int firstClearedRow = -1;
+            int clearedRows = 0;
             for (int y = 0; y < _dimensions.y; y++)
             {
                 if (DetectRowClear(y))
                 {
-                    ClearRow(y);
-                    ScoreTracker.Instance.RowClearScored();
+                    if (firstClearedRow == -1)
+                        firstClearedRow = y;
 
-                    if (rowsCleared == 0)
-                        firstClearRow = y;
-
-                    rowsCleared++;
+                    clearedRows++;
                 }
             }
 
-            //if(rowsCleared > 0)
-            //    ShiftRowsAbove(firstClearRow + 1, rowsCleared);
+            if(clearedRows > 0)
+            {
+                for (int i = 0; i < clearedRows; i++)
+                {
+                    ClearRow(firstClearedRow + i);
+                    ScoreTracker.Instance.RowClearScored();
+                }
+
+                yield return new WaitForSeconds(RowClearTime);
+                ShiftRowsAfterClearRow(firstClearedRow, clearedRows);
+            }
         }
 
         public Vector3Int GetMatrixCoordinates(Transform cube)
@@ -242,17 +256,20 @@ namespace VRTetris
             return true;
         }
 
-        private void ShiftRowsAbove(int startRow, int shift)
+        private void ShiftRowsAfterClearRow(int clearedRow, int shift)
         {
-            for (int y = startRow; y < _dimensions.y; y++)
+            Debug.Log("ShiftRowsAfterClearRow");
+
+            for (int y = clearedRow + 1; y < _dimensions.y; y++)
             {
                 for (int x = 0; x < _dimensions.x; x++)
                 {
                     if (_matrix[y][x] == null)
                         continue;
 
-                    _matrix[y][x].position -= shift * Vector3.up * PieceGenerator.PieceScale;
-                    _matrix[y - shift][x] = _matrix[y][x];  // reference
+                    _matrix[y][x].position -= shift * Vector3.up * PieceGenerator.PieceScale;   // position
+                    _matrix[y - shift][x] = _matrix[y][x];                                      // reference
+                    _matrix[y][x] = null;
                 }
             }
         }
