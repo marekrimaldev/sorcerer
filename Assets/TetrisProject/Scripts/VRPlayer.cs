@@ -9,6 +9,17 @@ namespace VRTetris
     {
         public static System.Action<Piece> OnPieceDropped;
 
+        public void PiecePicked(SelectEnterEventArgs args)
+        {
+            IXRInteractable interactable = args.interactableObject;
+            Piece piece = interactable.transform.GetComponentInParent<Piece>();
+
+            if(piece != null)
+            {
+                piece.PieceGrabbed();
+            }
+        }
+
         public void PieceDropped(SelectExitEventArgs args)
         {
             IXRInteractable interactable = args.interactableObject;

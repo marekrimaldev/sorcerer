@@ -9,10 +9,11 @@ namespace VRTetris
     {
         [SerializeField] private bool _waitUntilPlacement;
         [SerializeField] private Transform _spawnPoint;
-        [SerializeField] private float _secondsBetweenPieces = 3;
+        [SerializeField] private float _secondsBetweenPieces = 1;
         [SerializeField] private float _secondsDecrement = 0.05f;
         [SerializeField] private Color[] _colors;
         [SerializeField] private Piece[] _piecePrefabs;
+        [SerializeField] private PieceThreadmillManager _threadmillManager;
 
         private float _currSpawnTime;
         private bool _isSpawningOn = true;
@@ -68,6 +69,7 @@ namespace VRTetris
         {
             Piece piece = InstantiateNextPiece();
             AssignColorToPiece(piece);
+            _threadmillManager.AddPiece(piece);
 
             OnNewPieceGenerated?.Invoke(piece);
         }

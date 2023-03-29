@@ -11,6 +11,8 @@ namespace VRTetris
 
         public Transform[] Cubes => _cubes;
 
+        public System.Action<Piece> OnPieceGrabbed;
+
         public void SetColor(Color color)
         {
             MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
@@ -25,6 +27,11 @@ namespace VRTetris
             XRGrabInteractable interactable = GetComponentInChildren<XRGrabInteractable>();
             if (interactable != null)
                 interactable.enabled = false;
+        }
+
+        public void PieceGrabbed()
+        {
+            OnPieceGrabbed?.Invoke(this);
         }
     }
 }

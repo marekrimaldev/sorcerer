@@ -9,7 +9,7 @@ namespace VRTetris
         private Vector3Int _dimensions;
         private Transform[][] _matrix;
 
-        private const float RowClearTime = 1f;
+        private const float RowClearTime = .5f;
 
         public void InitMatrix(Vector3Int dimensions)
         {

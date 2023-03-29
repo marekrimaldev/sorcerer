@@ -109,7 +109,7 @@ namespace VRTetris
             return true;
         }
 
-        private bool IsPlacementValid(Piece piece)
+        private bool IsPlacementValid(Piece piece, bool visualization = false)
         {
             bool isBottomConnected = false;
             Transform[] cubes = piece.Cubes;
@@ -167,7 +167,7 @@ namespace VRTetris
 
         private bool TryVisualizePiecePlacement(Piece piece)
         {
-            bool validPlacement = IsPlacementValid(piece);
+            bool validPlacement = IsPlacementValid(piece, true);
             ActivateVisualizationCubes(validPlacement);
 
             if (!validPlacement)
