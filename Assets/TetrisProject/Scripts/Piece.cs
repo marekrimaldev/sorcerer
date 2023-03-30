@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace VRTetris
@@ -12,6 +13,8 @@ namespace VRTetris
         public Transform[] Cubes => _cubes;
 
         public System.Action<Piece> OnPieceGrabbed;
+        [SerializeField] private UnityEvent OnPieceGrabbedUE;
+        [SerializeField] private UnityEvent OnPieceLockedUE;
 
         public void SetColor(Color color)
         {
@@ -27,11 +30,14 @@ namespace VRTetris
             XRGrabInteractable interactable = GetComponentInChildren<XRGrabInteractable>();
             if (interactable != null)
                 interactable.enabled = false;
+
+            OnPieceLockedUE?.Invoke();
         }
 
         public void PieceGrabbed()
         {
             OnPieceGrabbed?.Invoke(this);
+            OnPieceGrabbedUE?.Invoke();
         }
     }
 }

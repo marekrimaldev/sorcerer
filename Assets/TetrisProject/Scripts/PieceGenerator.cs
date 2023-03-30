@@ -8,12 +8,11 @@ namespace VRTetris
     public class PieceGenerator : MonoBehaviour
     {
         [SerializeField] private bool _waitUntilPlacement;
-        [SerializeField] private Transform _spawnPoint;
         [SerializeField] private float _secondsBetweenPieces = 1;
         [SerializeField] private float _secondsDecrement = 0.05f;
+        [SerializeField] private PlayerPieceProvider _playerPieceProvider;
         [SerializeField] private Color[] _colors;
         [SerializeField] private Piece[] _piecePrefabs;
-        [SerializeField] private PieceThreadmillManager _threadmillManager;
 
         private float _currSpawnTime;
         private bool _isSpawningOn = true;
@@ -53,7 +52,7 @@ namespace VRTetris
         private Piece InstantiateNextPiece()
         {
             int idx = UnityEngine.Random.Range(0, _piecePrefabs.Length);
-            Piece piece = Instantiate(_piecePrefabs[idx], _spawnPoint.position, _spawnPoint.rotation);
+            Piece piece = Instantiate(_piecePrefabs[idx]);
             piece.transform.localScale = Vector3.one * PieceScale;
 
             return piece;
@@ -69,7 +68,7 @@ namespace VRTetris
         {
             Piece piece = InstantiateNextPiece();
             AssignColorToPiece(piece);
-            _threadmillManager.AddPiece(piece);
+            _playerPieceProvider.AddPiece(piece);
 
             OnNewPieceGenerated?.Invoke(piece);
         }
