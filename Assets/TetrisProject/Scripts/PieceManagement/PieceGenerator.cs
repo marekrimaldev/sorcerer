@@ -10,8 +10,8 @@ namespace VRTetris
         [SerializeField] private bool _waitUntilPlacement;
         [SerializeField] private float _secondsBetweenPieces = 1;
         [SerializeField] private float _secondsDecrement = 0.05f;
+        [SerializeField] private float _cubeInnerScale = 0.9f;    // The scale of the cube inside the block volume
         [SerializeField] private PlayerPieceProvider _playerPieceProvider;
-        [SerializeField] private Color[] _colors;
         [SerializeField] private Piece[] _piecePrefabs;
 
         private float _currSpawnTime;
@@ -55,19 +55,17 @@ namespace VRTetris
             Piece piece = Instantiate(_piecePrefabs[idx]);
             piece.transform.localScale = Vector3.one * PieceScale;
 
-            return piece;
-        }
+            for (int i = 0; i < piece.Cubes.Length; i++)
+            {
+                piece.Cubes[i].localScale = new Vector3(_cubeInnerScale, _cubeInnerScale, _cubeInnerScale);
+            }
 
-        private void AssignColorToPiece(Piece piece)
-        {
-            int idx = UnityEngine.Random.Range(0, _colors.Length);
-            piece.SetColor(_colors[idx]);
+            return piece;
         }
 
         private void SpawnPiece()
         {
             Piece piece = InstantiateNextPiece();
-            AssignColorToPiece(piece);
             _playerPieceProvider.AddPiece(piece);
 
             OnNewPieceGenerated?.Invoke(piece);

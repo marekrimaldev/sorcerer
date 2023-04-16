@@ -47,13 +47,11 @@ namespace VRTetris
 
         public void OnNewPieceGenerated(Piece piece)
         {
-            Debug.Log("New piece added");
             _activePieces.Add(piece);
         }
 
         public void OnPieceDropped(Piece piece)
         {
-            Debug.Log("Piece dropped");
             TryAddPiece(piece);
         }
 
@@ -159,10 +157,6 @@ namespace VRTetris
             }
 
             OnPiecePlacement?.Invoke(piece);
-
-            //Maybe do it better way - the cubes are parented to grid inside PlaceCubeToMatrix
-            //Make it somehow robust
-            Destroy(piece.gameObject);          
         }
 
         private bool TryVisualizePiecePlacement(Piece piece)
@@ -172,8 +166,6 @@ namespace VRTetris
 
             if (!validPlacement)
                 return false;
-
-            Debug.Log("Visualizing");
 
             Transform[] cubes = piece.Cubes;
             for (int i = 0; i < cubes.Length; i++)

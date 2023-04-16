@@ -6,6 +6,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace VRTetris
 {
+    [RequireComponent(typeof(PieceVisualComponent))]
     public class Piece : MonoBehaviour
     {
         [SerializeField] private Transform[] _cubes;
@@ -16,13 +17,11 @@ namespace VRTetris
         [SerializeField] private UnityEvent OnPieceGrabbedUE;
         [SerializeField] private UnityEvent OnPieceLockedUE;
 
-        public void SetColor(Color color)
+        private PieceVisualComponent _colorController;
+
+        private void Awake()
         {
-            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>();
-            for (int i = 0; i < renderers.Length; i++)
-            {
-                renderers[i].material.color = color;
-            }
+            _colorController = GetComponent<PieceVisualComponent>();
         }
 
         public void LockIn()
@@ -30,6 +29,8 @@ namespace VRTetris
             XRGrabInteractable interactable = GetComponentInChildren<XRGrabInteractable>();
             if (interactable != null)
                 interactable.enabled = false;
+
+            _colorController.OnPieceLockIn();
 
             OnPieceLockedUE?.Invoke();
         }

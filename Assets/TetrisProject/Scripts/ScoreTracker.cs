@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace VRTetris
 {
     public class ScoreTracker : MonoBehaviour
     {
-        [SerializeField] private int _rowClearScore = 1000;
-        [SerializeField] private int _tetrisScore;
-        [SerializeField] private int[] _comboMultipliers;
-        private int _currCombo = 0;
-        private int _rowsClearedWithLastPiece = 0;
-
-        private const int TetrisStreak = 4;
-
         private int _score;
         public int Score => _score;
+        public int Highscore => PlayerPrefs.HasKey(HighscoreKey) ? PlayerPrefs.GetInt(HighscoreKey) : 0;
+
+        public int Level => Mathf.FloorToInt(_totalRowsCleared / 10) + 1;
+        private int _totalRowsCleared = 0;
+
+        private const string HighscoreKey = "highscore";
+
+        private readonly int[] ScoreTable = new int[]{ 100, 300, 500, 800 };
 
         private static ScoreTracker _instance;
         public static ScoreTracker Instance => _instance;
+
+        public static Action<int> OnScoreChange;
 
         private void Awake()
         {
@@ -29,42 +30,41 @@ namespace VRTetris
             }
             _instance = this;
 
-            PieceGenerator.OnNewPieceGenerated += OnNewPieceGenerated;
+            ResetScore();
         }
 
-        public void RowClearScored()
+        private void ResetScore()
         {
-            AddScore(_rowClearScore);
+            _score = 0;
+            _totalRowsCleared = 0;
+        }
 
-            _rowsClearedWithLastPiece++;
-            if (_rowsClearedWithLastPiece >= TetrisStreak)
-                TetrisScored();
+        public void RowClearScored(int rowsCleared)
+        {
+            int score = ScoreTable[rowsCleared];
+            AddScore(score);
+
+            _totalRowsCleared += rowsCleared;
         }
 
         private void AddScore(int score)
         {
-            _score += (int)(score * GetComboMultiplier());
+            _score += score * Level;
+            OnScoreChange?.Invoke(_score);
         }
 
-        private void TetrisScored()
+        public void SaveScore()
         {
-            AddScore(_tetrisScore);
-        }
+            int highscore = 0;
+            if (PlayerPrefs.HasKey(HighscoreKey))
+            {
+                highscore = PlayerPrefs.GetInt(HighscoreKey);
+            }
 
-        private void OnNewPieceGenerated(Piece piece)
-        {
-            if (_rowsClearedWithLastPiece > 0)
-                _currCombo++;
-            else
-                _currCombo = 0;
-
-            _rowsClearedWithLastPiece = 0;
-        }
-
-        private float GetComboMultiplier()
-        {
-            int combo = Mathf.Min(_currCombo, _comboMultipliers.Length - 1);
-            return _comboMultipliers[combo];
+            if(Score > highscore)
+            {
+                PlayerPrefs.SetInt(HighscoreKey, Score);
+            }
         }
     }
 }

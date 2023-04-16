@@ -154,6 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7157187644677829498}
   - component: {fileID: 2825473001735520464}
+  - component: {fileID: 8040344056613273830}
   - component: {fileID: 850706495}
   - component: {fileID: 6044308688300577938}
   m_Layer: 0
@@ -222,6 +223,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8040344056613273830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9050751302837714027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb3caa429f12f148b7cfcfe60f88abe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dullMultiplier: 0.7
+  _baseMultiplier: 0.85
+  _brightMultiplier: 1
+  _emissionIntensity: 0.5
+  _pieceMaterial: {fileID: 2100000, guid: 2e25137934b4b59429dbd9f6ee4cb154, type: 2}
+  _colors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.17078745, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.10012603, b: 1, a: 1}
+  _lockInFadeInDuration: 0.25
+  _lockInFadeOutDuration: 0.75
+  _lockInVfx: {fileID: 7437541715185569773, guid: f29fadde07a5ec3469fb93e84a64093a,
+    type: 3}
+  _throwForceStatic: 200
+  _torqueForceStatic: 100
+  _minDestroyTime: 0.5
+  _maxDestroyTime: 1.25
+  _destroyVfxStatic: {fileID: 4817088498135963524, guid: 0204d2b8c79b5144a89216de68e2f481,
+    type: 3}
 --- !u!54 &850706495
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -324,19 +356,19 @@ MonoBehaviour:
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 1
-  m_AttachEaseInTime: 0.15
-  m_MovementType: 0
+  m_AttachEaseInTime: 0
+  m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
   m_AngularVelocityScale: 1
   m_TrackPosition: 1
-  m_SmoothPosition: 1
-  m_SmoothPositionAmount: 1.34
+  m_SmoothPosition: 0
+  m_SmoothPositionAmount: 0.15
   m_TightenPosition: 0.068
   m_TrackRotation: 1
-  m_SmoothRotation: 1
-  m_SmoothRotationAmount: 1.57
+  m_SmoothRotation: 0
+  m_SmoothRotationAmount: 0.15
   m_TightenRotation: 0.077
   m_ThrowOnDetach: 0
   m_ThrowSmoothingDuration: 0.25

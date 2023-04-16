@@ -17,7 +17,6 @@ public class VFXController : MonoBehaviour
 
     public void SetColor(Color color)
     {
-        Debug.Log("Setting color to " + color);
         _visualEffect.SetVector4("Color", color);
     }
 

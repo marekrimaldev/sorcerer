@@ -27,7 +27,7 @@ namespace VRTetris
             cube.SetParent(transform);
             Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
             _matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
-            cube.localPosition = Vector3.Scale(cubeCoordinates, cube.lossyScale);
+            cube.localPosition = (Vector3)cubeCoordinates * PieceGenerator.PieceScale;
             cube.rotation = Quaternion.identity;
         }
 
@@ -100,8 +100,9 @@ namespace VRTetris
                 for (int i = 0; i < clearedRows; i++)
                 {
                     ClearRow(firstClearedRow + i);
-                    ScoreTracker.Instance.RowClearScored();
                 }
+
+                ScoreTracker.Instance.RowClearScored(clearedRows);
 
                 yield return new WaitForSeconds(RowClearTime);
                 ShiftRowsAfterClearRow(firstClearedRow, clearedRows);
@@ -112,9 +113,9 @@ namespace VRTetris
         {
             Vector3 localPos = cube.position - transform.position;
 
-            int xPos = Mathf.RoundToInt(localPos.x / cube.lossyScale.x);
-            int yPos = Mathf.RoundToInt(localPos.y / cube.lossyScale.y);
-            int zPos = Mathf.RoundToInt(localPos.z / cube.lossyScale.z);
+            int xPos = Mathf.RoundToInt(localPos.x / PieceGenerator.PieceScale);
+            int yPos = Mathf.RoundToInt(localPos.y / PieceGenerator.PieceScale);
+            int zPos = Mathf.RoundToInt(localPos.z / PieceGenerator.PieceScale);
 
             return new Vector3Int(xPos, yPos, zPos);
         }
@@ -280,7 +281,9 @@ namespace VRTetris
             {
                 // Probably some effect here
 
-                Destroy(_matrix[row][x].gameObject);
+                PieceVisualComponent.AnimateClearedCube(_matrix[row][x]);
+
+                //Destroy(_matrix[row][x].gameObject, 2);
                 _matrix[row][x] = null;
             }
         }

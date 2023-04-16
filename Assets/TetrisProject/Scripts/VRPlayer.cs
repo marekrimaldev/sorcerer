@@ -7,7 +7,19 @@ namespace VRTetris
 {
     public class VRPlayer : MonoBehaviour
     {
+        private static VRPlayer _instance;
+        public static VRPlayer Instance => _instance;
+
         public static System.Action<Piece> OnPieceDropped;
+
+        private void Awake()
+        {
+            // SINGLETON
+            if(_instance != null && _instance != this)
+                Destroy(this);
+            else
+                _instance = this;
+        }
 
         public void PiecePicked(SelectEnterEventArgs args)
         {
