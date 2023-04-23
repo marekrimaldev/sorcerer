@@ -105,7 +105,7 @@ namespace VRTetris
                 ScoreTracker.Instance.RowClearScored(clearedRows);
 
                 yield return new WaitForSeconds(RowClearTime);
-                ShiftRowsAfterClearRow(firstClearedRow, clearedRows);
+                ShiftRowsAfterRowClear(firstClearedRow, clearedRows);
             }
         }
 
@@ -128,6 +128,17 @@ namespace VRTetris
         public bool IsCellEmpty(Vector3Int matrixPos)
         {
             return IsCellEmpty(matrixPos.x, matrixPos.y, matrixPos.z);
+        }
+
+        public bool IsRowEmpty(int row)
+        {
+            for (int x = 0; x < _dimensions.x; x++)
+            {
+                if (!IsCellEmpty(x, row, 0))
+                    return false;
+            }
+
+            return true;
         }
 
         public bool IsPositionInBounds(int x, int y, int z)
@@ -257,10 +268,19 @@ namespace VRTetris
             return true;
         }
 
-        private void ShiftRowsAfterClearRow(int clearedRow, int shift)
+        private void ClearRow(int row)
         {
-            Debug.Log("ShiftRowsAfterClearRow");
+            for (int x = 0; x < _dimensions.x; x++)
+            {
+                PieceVisualComponent.AnimateClearedCube(_matrix[row][x]);
 
+                //Destroy(_matrix[row][x].gameObject, 2);
+                _matrix[row][x] = null;
+            }
+        }
+
+        private void ShiftRowsAfterRowClear(int clearedRow, int shift)
+        {
             for (int y = clearedRow + 1; y < _dimensions.y; y++)
             {
                 for (int x = 0; x < _dimensions.x; x++)
@@ -275,17 +295,35 @@ namespace VRTetris
             }
         }
 
-        private void ClearRow(int row)
+        /// <summary>
+        /// Add penalty row to the bottom of the matrix. 
+        /// Returns true if it caused game over.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddPenaltyRow()
         {
-            for (int x = 0; x < _dimensions.x; x++)
+            if (DetectGameOver())
+                return true;
+
+            for (int y = (_dimensions.y - 2); y >= 0; y--)
             {
-                // Probably some effect here
+                for (int x = 0; x < _dimensions.x; x++)
+                {
+                    if (_matrix[y][x] == null)
+                        continue;
 
-                PieceVisualComponent.AnimateClearedCube(_matrix[row][x]);
-
-                //Destroy(_matrix[row][x].gameObject, 2);
-                _matrix[row][x] = null;
+                    _matrix[y][x].position += Vector3.up * PieceGenerator.PieceScale;   // position
+                    _matrix[y + 1][x] = _matrix[y][x];                                  // reference
+                    _matrix[y][x] = null;
+                }
             }
+
+            return false;
+        }
+
+        public bool DetectGameOver()
+        {
+            return !IsRowEmpty(_dimensions.y - 1);
         }
     }
 }

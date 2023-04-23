@@ -24,8 +24,6 @@ namespace VRTetris
                 return;
             }
             _instance = this;
-
-            DontDestroyOnLoad(this.gameObject);
         }
 
         private void OnEnable()
@@ -33,6 +31,7 @@ namespace VRTetris
             ButtonEvents.OnPauseGameRequested += PauseGame;
             ButtonEvents.OnResumeGameRequested += ResumeGame;
             ButtonEvents.OnRestartGameRequested += RestartGame;
+            MatrixController.OnGameOver += GameOver;
         }
 
         private void OnDisable()
@@ -40,6 +39,7 @@ namespace VRTetris
             ButtonEvents.OnPauseGameRequested -= PauseGame;
             ButtonEvents.OnResumeGameRequested -= ResumeGame;
             ButtonEvents.OnRestartGameRequested -= RestartGame;
+            MatrixController.OnGameOver -= GameOver;
         }
 
         private void PauseGame()
@@ -67,6 +67,8 @@ namespace VRTetris
         {
             _isGameOver = true;
             ScoreTracker.Instance.SaveScore();
+
+            PauseGame();
         }
     }
 }

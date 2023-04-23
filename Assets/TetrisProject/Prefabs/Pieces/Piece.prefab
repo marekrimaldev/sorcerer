@@ -251,7 +251,7 @@ MonoBehaviour:
   _throwForceStatic: 200
   _torqueForceStatic: 100
   _minDestroyTime: 0.5
-  _maxDestroyTime: 1.25
+  _maxDestroyTime: 0.85
   _destroyVfxStatic: {fileID: 4817088498135963524, guid: 0204d2b8c79b5144a89216de68e2f481,
     type: 3}
 --- !u!54 &850706495

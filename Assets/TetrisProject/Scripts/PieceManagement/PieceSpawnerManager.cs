@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+
+using System.Collections;
+using System.Collections.Generic;
 using System;
 using UnityEngine;
 
 namespace VRTetris
 {
-    public class PieceGenerator : MonoBehaviour
+    public class PieceSpawner : MonoBehaviour
     {
         [SerializeField] private bool _waitUntilPlacement;
         [SerializeField] private float _secondsBetweenPieces = 1;

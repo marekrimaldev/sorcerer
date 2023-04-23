@@ -19,6 +19,7 @@ namespace VRTetris
         private const int MaxCubesPerPiece = 4;
 
         public static System.Action<Piece> OnPiecePlacement;
+        public static System.Action OnGameOver;
 
         private void Awake()
         {
@@ -29,24 +30,46 @@ namespace VRTetris
         {
             PieceGenerator.OnNewPieceGenerated += OnNewPieceGenerated;
             VRPlayer.OnPieceDropped += OnPieceDropped;
+            PieceThreadmill.OnPieceCollision += OnPieceCollision;
         }
 
         private void OnDisable()
         {
             PieceGenerator.OnNewPieceGenerated -= OnNewPieceGenerated;
             VRPlayer.OnPieceDropped -= OnPieceDropped;
+            PieceThreadmill.OnPieceCollision -= OnPieceCollision;
         }
 
         private void Update()
         {
+            VisualizeClosestPiece();
+        }
+
+        private void VisualizeClosestPiece()
+        {
+            Piece pieceToVisualize = null;
+            float minDist = 9999;
             for (int i = 0; i < _activePieces.Count; i++)
             {
-                TryVisualizePiecePlacement(_activePieces[i]);
+                float dist = Mathf.Abs(_activePieces[i].transform.position.z - transform.position.z);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    pieceToVisualize = _activePieces[i];
+                }
             }
+
+            TryVisualizePiecePlacement(pieceToVisualize);
         }
 
         public void OnNewPieceGenerated(Piece piece)
         {
+            piece.OnPieceGrabbed += OnPieceGrabbed;
+        }
+
+        private void OnPieceGrabbed(Piece piece)
+        {
+            piece.OnPieceGrabbed -= OnPieceGrabbed;
             _activePieces.Add(piece);
         }
 
@@ -55,12 +78,17 @@ namespace VRTetris
             TryAddPiece(piece);
         }
 
-        private void Init()
+        private void PositionMatrix()
         {
             transform.position += Vector3.left * _dimensions.x * PieceGenerator.PieceScale / 2;
             transform.position += Vector3.forward * _dimensions.z * PieceGenerator.PieceScale / 2;
             transform.position += Vector3.forward * .15f;
             transform.position += Vector3.up * 1;
+        }
+
+        private void Init()
+        {
+            PositionMatrix();
 
             _matrix = gameObject.AddComponent<Matrix>();
             _helperMatrix = gameObject.AddComponent<Matrix>();
@@ -136,8 +164,9 @@ namespace VRTetris
         {
             if (!IsPlacementValid(piece))
                 return false;
-
+                
             LockInPiece(piece);
+            ActivateVisualizationCubes(false);
             _matrix.DetectRowClears();
 
             return true;
@@ -175,6 +204,19 @@ namespace VRTetris
             }
 
             return true;
+        }
+
+        private void OnPieceCollision()
+        {
+            //for (int i = 0; i < _activePieces.Count; i++)
+            //{
+            //    // Would be nice to ungrab them before destroying
+            //    Destroy(_activePieces[i].gameObject);
+            //}
+            //_activePieces.Clear();
+
+            //if (_matrix.AddPenaltyRow())
+            //    OnGameOver?.Invoke();
         }
 
         private void InitHelperCubes()

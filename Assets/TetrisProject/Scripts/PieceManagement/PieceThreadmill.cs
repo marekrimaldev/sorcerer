@@ -15,7 +15,7 @@ namespace VRTetris
 
         private List<Piece> _pieces = new List<Piece>();
 
-        public System.Action<Piece> OnPieceCollision;
+        public static System.Action OnPieceCollision;
 
         private void Awake()
         {
@@ -24,7 +24,6 @@ namespace VRTetris
 
         public void AddPiece(Piece piece)
         {
-            Debug.Log("Adding piece");
             piece.transform.position = _startPoint.position;
             _pieces.Add(piece);
 
@@ -33,7 +32,6 @@ namespace VRTetris
 
         private void RemovePiece(Piece piece)
         {
-            Debug.Log("Removing piece");
             _pieces.Remove(piece);
 
             piece.OnPieceGrabbed -= RemovePiece;
@@ -46,21 +44,29 @@ namespace VRTetris
 
         private void TranslatePieces()
         {
-            int piecesAtEnd = 0;
+            List<Piece> piecesAtEnd = new List<Piece>();
+
             for (int i = 0; i < _pieces.Count; i++)
             {
                 if (Vector3.Distance(_pieces[i].transform.position, _endPoint.position) < .1f)
                 {
-                    piecesAtEnd++;
+                    piecesAtEnd.Add(_pieces[i]);
                     continue;
                 }
 
                 _pieces[i].transform.position += _speed * _threadmillDirection * Time.deltaTime;
             }
 
-            if(piecesAtEnd > 1)
+
+            if(piecesAtEnd.Count > 1)
             {
-                Debug.Log("PIECE COLLISION");
+                OnPieceCollision?.Invoke();
+
+                for (int i = 0; i < piecesAtEnd.Count; i++)
+                {
+                    _pieces.Remove(piecesAtEnd[i]);
+                    Destroy(piecesAtEnd[i].gameObject);
+                }
             }
         }
     }

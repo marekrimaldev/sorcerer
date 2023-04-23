@@ -14,6 +14,7 @@ namespace VRTetris
         public Transform[] Cubes => _cubes;
 
         public System.Action<Piece> OnPieceGrabbed;
+        public System.Action<Piece> OnPieceLocked;
         [SerializeField] private UnityEvent OnPieceGrabbedUE;
         [SerializeField] private UnityEvent OnPieceLockedUE;
 
