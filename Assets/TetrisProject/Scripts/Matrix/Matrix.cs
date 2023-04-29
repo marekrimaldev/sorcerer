@@ -8,31 +8,30 @@ namespace VRTetris
     /// This class is representing the grid the player is placing pieces into.
     /// It is basicaly a Transform[][] wrapper providing interface to interact with the grid.
     /// </summary>
-    public class Matrix : MonoBehaviour
+    public class Matrix
     {
+        private Vector3 _origin;
         private Vector3Int _dimensions;
         private Transform[][] _matrix;
+        private Transform _cubeHolder;  // Used as a parent to all cubes in the grid
 
         private const float RowClearTime = .5f;
 
-        public void InitMatrix(Vector3Int dimensions)
+        #region PUBLIC INTERFACE
+
+        public Matrix(Vector3 origin, Vector3Int dimensions)
         {
+            _origin = origin;
             _dimensions = dimensions;
+
+            _cubeHolder = new GameObject("Cube Holder").transform;
+            _cubeHolder.transform.position = _origin;
 
             _matrix = new Transform[_dimensions.y][];
             for (int i = 0; i < _dimensions.y; i++)
             {
                 _matrix[i] = new Transform[_dimensions.x];
             }
-        }
-
-        public void PlaceCubeToMatrix(Transform cube)
-        {
-            cube.SetParent(transform);
-            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
-            _matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
-            cube.localPosition = (Vector3)cubeCoordinates * PieceGenerator.PieceScale;
-            cube.rotation = Quaternion.identity;
         }
 
         public void PlacePieceToMatrix(Piece piece)
@@ -44,7 +43,12 @@ namespace VRTetris
             }
         }
 
-        public void DrawMatrix(GameObject cellPrefab)
+        /// <summary>
+        /// Use this method to visualize the grid.
+        /// It fills all the cells with the provided prefab.
+        /// </summary>
+        /// <param name="cellPrefab"></param>
+        public void FillMatrix(GameObject cellPrefab)
         {
             for (int y = 0; y < _dimensions.y; y++)
             {
@@ -52,7 +56,7 @@ namespace VRTetris
                 {
                     for (int z = 0; z < _dimensions.z; z++)
                     {
-                        Transform cell = Instantiate(cellPrefab, transform).transform;
+                        Transform cell = GameObject.Instantiate(cellPrefab, _cubeHolder).transform;
                         cell.localPosition = new Vector3(x, y, z) * PieceGenerator.PieceScale;
                         cell.localScale = Vector3.one * 0.85f * PieceGenerator.PieceScale;
 
@@ -63,7 +67,7 @@ namespace VRTetris
         }
 
         /// <summary>
-        /// This method will not destroy any objects
+        /// This method will not destroy any objects. It just removes references.
         /// </summary>
         public void ClearMatrix()
         {
@@ -79,43 +83,21 @@ namespace VRTetris
             }
         }
 
-        public void DetectRowClears()
+        /// <summary>
+        /// This method will detect and clear all full rows present in the grid.
+        /// </summary>
+        public void ClearFullRows()
         {
-            StartCoroutine(ClearRowsCoroutine());
+            CoroutineHolder.Instance.StartCoroutine(ClearRowsCoroutine());
         }
 
-        private IEnumerator ClearRowsCoroutine()
+        #endregion
+
+        #region NON-MODIFIYNG METHODS 
+
+        private Vector3Int GetMatrixCoordinates(Transform cube)
         {
-            int firstClearedRow = -1;
-            int clearedRows = 0;
-            for (int y = 0; y < _dimensions.y; y++)
-            {
-                if (DetectRowClear(y))
-                {
-                    if (firstClearedRow == -1)
-                        firstClearedRow = y;
-
-                    clearedRows++;
-                }
-            }
-
-            if(clearedRows > 0)
-            {
-                for (int i = 0; i < clearedRows; i++)
-                {
-                    ClearRow(firstClearedRow + i);
-                }
-
-                ScoreTracker.Instance.RowClearScored(clearedRows);
-
-                yield return new WaitForSeconds(RowClearTime);
-                ShiftRowsAfterRowClear(firstClearedRow, clearedRows);
-            }
-        }
-
-        public Vector3Int GetMatrixCoordinates(Transform cube)
-        {
-            Vector3 localPos = cube.position - transform.position;
+            Vector3 localPos = cube.position - _cubeHolder.position;
 
             int xPos = Mathf.RoundToInt(localPos.x / PieceGenerator.PieceScale);
             int yPos = Mathf.RoundToInt(localPos.y / PieceGenerator.PieceScale);
@@ -124,17 +106,17 @@ namespace VRTetris
             return new Vector3Int(xPos, yPos, zPos);
         }
 
-        public bool IsCellEmpty(int x, int y, int z)
+        private bool IsCellEmpty(int x, int y, int z)
         {
             return _matrix[y][x] == null;
         }
 
-        public bool IsCellEmpty(Vector3Int matrixPos)
+        private bool IsCellEmpty(Vector3Int matrixPos)
         {
             return IsCellEmpty(matrixPos.x, matrixPos.y, matrixPos.z);
         }
 
-        public bool IsRowEmpty(int row)
+        private bool IsRowEmpty(int row)
         {
             for (int x = 0; x < _dimensions.x; x++)
             {
@@ -145,7 +127,7 @@ namespace VRTetris
             return true;
         }
 
-        public bool IsPositionInBounds(int x, int y, int z)
+        private bool IsPositionInBounds(int x, int y, int z)
         {
             bool xBounds = x >= 0 && x < _dimensions.x;
             bool yBounds = y >= 0 && y < _dimensions.y;
@@ -154,7 +136,7 @@ namespace VRTetris
             return xBounds && yBounds && zBounds;
         }
 
-        public bool IsPositionInBounds(Vector3Int matrixPos)
+        private bool IsPositionInBounds(Vector3Int matrixPos)
         {
             return IsPositionInBounds(matrixPos.x, matrixPos.y, matrixPos.z);
         }
@@ -233,7 +215,7 @@ namespace VRTetris
             return count;
         }
 
-        public int Get8NeighbourCount(Transform cube)
+        private int Get8NeighbourCount(Transform cube)
         {
             int count = 0;
 
@@ -261,7 +243,7 @@ namespace VRTetris
             return count;
         }
 
-        public bool DetectRowClear(int row)
+        private bool DetectRowClear(int row)
         {
             for (int x = 0; x < _dimensions.x; x++)
             {
@@ -270,6 +252,55 @@ namespace VRTetris
             }
 
             return true;
+        }
+
+        private bool DetectGameOver()
+        {
+            return !IsRowEmpty(_dimensions.y - 1);
+        }
+
+        #endregion
+
+        #region MODIFIYNG METHODS
+
+        public void PlaceCubeToMatrix(Transform cube)
+        {
+            cube.SetParent(_cubeHolder);
+
+            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+            _matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
+
+            cube.localPosition = (Vector3)cubeCoordinates * PieceGenerator.PieceScale;
+            cube.rotation = Quaternion.identity;
+        }
+
+        private IEnumerator ClearRowsCoroutine()
+        {
+            int firstClearedRow = -1;
+            int clearedRows = 0;
+            for (int y = 0; y < _dimensions.y; y++)
+            {
+                if (DetectRowClear(y))
+                {
+                    if (firstClearedRow == -1)
+                        firstClearedRow = y;
+
+                    clearedRows++;
+                }
+            }
+
+            if (clearedRows > 0)
+            {
+                for (int i = 0; i < clearedRows; i++)
+                {
+                    ClearRow(firstClearedRow + i);
+                }
+
+                ScoreTracker.Instance.RowClearScored(clearedRows);
+
+                yield return new WaitForSeconds(RowClearTime);
+                ShiftRowsAfterRowClear(firstClearedRow, clearedRows);
+            }
         }
 
         private void ClearRow(int row)
@@ -304,7 +335,7 @@ namespace VRTetris
         /// Returns true if it caused game over.
         /// </summary>
         /// <returns></returns>
-        public bool AddPenaltyRow()
+        private bool AddPenaltyRow()
         {
             if (DetectGameOver())
                 return true;
@@ -325,9 +356,6 @@ namespace VRTetris
             return false;
         }
 
-        public bool DetectGameOver()
-        {
-            return !IsRowEmpty(_dimensions.y - 1);
-        }
+        #endregion
     }
 }

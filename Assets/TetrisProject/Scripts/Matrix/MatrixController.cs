@@ -90,13 +90,9 @@ namespace VRTetris
         {
             PositionMatrix();
 
-            _matrix = gameObject.AddComponent<Matrix>();
-            _helperMatrix = gameObject.AddComponent<Matrix>();
-
-            _matrix.InitMatrix(_dimensions);
-            _helperMatrix.InitMatrix(_dimensions);
-
-            _helperMatrix.DrawMatrix(_cellVisualizationPrefab);
+            _matrix = new Matrix(transform.position, _dimensions);
+            _helperMatrix = new Matrix(transform.position, _dimensions);
+            _helperMatrix.FillMatrix(_cellVisualizationPrefab);
 
             InitHelperCubes();
         }
@@ -167,7 +163,7 @@ namespace VRTetris
                 
             LockInPiece(piece);
             ActivateVisualizationCubes(false);
-            _matrix.DetectRowClears();
+            _matrix.ClearFullRows();
 
             return true;
         }
