@@ -25,11 +25,16 @@ namespace VRTetris
             _colorController = GetComponent<PieceVisualComponent>();
         }
 
-        public void LockIn()
+        public void SetInteractability(bool val)
         {
             XRGrabInteractable interactable = GetComponentInChildren<XRGrabInteractable>();
             if (interactable != null)
                 interactable.enabled = false;
+        }
+
+        public void LockIn()
+        {
+            SetInteractability(false);
 
             _colorController.OnPieceLockIn();
 

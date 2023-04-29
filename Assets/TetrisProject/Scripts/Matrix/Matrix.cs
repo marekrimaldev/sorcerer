@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace VRTetris
 {
+    /// <summary>
+    /// This class is representing the grid the player is placing pieces into.
+    /// It is basicaly a Transform[][] wrapper providing interface to interact with the grid.
+    /// </summary>
     public class Matrix : MonoBehaviour
     {
         private Vector3Int _dimensions;

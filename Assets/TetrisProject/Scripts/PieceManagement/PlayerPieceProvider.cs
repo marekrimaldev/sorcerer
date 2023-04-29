@@ -9,6 +9,6 @@ namespace VRTetris
     /// </summary>
     public abstract class PlayerPieceProvider : MonoBehaviour
     {
-        public abstract void AddPiece(Piece piece, float );
+        public abstract void AddPiece(Piece piece);
     }
 }
