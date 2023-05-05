@@ -13,9 +13,17 @@ namespace VRTetris
         private Vector3 _origin;
         private Vector3Int _dimensions;
         private Transform[][] _matrix;
-        private Transform _cubeHolder;  // Used as a parent to all cubes in the grid
+        private Transform[][] _auxMatrix;   // Auxilary matrix used for visualization and some placement checks
+        private Transform _cubeHolder;      // Used as a parent to all cubes in the grid
+        private Transform _auxCubeHolder;   // Used as a parent to all aux cubes in the grid
 
         private const float RowClearTime = .5f;
+        private const int MaxCubesPerPiece = 4;
+
+        private GameObject _cellVisPrefab = Resources.Load<GameObject>("Tetris/CellVisPrefab");
+        private GameObject _placementVisPrefab = Resources.Load<GameObject>("Tetris/PlacementVisPrefab");
+
+        private List<Transform> _placementVisCubes = new List<Transform>();
 
         #region PUBLIC INTERFACE
 
@@ -28,58 +36,62 @@ namespace VRTetris
             _cubeHolder.transform.position = _origin;
 
             _matrix = new Transform[_dimensions.y][];
+            _auxMatrix = new Transform[_dimensions.y][];
             for (int i = 0; i < _dimensions.y; i++)
             {
                 _matrix[i] = new Transform[_dimensions.x];
+                _auxMatrix[i] = new Transform[_dimensions.x];
             }
+
+            InitPlacementVisCubes();
+            VisualizeGrid();
+        }
+
+        public bool IsPlacementValid(Piece piece)
+        {
+            bool isBottomConnected = false;
+            Transform[] cubes = piece.Cubes;
+            for (int i = 0; i < cubes.Length; i++)
+            {
+                if (!IsCubeInsideMatrix(cubes[i]))
+                    return false;
+
+                if (IsCubeColliding(cubes[i]))
+                    return false;
+
+                if (IsCubeBottomConnected(cubes[i]))
+                    isBottomConnected = true;
+            }
+
+            if (!isBottomConnected)
+                return false;
+
+            if (!IsPieceImage4Connected(piece))
+                return false;
+
+            return true;
         }
 
         public void PlacePieceToMatrix(Piece piece)
         {
+            ActivateVisualizationCubes(false);
+
             Transform[] cubes = piece.Cubes;
             for (int i = 0; i < cubes.Length; i++)
             {
-                PlaceCubeToMatrix(cubes[i]);
+                PlaceCubeToMatrix(cubes[i], _matrix);
             }
         }
 
-        /// <summary>
-        /// Use this method to visualize the grid.
-        /// It fills all the cells with the provided prefab.
-        /// </summary>
-        /// <param name="cellPrefab"></param>
-        public void FillMatrix(GameObject cellPrefab)
+        public void VisualizePiecePlacement(Piece piece)
         {
-            for (int y = 0; y < _dimensions.y; y++)
-            {
-                for (int x = 0; x < _dimensions.x; x++)
-                {
-                    for (int z = 0; z < _dimensions.z; z++)
-                    {
-                        Transform cell = GameObject.Instantiate(cellPrefab, _cubeHolder).transform;
-                        cell.localPosition = new Vector3(x, y, z) * PieceGenerator.PieceScale;
-                        cell.localScale = Vector3.one * 0.85f * PieceGenerator.PieceScale;
+            ActivateVisualizationCubes(true);
 
-                        _matrix[y][x] = cell;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// This method will not destroy any objects. It just removes references.
-        /// </summary>
-        public void ClearMatrix()
-        {
-            for (int y = 0; y < _dimensions.y; y++)
+            Transform[] cubes = piece.Cubes;
+            for (int i = 0; i < cubes.Length; i++)
             {
-                for (int x = 0; x < _dimensions.x; x++)
-                {
-                    for (int z = 0; z < _dimensions.z; z++)
-                    {
-                        _matrix[y][x] = null;
-                    }
-                }
+                _placementVisCubes[i].position = cubes[i].position;
+                PlaceCubeToMatrix(_placementVisCubes[i], _auxMatrix);
             }
         }
 
@@ -95,6 +107,35 @@ namespace VRTetris
 
         #region NON-MODIFIYNG METHODS 
 
+        private void InitPlacementVisCubes()
+        {
+            for (int i = 0; i < MaxCubesPerPiece; i++)
+            {
+                GameObject cube = GameObject.Instantiate(_placementVisPrefab, _cubeHolder);
+                cube.name = "Visualization cube";
+                cube.SetActive(false);
+
+                _placementVisCubes.Add(cube.transform);
+            }
+        }
+        private void VisualizeGrid()
+        {
+            for (int y = 0; y < _dimensions.y; y++)
+            {
+                for (int x = 0; x < _dimensions.x; x++)
+                {
+                    for (int z = 0; z < _dimensions.z; z++)
+                    {
+                        Transform cell = GameObject.Instantiate(_cellVisPrefab, _cubeHolder).transform;
+                        cell.localPosition = new Vector3(x, y, z) * PieceGenerator.PieceScale;
+                        cell.localScale = Vector3.one * 0.85f * PieceGenerator.PieceScale;
+
+                        _auxMatrix[y][x] = cell;
+                    }
+                }
+            }
+        }
+
         private Vector3Int GetMatrixCoordinates(Transform cube)
         {
             Vector3 localPos = cube.position - _cubeHolder.position;
@@ -106,14 +147,24 @@ namespace VRTetris
             return new Vector3Int(xPos, yPos, zPos);
         }
 
+        private bool IsCellEmpty(int x, int y, int z, Transform[][] matrix)
+        {
+            return matrix[y][x] == null;
+        }
+
         private bool IsCellEmpty(int x, int y, int z)
         {
-            return _matrix[y][x] == null;
+            return IsCellEmpty(x, y, z, _matrix);
         }
 
         private bool IsCellEmpty(Vector3Int matrixPos)
         {
             return IsCellEmpty(matrixPos.x, matrixPos.y, matrixPos.z);
+        }
+
+        private bool IsCellEmpty(Vector3Int matrixPos, Transform[][] matrix)
+        {
+            return IsCellEmpty(matrixPos.x, matrixPos.y, matrixPos.z, matrix);
         }
 
         private bool IsRowEmpty(int row)
@@ -172,6 +223,11 @@ namespace VRTetris
 
         public int Get4NeighbourCount(Transform cube)
         {
+            return Get4NeighbourCount(cube, _matrix);
+        }
+
+        public int Get4NeighbourCount(Transform cube, Transform[][] matrix)
+        {
             int count = 0;
             
             Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
@@ -190,7 +246,7 @@ namespace VRTetris
                 if (!IsPositionInBounds(xx, yy, zz))
                     continue;
 
-                if (!IsCellEmpty(xx, yy, zz))
+                if (!IsCellEmpty(xx, yy, zz, matrix))
                     count++;
             }
 
@@ -208,39 +264,39 @@ namespace VRTetris
                 if (!IsPositionInBounds(xx, yy, zz))
                     continue;
 
-                if (!IsCellEmpty(xx, yy, zz))
+                if (!IsCellEmpty(xx, yy, zz, matrix))
                     count++;
             }
 
             return count;
         }
 
-        private int Get8NeighbourCount(Transform cube)
+        /// <summary>
+        /// The image of the piece has to be 4-connected to ensure valid rotation of the piece
+        /// </summary>
+        /// <param name="piece"></param>
+        /// <returns></returns>
+        private bool IsPieceImage4Connected(Piece piece)
         {
-            int count = 0;
+            // You can try to place the piece in the middle of the grid with no rotation and count the connectivity
+            // Each piece might also have its own little grid and be able to calculate the connectivity for you
 
-            Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
+            ClearMatrixReferences(_auxMatrix);
+            VisualizePiecePlacement(piece);     // Creates an image in _auxMatrix
 
-            for (int x = -1; x <= 1; x++)
+            int neighbouring = 0;
+            for (int i = 0; i < piece.Cubes.Length; i++)
             {
-                for (int y = -1; y <= 1; y++)
-                {
-                    int xx = cubeCoordinates.x + x;
-                    int yy = cubeCoordinates.y + y;
-                    int zz = cubeCoordinates.z + 0;
-
-                    if (x == 0 && y == 0)
-                        continue;
-
-                    if (!IsPositionInBounds(xx, yy, zz))
-                        continue;
-
-                    if (!IsCellEmpty(xx, yy, zz))
-                        count++;
-                }
+                neighbouring += Get4NeighbourCount(_placementVisCubes[i], _auxMatrix);
             }
 
-            return count;
+            if (neighbouring < 6)
+            {
+                ClearMatrixReferences(_auxMatrix);
+                return false;
+            }
+
+            return true;
         }
 
         private bool DetectRowClear(int row)
@@ -259,16 +315,38 @@ namespace VRTetris
             return !IsRowEmpty(_dimensions.y - 1);
         }
 
+        private void ActivateVisualizationCubes(bool enable)
+        {
+            for (int i = 0; i < _placementVisCubes.Count; i++)
+            {
+                _placementVisCubes[i].gameObject.SetActive(enable);
+            }
+        }
+
         #endregion
 
         #region MODIFIYNG METHODS
 
-        public void PlaceCubeToMatrix(Transform cube)
+        private void ClearMatrixReferences(Transform[][] matrix)
+        {
+            for (int y = 0; y < _dimensions.y; y++)
+            {
+                for (int x = 0; x < _dimensions.x; x++)
+                {
+                    for (int z = 0; z < _dimensions.z; z++)
+                    {
+                        matrix[y][x] = null;
+                    }
+                }
+            }
+        }
+
+        public void PlaceCubeToMatrix(Transform cube, Transform[][] matrix)
         {
             cube.SetParent(_cubeHolder);
 
             Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
-            _matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
+            matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
 
             cube.localPosition = (Vector3)cubeCoordinates * PieceGenerator.PieceScale;
             cube.rotation = Quaternion.identity;

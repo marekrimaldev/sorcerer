@@ -11,12 +11,10 @@ namespace VRTetris
         [SerializeField] private GameObject _cellVisualizationPrefab;
 
         private Matrix _matrix;
-        private Matrix _helperMatrix;
+        //private Matrix _helperMatrix;
 
         private List<Piece> _activePieces = new List<Piece>();
-        private List<Transform> _helperCubes = new List<Transform>();
 
-        private const int MaxCubesPerPiece = 4;
 
         public static System.Action<Piece> OnPiecePlacement;
         public static System.Action OnGameOver;
@@ -59,7 +57,8 @@ namespace VRTetris
                 }
             }
 
-            TryVisualizePiecePlacement(pieceToVisualize);
+            if(pieceToVisualize != null)
+                TryVisualizePiecePlacement(pieceToVisualize);
         }
 
         public void OnNewPieceGenerated(Piece piece)
@@ -89,80 +88,25 @@ namespace VRTetris
         private void Init()
         {
             PositionMatrix();
-
             _matrix = new Matrix(transform.position, _dimensions);
-            _helperMatrix = new Matrix(transform.position, _dimensions);
-            _helperMatrix.FillMatrix(_cellVisualizationPrefab);
-
-            InitHelperCubes();
         }
 
-        /// <summary>
-        /// The image of the piece has to be 4-connected to ensure valid rotation of the piece
-        /// </summary>
-        /// <param name="piece"></param>
-        /// <returns></returns>
-        private bool IsPieceImage4Connected(Piece piece)
+        private bool TryVisualizePiecePlacement(Piece piece)
         {
-            // You can try to place the piece in the middle of the grid with no rotation and count the connectivity
-            // Each piece might also have its own little grid and be able to calculate the connectivity for you
-
-            _helperMatrix.ClearMatrix();
-
-            Transform[] cubes = piece.Cubes;
-            for (int i = 0; i < cubes.Length; i++)
-            {
-                _helperCubes[i].position = cubes[i].position;
-                _helperMatrix.PlaceCubeToMatrix(_helperCubes[i]);
-            }
-
-            int neighbouring = 0;
-            for (int i = 0; i < cubes.Length; i++)
-            {
-                neighbouring += _helperMatrix.Get4NeighbourCount(_helperCubes[i]);
-            }
-
-            if(neighbouring < 6)
-            {
-                _helperMatrix.ClearMatrix();
-                return false;
-            }
-
-            return true;
-        }
-
-        private bool IsPlacementValid(Piece piece)
-        {
-            bool isBottomConnected = false;
-            Transform[] cubes = piece.Cubes;
-            for (int i = 0; i < cubes.Length; i++)
-            {
-                if (!_matrix.IsCubeInsideMatrix(cubes[i]))
-                    return false;
-
-                if (_matrix.IsCubeColliding(cubes[i]))
-                    return false;
-
-                if (_matrix.IsCubeBottomConnected(cubes[i]))
-                    isBottomConnected = true;
-            }
-
-            if (!isBottomConnected)
+            if (!_matrix.IsPlacementValid(piece))
                 return false;
 
-            if (!IsPieceImage4Connected(piece))
-                return false;
+            _matrix.VisualizePiecePlacement(piece);
 
             return true;
         }
 
         private bool TryAddPiece(Piece piece)
         {
-            if (!IsPlacementValid(piece))
+            if (!_matrix.IsPlacementValid(piece))
                 return false;
                 
             LockInPiece(piece);
-            ActivateVisualizationCubes(false);
             _matrix.ClearFullRows();
 
             return true;
@@ -173,33 +117,9 @@ namespace VRTetris
             piece.LockIn();
 
             _activePieces.Remove(piece);
-
-            //_matrix.PlacePieceToMatrix(piece);
-            Transform[] cubes = piece.Cubes;
-            for (int i = 0; i < cubes.Length; i++)
-            {
-                _matrix.PlaceCubeToMatrix(cubes[i]);
-            }
+            _matrix.PlacePieceToMatrix(piece);
 
             OnPiecePlacement?.Invoke(piece);
-        }
-
-        private bool TryVisualizePiecePlacement(Piece piece)
-        {
-            bool validPlacement = IsPlacementValid(piece);
-            ActivateVisualizationCubes(validPlacement);
-
-            if (!validPlacement)
-                return false;
-
-            Transform[] cubes = piece.Cubes;
-            for (int i = 0; i < cubes.Length; i++)
-            {
-                _helperCubes[i].position = cubes[i].position;
-                _helperMatrix.PlaceCubeToMatrix(_helperCubes[i]);
-            }
-
-            return true;
         }
 
         private void OnPieceCollision()
@@ -213,26 +133,6 @@ namespace VRTetris
 
             //if (_matrix.AddPenaltyRow())
             //    OnGameOver?.Invoke();
-        }
-
-        private void InitHelperCubes()
-        {
-            for (int i = 0; i < MaxCubesPerPiece; i++)
-            {
-                GameObject cube = Instantiate(_placementVisualizationPrefab, transform);
-                cube.name = "Visualization cube";
-                cube.SetActive(false);
-
-                _helperCubes.Add(cube.transform);
-            }
-        }
-
-        private void ActivateVisualizationCubes(bool enable)
-        {
-            for (int i = 0; i < _helperCubes.Count; i++)
-            {
-                _helperCubes[i].gameObject.SetActive(enable);
-            }
         }
     }
 }

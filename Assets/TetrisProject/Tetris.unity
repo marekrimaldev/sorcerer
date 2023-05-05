@@ -1017,9 +1017,8 @@ GameObject:
   m_Component:
   - component: {fileID: 816441683}
   - component: {fileID: 816441685}
-  - component: {fileID: 816441684}
   m_Layer: 0
-  m_Name: PieceProvider
+  m_Name: PieceGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1041,19 +1040,6 @@ Transform:
   m_Father: {fileID: 930385857}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &816441684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 816441682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df2e44fc835d19247a872e9752b3a623, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawn: {fileID: 1015540245}
 --- !u!114 &816441685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,7 +1064,8 @@ MonoBehaviour:
   - {fileID: 6250467923350468929, guid: 5c8d5e8c098a9e24ca300a5c3581ed65, type: 3}
   - {fileID: 2630262423710334937, guid: 4ec652a60465eab46807d1fb37bd6c3a, type: 3}
   - {fileID: 6362352935358514619, guid: 206ad3e3bd368b64cb40823fddd626e3, type: 3}
-  _spawns: []
+  _spawns:
+  - {fileID: 1015540245}
 --- !u!1 &823727049
 GameObject:
   m_ObjectHideFlags: 0
