@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace VRTetris
 {
-    public class GameManager : MonoBehaviour
+    public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         [SerializeField] private GameObject _gameStateScene;
         [SerializeField] private GameObject _pauseStateScene;
@@ -16,8 +16,10 @@ namespace VRTetris
         private static GameManager _instance;
         public static GameManager Instance => _instance;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             if (_instance != null && _instance != this)
             {
                 Destroy(this);

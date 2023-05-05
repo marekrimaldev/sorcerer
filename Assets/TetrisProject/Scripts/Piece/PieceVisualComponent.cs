@@ -41,6 +41,36 @@ namespace VRTetris
         private float _colorMultiplier;
         private MeshRenderer[] _mrs;
 
+        #region STATIC
+
+        public static void AnimateClearedCube(Transform cube)
+        {
+            Rigidbody rb = cube.gameObject.AddComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.AddForce(Random.onUnitSphere * ThrowForce);
+            rb.AddTorque(Random.onUnitSphere * TorqueForce);
+
+            float destroyDelay = Random.Range(MinDestroyTime, MaxDestroyTime);
+            CoroutineHolder.Instance.StartCoroutine(DestroyCubeWithDelay(cube, destroyDelay));
+        }
+
+        private static IEnumerator DestroyCubeWithDelay(Transform cube, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            DestroyCube(cube);
+        }
+
+        private static void DestroyCube(Transform cube)
+        {
+            VFXController vfx = Instantiate(DestroyVfxStatic, cube.position, Quaternion.identity);
+            vfx.SetColor(cube.GetComponentInChildren<MeshRenderer>().material.color);
+            //vfx.DestroyVFXInSeconds(2);
+
+            Destroy(cube.gameObject);
+        }
+
+        #endregion
+
         private void Awake()
         {
             _piece = GetComponent<Piece>();
@@ -60,7 +90,18 @@ namespace VRTetris
             SetColor(_colors[idx], _baseMultiplier);
         }
 
-        public void SetMaterial(Material mat)
+        public void OnPieceLockIn()
+        {
+            //for (int i = 0; i < _piece.Cubes.Length; i++)
+            //{
+            //    Instantiate(_lockInVfx, _piece.Cubes[i].position, _piece.Cubes[i].rotation);
+            //    _lockInVfx.DestroyVFXInSeconds(2);
+            //}
+
+            StartCoroutine(PieceLockInAnimationCoroutine());
+        }
+
+        private void SetMaterial(Material mat)
         {
             for (int i = 0; i < _mrs.Length; i++)
             {
@@ -68,7 +109,7 @@ namespace VRTetris
             }
         }
 
-        public void SetColor(Color color, float colorMultiplier)
+        private void SetColor(Color color, float colorMultiplier)
         {
             _color = color;
             _colorMultiplier = colorMultiplier;
@@ -81,43 +122,6 @@ namespace VRTetris
                 _mrs[i].material.color = _color * _colorMultiplier;
                 _mrs[i].material.SetColor("_EmissionColor", _color * _emissionIntensity);
             }
-        }
-
-        public static void AnimateClearedCube(Transform cube)
-        {
-            Rigidbody rb = cube.gameObject.AddComponent<Rigidbody>();
-            rb.useGravity = false;
-            rb.AddForce(Random.onUnitSphere * ThrowForce);
-            rb.AddTorque(Random.onUnitSphere * TorqueForce);
-
-            float destroyDelay = Random.Range(MinDestroyTime, MaxDestroyTime);
-            CoroutineHolder.Instance.StartCoroutine(DestroyCubeWithDelay(cube, destroyDelay));
-        }
-
-        private static IEnumerator DestroyCubeWithDelay(Transform cube, float delay)
-        {
-            yield return new WaitForSeconds(delay);
-            DestroyCube(cube);
-        }
-
-        public static void DestroyCube(Transform cube)
-        {
-            VFXController vfx = Instantiate(DestroyVfxStatic, cube.position, Quaternion.identity);
-            vfx.SetColor(cube.GetComponentInChildren<MeshRenderer>().material.color);
-            //vfx.DestroyVFXInSeconds(2);
-
-            Destroy(cube.gameObject);
-        }
-
-        public void OnPieceLockIn()
-        {
-            //for (int i = 0; i < _piece.Cubes.Length; i++)
-            //{
-            //    Instantiate(_lockInVfx, _piece.Cubes[i].position, _piece.Cubes[i].rotation);
-            //    _lockInVfx.DestroyVFXInSeconds(2);
-            //}
-
-            StartCoroutine(PieceLockInAnimationCoroutine());
         }
 
         private IEnumerator PieceLockInAnimationCoroutine()

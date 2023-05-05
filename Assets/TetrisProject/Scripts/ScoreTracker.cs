@@ -3,7 +3,7 @@ using System;
 
 namespace VRTetris
 {
-    public class ScoreTracker : MonoBehaviour
+    public class ScoreTracker : MonoBehaviourSingleton<ScoreTracker>
     {
         private int _score;
         public int Score => _score;
@@ -16,22 +16,7 @@ namespace VRTetris
 
         private readonly int[] ScoreTable = new int[]{ 100, 300, 500, 800 };
 
-        private static ScoreTracker _instance;
-        public static ScoreTracker Instance => _instance;
-
         public static Action<int> OnScoreChange;
-
-        private void Awake()
-        {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this);
-                return;
-            }
-            _instance = this;
-
-            ResetScore();
-        }
 
         private void ResetScore()
         {

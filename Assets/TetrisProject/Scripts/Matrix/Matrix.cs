@@ -15,7 +15,6 @@ namespace VRTetris
         private Transform[][] _matrix;
         private Transform[][] _auxMatrix;   // Auxilary matrix used for visualization and some placement checks
         private Transform _cubeHolder;      // Used as a parent to all cubes in the grid
-        private Transform _auxCubeHolder;   // Used as a parent to all aux cubes in the grid
 
         private const float RowClearTime = .5f;
         private const int MaxCubesPerPiece = 4;
@@ -26,6 +25,8 @@ namespace VRTetris
         private List<Transform> _placementVisCubes = new List<Transform>();
 
         #region PUBLIC INTERFACE
+
+        public Transform CubeHolder => _cubeHolder;
 
         public Matrix(Vector3 origin, Vector3Int dimensions)
         {
@@ -83,7 +84,7 @@ namespace VRTetris
             }
         }
 
-        public void VisualizePiecePlacement(Piece piece)
+        public void ShowPieceProjection(Piece piece)
         {
             ActivateVisualizationCubes(true);
 
@@ -127,8 +128,8 @@ namespace VRTetris
                     for (int z = 0; z < _dimensions.z; z++)
                     {
                         Transform cell = GameObject.Instantiate(_cellVisPrefab, _cubeHolder).transform;
-                        cell.localPosition = new Vector3(x, y, z) * PieceGenerator.PieceScale;
-                        cell.localScale = Vector3.one * 0.85f * PieceGenerator.PieceScale;
+                        cell.localPosition = new Vector3(x, y, z) * PieceSpawner.PieceScale;
+                        cell.localScale = Vector3.one * 0.85f * PieceSpawner.PieceScale;
 
                         _auxMatrix[y][x] = cell;
                     }
@@ -140,9 +141,9 @@ namespace VRTetris
         {
             Vector3 localPos = cube.position - _cubeHolder.position;
 
-            int xPos = Mathf.RoundToInt(localPos.x / PieceGenerator.PieceScale);
-            int yPos = Mathf.RoundToInt(localPos.y / PieceGenerator.PieceScale);
-            int zPos = Mathf.RoundToInt(localPos.z / PieceGenerator.PieceScale);
+            int xPos = Mathf.RoundToInt(localPos.x / PieceSpawner.PieceScale);
+            int yPos = Mathf.RoundToInt(localPos.y / PieceSpawner.PieceScale);
+            int zPos = Mathf.RoundToInt(localPos.z / PieceSpawner.PieceScale);
 
             return new Vector3Int(xPos, yPos, zPos);
         }
@@ -282,7 +283,7 @@ namespace VRTetris
             // Each piece might also have its own little grid and be able to calculate the connectivity for you
 
             ClearMatrixReferences(_auxMatrix);
-            VisualizePiecePlacement(piece);     // Creates an image in _auxMatrix
+            ShowPieceProjection(piece);     // Creates an image in _auxMatrix
 
             int neighbouring = 0;
             for (int i = 0; i < piece.Cubes.Length; i++)
@@ -348,7 +349,7 @@ namespace VRTetris
             Vector3Int cubeCoordinates = GetMatrixCoordinates(cube);
             matrix[cubeCoordinates.y][cubeCoordinates.x] = cube;
 
-            cube.localPosition = (Vector3)cubeCoordinates * PieceGenerator.PieceScale;
+            cube.localPosition = (Vector3)cubeCoordinates * PieceSpawner.PieceScale;
             cube.rotation = Quaternion.identity;
         }
 
@@ -401,7 +402,7 @@ namespace VRTetris
                     if (_matrix[y][x] == null)
                         continue;
 
-                    _matrix[y][x].position -= shift * Vector3.up * PieceGenerator.PieceScale;   // position
+                    _matrix[y][x].position -= shift * Vector3.up * PieceSpawner.PieceScale;   // position
                     _matrix[y - shift][x] = _matrix[y][x];                                      // reference
                     _matrix[y][x] = null;
                 }
@@ -425,7 +426,7 @@ namespace VRTetris
                     if (_matrix[y][x] == null)
                         continue;
 
-                    _matrix[y][x].position += Vector3.up * PieceGenerator.PieceScale;   // position
+                    _matrix[y][x].position += Vector3.up * PieceSpawner.PieceScale;   // position
                     _matrix[y + 1][x] = _matrix[y][x];                                  // reference
                     _matrix[y][x] = null;
                 }

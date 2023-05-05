@@ -5,113 +5,108 @@ using System;
 
 namespace VRTetris
 {
-    public class PieceSpawner : MonoBehaviour
+    public class PieceSpawner : MonoBehaviourSingleton<PieceSpawner>
     {
         [SerializeField] private bool _waitUntilPlacement;
-        [SerializeField] private float _secondsBetweenPieces = 1;
-        [SerializeField] private float _secondsDecrement = 0.05f;   // Bind this to ScoreTracker.Level
-        [SerializeField] private float _cubeInnerScale = 0.9f;      // The scale of the cube inside the block volume
+        [SerializeField] private float _secondsGrabLimit = 5f;
+        [SerializeField] private float _secondsGrabLimitLevelSpeedUp = 0.1f;
         [SerializeField] private Piece[] _piecePrefabs;
-        [SerializeField] private Transform _spawn;
+        [SerializeField] private PieceSpawn[] _spawns;
 
-        private List<Piece> _preparedPieces = new List<Piece>();    // Pieces prepared to be grabbed
+        public float GrabLimit => Mathf.Max(_secondsGrabLimit - (ScoreTracker.Instance.Level * _secondsGrabLimitLevelSpeedUp), 1f);
 
-        private float _currSpawnTime;
-        private bool _isSpawningOn = true;
-        private float _currPieceRemainingTime;
-        private int _numberOfActivePieces = 0;
+        public static readonly float CubeInnerScale = 0.9f;    // The scale of the cube inside the block volume
+        public static readonly float PieceScale = 0.1f;
 
-        public static float PieceScale => 0.1f;
-
-        public static Action<Piece> OnNewPieceGenerated;
+        public static Action<Piece> OnNewPieceSpawned;
 
         private void Start()
         {
-            _currSpawnTime = _secondsBetweenPieces;
-
             if (_waitUntilPlacement)
             {
-                _secondsBetweenPieces = 99999;
-                MatrixController.OnPiecePlacement += (Piece piece) => { SpawnPiece(); };
+                _secondsGrabLimit = 99999;
+                MatrixController.OnPiecePlacement += (Piece piece) => { SpawnNewPiece(); };
 
-                SpawnPiece();
+                SpawnNewPiece();
             }
             else
             {
-                StartGenerator();
+                StartSpawning();
             }
         }
-
-        public void StartGenerator()
+                
+        public void StartSpawning()
         {
-            _isSpawningOn = true;
-            StartCoroutine(SpawnCoroutine());
+            // There is no coroutine lol. It spawn automaticaly when grabbed.
+            SpawnNewPiece();
+            SpawnNewPiece();    // We start with a piece on both spawns
+            SetSpawnInteractability(MatrixController.Instance.ActivePieces < 2);
         }
 
-        public void StopGenerator()
+        public void StopSpawning()
         {
-            _isSpawningOn = false;
         }
 
-        private Piece InstantiateNextPiece()
+        private void SpawnNewPiece()
         {
+            PieceSpawn spawn = GetFreeSpawn();
             int idx = UnityEngine.Random.Range(0, _piecePrefabs.Length);
-            Piece piece = Instantiate(_piecePrefabs[idx]);
-            piece.transform.localScale = Vector3.one * PieceScale;
+            Piece piece = spawn.SpawnPiece(_piecePrefabs[idx]);
 
-            for (int i = 0; i < piece.Cubes.Length; i++)
-            {
-                piece.Cubes[i].localScale = new Vector3(_cubeInnerScale, _cubeInnerScale, _cubeInnerScale);
-            }
-
-            return piece;
-        }
-
-        private void SpawnPiece()
-        {
-            Piece piece = InstantiateNextPiece();
-            OnNewPieceGenerated?.Invoke(piece);
-
-            piece.SetInteractability(_numberOfActivePieces < 2);
             piece.OnPieceGrabbed += OnPieceGrabbed;
             piece.OnPieceLocked += OnPieceLocked;
 
-            _preparedPieces.Add(piece);
+            OnNewPieceSpawned?.Invoke(piece);
+        }
+
+        private PieceSpawn GetFreeSpawn()
+        {
+            List<PieceSpawn> freeSpawns = new List<PieceSpawn>();
+            for (int i = 0; i < _spawns.Length; i++)
+            {
+                if (_spawns[i].IsFree)
+                    freeSpawns.Add(_spawns[i]);
+            }
+
+            int idx = UnityEngine.Random.Range(0, freeSpawns.Count - 1);
+            return freeSpawns[idx];
         }
 
         private void OnPieceGrabbed(Piece piece)
         {
             piece.OnPieceGrabbed -= OnPieceGrabbed;
-            _numberOfActivePieces++;
-
-            _preparedPieces.Remove(piece);
-            MakePreparedPiecesInteractable(_numberOfActivePieces < 2);
+            SpawnNewPiece();
+            CallMethodWithDelay(() => SetSpawnInteractability(MatrixController.Instance.ActivePieces < 2), .1f);
         }
 
         private void OnPieceLocked(Piece piece)
         {
-            piece.OnPieceGrabbed -= OnPieceLocked;
-            _numberOfActivePieces--;
-
-            MakePreparedPiecesInteractable(true);
+            piece.OnPieceLocked -= OnPieceLocked;
+            CallMethodWithDelay(() => SetSpawnInteractability(true), .1f);
         }
 
-        private void MakePreparedPiecesInteractable(bool val)
+        private void SetSpawnInteractability(bool val)
         {
-            for (int i = 0; i < _preparedPieces.Count; i++)
+            for (int i = 0; i < _spawns.Length; i++)
             {
-                _preparedPieces[i].SetInteractability(val);
+                _spawns[i].SetInteractability(val);
             }
         }
 
-        private IEnumerator SpawnCoroutine()
+        /// <summary>
+        /// Put these into some helper class
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="delay"></param>
+        private void CallMethodWithDelay(Action method, float delay)
         {
-            while (_isSpawningOn)
-            {
-                yield return new WaitForSeconds(_currSpawnTime);
+            StartCoroutine(CallMethodWithDelayCo(method, delay));
+        }
 
-                SpawnPiece();
-            }
+        private IEnumerator CallMethodWithDelayCo(Action method, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            method?.Invoke();
         }
     }
 }

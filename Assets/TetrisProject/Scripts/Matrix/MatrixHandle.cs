@@ -38,7 +38,6 @@ public class MatrixHandle : MonoBehaviour
     private void HandleLeftHand()
     {
         float leftHandVal = _leftHandGrabAction.action.ReadValue<float>();
-        float rightHandVal = _rightHandGrabAction.action.ReadValue<float>();
 
         if (!_leftHandPressed && leftHandVal > Threshold)
         {

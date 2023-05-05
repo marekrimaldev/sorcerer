@@ -18,30 +18,31 @@ namespace VRTetris
         [SerializeField] private UnityEvent OnPieceGrabbedUE;
         [SerializeField] private UnityEvent OnPieceLockedUE;
 
-        private PieceVisualComponent _colorController;
+        private PieceVisualComponent _visualComponent;
 
         private void Awake()
         {
-            _colorController = GetComponent<PieceVisualComponent>();
+            _visualComponent = GetComponent<PieceVisualComponent>();
         }
 
         public void SetInteractability(bool val)
         {
             XRGrabInteractable interactable = GetComponentInChildren<XRGrabInteractable>();
             if (interactable != null)
-                interactable.enabled = false;
+                interactable.enabled = val;
         }
 
         public void LockIn()
         {
             SetInteractability(false);
 
-            _colorController.OnPieceLockIn();
+            _visualComponent.OnPieceLockIn();
 
+            OnPieceLocked?.Invoke(this);
             OnPieceLockedUE?.Invoke();
         }
 
-        public void PieceGrabbed()
+        public void Grab()
         {
             OnPieceGrabbed?.Invoke(this);
             OnPieceGrabbedUE?.Invoke();

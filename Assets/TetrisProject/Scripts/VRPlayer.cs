@@ -5,21 +5,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace VRTetris
 {
-    public class VRPlayer : MonoBehaviour
+    public class VRPlayer : MonoBehaviourSingleton<VRPlayer>
     {
-        private static VRPlayer _instance;
-        public static VRPlayer Instance => _instance;
-
         public static System.Action<Piece> OnPieceDropped;
-
-        private void Awake()
-        {
-            // SINGLETON
-            if(_instance != null && _instance != this)
-                Destroy(this);
-            else
-                _instance = this;
-        }
 
         public void PiecePicked(SelectEnterEventArgs args)
         {
@@ -28,7 +16,7 @@ namespace VRTetris
 
             if(piece != null)
             {
-                piece.PieceGrabbed();
+                piece.Grab();
             }
         }
 
