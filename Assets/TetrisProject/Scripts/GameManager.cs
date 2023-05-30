@@ -13,21 +13,6 @@ namespace VRTetris
         private bool _isGameOver = false;
         public bool IsGameOver => _isGameOver;
 
-        private static GameManager _instance;
-        public static GameManager Instance => _instance;
-
-        protected override void Awake()
-        {
-            base.Awake();
-
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this);
-                return;
-            }
-            _instance = this;
-        }
-
         private void OnEnable()
         {
             ButtonEvents.OnPauseGameRequested += PauseGame;

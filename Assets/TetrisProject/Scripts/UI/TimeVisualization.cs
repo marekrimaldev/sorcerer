@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace VRTetris
 {
@@ -9,21 +10,38 @@ namespace VRTetris
         [SerializeField] private int _resolution;
         [SerializeField] private float _radius;
         [SerializeField] private LineRenderer _lr;
-        [SerializeField] private float _time = 3;
 
+        private Coroutine _timerCoroutine;
         private List<Vector3> _points = new List<Vector3>();
 
-        private void Awake()
+        public Action OnTimesUp;
+
+        public void StartTimer(float time)
         {
-            GenerateCircle();
-            AnimateCircle();
+            if(_timerCoroutine != null)
+            {
+                Debug.LogWarning("Timer has not been stopped");
+            }
+
+            _timerCoroutine = StartCoroutine(CircleAnimationCoroutine(time));
         }
 
-        private void GenerateCircle()
+        public void StopTimer()
         {
+            if (_timerCoroutine != null)
+            {
+                StopCoroutine(_timerCoroutine);
+                _timerCoroutine = null;
+            }
+        }
+
+        private void GenerateCircle(float tMax)
+        {
+            _points.Clear();
+
             float t = 0;
             float step = (2 * Mathf.PI) / _resolution;
-            for (int i = 0; i <= _resolution; i++)
+            while (t < tMax)
             {
                 float x = _radius * Mathf.Cos(t);
                 float z = _radius * Mathf.Sin(t);
@@ -38,32 +56,22 @@ namespace VRTetris
             _lr.SetPositions(_points.ToArray());
         }
 
-        private void AnimateCircle()
+        private IEnumerator CircleAnimationCoroutine(float time)
         {
-            StartCoroutine(CircleAnimationCoroutine());
-        }
+            float t0 = Time.time;
+            float elapsedTime = 0;
 
-        private IEnumerator CircleAnimationCoroutine()
-        {
-            yield return new WaitForSeconds(3);
-
-            Debug.Log(Time.time);
-
-            float wsTime = _time / _resolution;
-            WaitForSecondsRealtime ws = new WaitForSecondsRealtime(wsTime);
-            while (true)
+            while (elapsedTime <= time)
             {
-                if (_points.Count < 1)
-                    break;
+                elapsedTime = Time.time - t0;
+                float t = elapsedTime / time;
+                float tt = Mathf.Lerp(2*Mathf.PI, 0, t);
+                GenerateCircle(tt);
 
-                _points.RemoveAt(0);
-                _lr.positionCount = _points.Count;
-                _lr.SetPositions(_points.ToArray());
-
-                yield return ws;
+                yield return null;
             }
 
-            Debug.Log(Time.time);
+            OnTimesUp?.Invoke();
         }
     }
 }

@@ -8,22 +8,24 @@ namespace VRTetris
     public class PieceSpawn : MonoBehaviour
     {
         [SerializeField] private Transform _spawnPoint;
-
-        public bool IsFree => _spawnedPiece == null;
+        [SerializeField] private TimeVisualization _timer;
 
         private Piece _spawnedPiece;
-        private float _currPieceRemainingTime;
-        private Coroutine _remainingTimeCoroutine;
+        
+        public bool IsEmpty => _spawnedPiece == null;
 
-        public Action<PieceSpawn> OnSpawnLimitOver;
+        private void OnEnable()
+        {
+            // TODO
+            _timer.OnTimesUp += () => { Debug.Log("Time is up"); };
+        }
 
         public Piece SpawnPiece(Piece piecePrefab)
         {
             _spawnedPiece = InstantiateNextPiece(piecePrefab);
-            _spawnedPiece.OnPieceGrabbed += OnPieceGrabbed;
+            _spawnedPiece.OnPieceGrabbed += OnPieceGrabbedListener;
 
-            _currPieceRemainingTime = PieceSpawner.Instance.GrabLimit;
-            _remainingTimeCoroutine = StartCoroutine(AnimateRemainingTimeCoroutine());
+            _timer.StartTimer(PieceSpawner.Instance.GrabLimit);
 
             return _spawnedPiece;
         }
@@ -47,28 +49,12 @@ namespace VRTetris
             return piece;
         }
 
-        private void OnPieceGrabbed(Piece piece)
+        private void OnPieceGrabbedListener(Piece piece)
         {
-            piece.OnPieceGrabbed -= OnPieceGrabbed;
+            piece.OnPieceGrabbed -= OnPieceGrabbedListener;
 
-            StopCoroutine(_remainingTimeCoroutine);
+            _timer.StopTimer();
             _spawnedPiece = null;
-        }
-
-        /// <summary>
-        /// Put this into some separate class like TimeTracker or smthing
-        /// </summary>
-        /// <returns></returns>
-        private IEnumerator AnimateRemainingTimeCoroutine()
-        {
-            while (_currPieceRemainingTime > 0)
-            {
-                yield return null;
-
-                _currPieceRemainingTime -= Time.deltaTime;  
-            }
-
-            OnSpawnLimitOver?.Invoke(this); // Wire this to some penalty event
         }
     }
 }

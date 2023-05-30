@@ -13,8 +13,7 @@ namespace VRTetris
         private Matrix _matrix;
         private List<Piece> _activePieces = new List<Piece>();
 
-        public int ActivePieces => _activePieces.Count;
-
+        public static System.Action<int> OnChangeActivePieceCount;
         public static System.Action<Piece> OnPiecePlacement;
         public static System.Action OnGameOver;
 
@@ -28,14 +27,14 @@ namespace VRTetris
 
         private void OnEnable()
         {
-            PieceSpawner.OnNewPieceSpawned += OnNewPieceGenerated;
-            VRPlayer.OnPieceDropped += OnPieceDropped;
+            PieceSpawner.OnNewPieceSpawned += OnNewPieceGeneratedListener;
+            VRPlayer.OnPieceDropped += OnPieceDroppedListener;
         }
 
         private void OnDisable()
         {
-            PieceSpawner.OnNewPieceSpawned -= OnNewPieceGenerated;
-            VRPlayer.OnPieceDropped -= OnPieceDropped;
+            PieceSpawner.OnNewPieceSpawned -= OnNewPieceGeneratedListener;
+            VRPlayer.OnPieceDropped -= OnPieceDroppedListener;
         }
 
         private void Update()
@@ -47,7 +46,7 @@ namespace VRTetris
 
         #region PUBLIC INTERFACE
 
-        public void OnNewPieceGenerated(Piece piece)
+        public void OnNewPieceGeneratedListener(Piece piece)
         {
             piece.OnPieceGrabbed += OnPieceGrabbed;
         }
@@ -55,10 +54,12 @@ namespace VRTetris
         private void OnPieceGrabbed(Piece piece)
         {
             piece.OnPieceGrabbed -= OnPieceGrabbed;
+
             _activePieces.Add(piece);
+            OnChangeActivePieceCount?.Invoke(_activePieces.Count);
         }
 
-        public void OnPieceDropped(Piece piece)
+        public void OnPieceDroppedListener(Piece piece)
         {
             TryAddPiece(piece);
         }
@@ -129,6 +130,7 @@ namespace VRTetris
             _matrix.PlacePieceToMatrix(piece);
 
             OnPiecePlacement?.Invoke(piece);
+            OnChangeActivePieceCount?.Invoke(_activePieces.Count);
         }
 
         private void OnPieceCollision()

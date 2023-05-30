@@ -7,7 +7,7 @@ namespace VRTetris
 {
     public class PieceSpawner : MonoBehaviourSingleton<PieceSpawner>
     {
-        [SerializeField] private bool _waitUntilPlacement;
+        [SerializeField] private bool _waitUntilPlacement = false;
         [SerializeField] private float _secondsGrabLimit = 5f;
         [SerializeField] private float _secondsGrabLimitLevelSpeedUp = 0.1f;
         [SerializeField] private Piece[] _piecePrefabs;
@@ -19,6 +19,16 @@ namespace VRTetris
         public static readonly float PieceScale = 0.1f;
 
         public static Action<Piece> OnNewPieceSpawned;
+
+        private void OnEnable()
+        {
+            MatrixController.OnChangeActivePieceCount += OnChangeActivePieceCountListener;
+        }
+
+        private void OnDisable()
+        {
+            MatrixController.OnChangeActivePieceCount -= OnChangeActivePieceCountListener;
+        }
 
         private void Start()
         {
@@ -34,37 +44,25 @@ namespace VRTetris
                 StartSpawning();
             }
         }
-                
+
         public void StartSpawning()
         {
             // There is no coroutine lol. It spawn automaticaly when grabbed.
             SpawnNewPiece();
             SpawnNewPiece();    // We start with a piece on both spawns
-            SetSpawnInteractability(MatrixController.Instance.ActivePieces < 2);
+            SetSpawnInteractability(false);
         }
 
         public void StopSpawning()
         {
         }
 
-        private void SpawnNewPiece()
-        {
-            PieceSpawn spawn = GetFreeSpawn();
-            int idx = UnityEngine.Random.Range(0, _piecePrefabs.Length);
-            Piece piece = spawn.SpawnPiece(_piecePrefabs[idx]);
-
-            piece.OnPieceGrabbed += OnPieceGrabbed;
-            piece.OnPieceLocked += OnPieceLocked;
-
-            OnNewPieceSpawned?.Invoke(piece);
-        }
-
-        private PieceSpawn GetFreeSpawn()
+        private PieceSpawn GetEmptySpawn()
         {
             List<PieceSpawn> freeSpawns = new List<PieceSpawn>();
             for (int i = 0; i < _spawns.Length; i++)
             {
-                if (_spawns[i].IsFree)
+                if (_spawns[i].IsEmpty)
                     freeSpawns.Add(_spawns[i]);
             }
 
@@ -72,17 +70,40 @@ namespace VRTetris
             return freeSpawns[idx];
         }
 
-        private void OnPieceGrabbed(Piece piece)
+        private Piece GetRandomPiecePrefab()
         {
-            piece.OnPieceGrabbed -= OnPieceGrabbed;
-            SpawnNewPiece();
-            CallMethodWithDelay(() => SetSpawnInteractability(MatrixController.Instance.ActivePieces < 2), .1f);
+            int idx = UnityEngine.Random.Range(0, _piecePrefabs.Length);
+            return _piecePrefabs[idx];
         }
 
-        private void OnPieceLocked(Piece piece)
+        private void SpawnNewPiece()
         {
-            piece.OnPieceLocked -= OnPieceLocked;
-            CallMethodWithDelay(() => SetSpawnInteractability(true), .1f);
+            StartCoroutine(SpawnNewPieceCoroutine());
+        }
+
+        private IEnumerator SpawnNewPieceCoroutine()
+        {
+            // TODO: Here wait until the hand is not far enough to spawn the next piece
+            yield return null;
+
+            PieceSpawn spawn = GetEmptySpawn();
+            Piece piece = spawn.SpawnPiece(GetRandomPiecePrefab());
+
+            piece.OnPieceGrabbed += OnPieceGrabbedListener;
+
+            OnNewPieceSpawned?.Invoke(piece);
+        }
+
+
+        private void OnChangeActivePieceCountListener(int activePieces)
+        {
+            SetSpawnInteractability(activePieces < 2);
+        }
+
+        private void OnPieceGrabbedListener(Piece piece)
+        {
+            piece.OnPieceGrabbed -= OnPieceGrabbedListener;
+            SpawnNewPiece();
         }
 
         private void SetSpawnInteractability(bool val)
