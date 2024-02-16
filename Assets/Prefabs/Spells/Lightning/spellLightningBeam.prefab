@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5869055123726788565
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7048362094113264394, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _onHitEffects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7048362094113264394, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _onHitEffects.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: dd790c0a45cf7f243bc0aee4d330b7b4,
+        type: 2}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _keke
+      value: 
+      objectReference: {fileID: 3963558837649995505, guid: 94377b3bf1a12734eb5bdff0535cb8f4,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _beamPrefab
+      value: 
+      objectReference: {fileID: 8094216136065063932, guid: 2b54b31afad3a70449b2d690ea129243,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _laserPrefab
+      value: 
+      objectReference: {fileID: 8094216136065063935, guid: 2b54b31afad3a70449b2d690ea129243,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _beamEndEffectPrefab
+      value: 
+      objectReference: {fileID: 7734312023509973112, guid: 788f551aa02287541bef62db88e951e3,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _beamSourceEffectPrefab
+      value: 
+      objectReference: {fileID: 7734312023509973112, guid: 788f551aa02287541bef62db88e951e3,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _endVFXControllerPrefab
+      value: 
+      objectReference: {fileID: 7430199765686084307, guid: 788f551aa02287541bef62db88e951e3,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _beamVfxControllerPrefab
+      value: 
+      objectReference: {fileID: 1664876515410370757, guid: 2b54b31afad3a70449b2d690ea129243,
+        type: 3}
+    - target: {fileID: 371747985265948570, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: _sourceVFXControllerPrefab
+      value: 
+      objectReference: {fileID: 7430199765686084307, guid: 788f551aa02287541bef62db88e951e3,
+        type: 3}
+    - target: {fileID: 6377432987624425712, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_Name
+      value: spellDarkElectricBeam
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425712, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377432987624425714, guid: 2b34ad84512e2014682e6d194524fd58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b34ad84512e2014682e6d194524fd58, type: 3}

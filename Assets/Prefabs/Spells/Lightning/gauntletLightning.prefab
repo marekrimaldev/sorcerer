@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5610072107483916336
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 989535018130305296, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_Name
+      value: gauntletDarkElectric
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305298, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _aimIndicatorPrefab
+      value: 
+      objectReference: {fileID: 1366078975706382292, guid: 5c6e6f2642e372b42953bbeb6e6d9f2a,
+        type: 3}
+    - target: {fileID: 989535018130305298, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _stopCastSpellPrefab
+      value: 
+      objectReference: {fileID: 50675067273607299, guid: 0359fba3cd1089148aaa6bf9bd466018,
+        type: 3}
+    - target: {fileID: 989535018130305299, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _aimIndicatorPrefab
+      value: 
+      objectReference: {fileID: 1188750912198911967, guid: 5f6c06a6d1442d644921255ad20166b4,
+        type: 3}
+    - target: {fileID: 989535018130305299, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _startCastSpellPrefab
+      value: 
+      objectReference: {fileID: 4694333514707938548, guid: 52760cc2bb7f36a4d812881898dbbc42,
+        type: 3}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305300, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 989535018130305301, guid: 78cd59880902e494d985ce726999f405,
+        type: 3}
+      propertyPath: _shieldSpellCaster
+      value: 
+      objectReference: {fileID: 20593574840673036}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78cd59880902e494d985ce726999f405, type: 3}
+--- !u!1 &4639114437818620192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 989535018130305296, guid: 78cd59880902e494d985ce726999f405,
+    type: 3}
+  m_PrefabInstance: {fileID: 5610072107483916336}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &20593574840673036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639114437818620192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e563009f8a5474d9d1a789a5833d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Shield
+  _startCastSpellPrefab: {fileID: 4694333514707938548, guid: 52760cc2bb7f36a4d812881898dbbc42,
+    type: 3}
+  _stopCastSpellPrefab: {fileID: 0}
+  _aimIndicatorPrefab: {fileID: 1188750912198911967, guid: 5f6c06a6d1442d644921255ad20166b4,
+    type: 3}

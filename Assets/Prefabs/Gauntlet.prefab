@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &989535018130305296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 989535018130305300}
+  - component: {fileID: 989535018130305301}
+  - component: {fileID: 989535018130305298}
+  - component: {fileID: 989535018130305299}
+  m_Layer: 0
+  m_Name: Gauntlet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &989535018130305300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989535018130305296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989535018130305301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989535018130305296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de54c935193e0ab42a297ec2559c77de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _primarySpellCaster: {fileID: 989535018130305298}
+  _secondarySpellCaster: {fileID: 989535018130305299}
+--- !u!114 &989535018130305298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989535018130305296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e563009f8a5474d9d1a789a5833d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Projectile
+  _startCastSpellPrefab: {fileID: 8500027617851533545, guid: 2e925073b90b90d4585ae6684ebc22cf,
+    type: 3}
+  _stopCastSpellPrefab: {fileID: 50675067273607299, guid: 0359fba3cd1089148aaa6bf9bd466018,
+    type: 3}
+  _aimIndicatorPrefab: {fileID: 5741087123386383643, guid: 2bedc99e4f721a446a21aef416aca539,
+    type: 3}
+--- !u!114 &989535018130305299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989535018130305296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e563009f8a5474d9d1a789a5833d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Beam
+  _startCastSpellPrefab: {fileID: 6078632823006531663, guid: b160d01242364e14d8f4f58e58977f9d,
+    type: 3}
+  _stopCastSpellPrefab: {fileID: 0}
+  _aimIndicatorPrefab: {fileID: 6045153591867953974, guid: 4e2cfc8684400ee46ab949d5067c76c2,
+    type: 3}

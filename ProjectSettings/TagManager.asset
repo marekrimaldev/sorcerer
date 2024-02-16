@@ -15,19 +15,19 @@ TagManager:
   - 
   - 
   - 
+  - LeftHandPhysics
+  - RightHandPhysics
+  - Non Physics Hand
+  - 
+  - Teleport
   - 
   - 
+  - Player
   - 
+  - IgnoreSpell
+  - Spell
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
   - 
   - 
   - 
